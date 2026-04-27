@@ -1,0 +1,8 @@
+[
+  { "id": "years", "end": 15, "suffix": "+", "label": "Years Old", "icon": "heart" },
+  { "id": "members", "end": 180, "suffix": "+", "label": "IAS Members", "icon": "users" },
+  { "id": "awards", "end": 14, "suffix": "", "label": "Awards", "icon": "trophy" },
+  { "id": "meetings", "end": 100, "suffix": "+", "label": "Meetings", "icon": "video" },
+  { "id": "events", "end": 25, "suffix": "+", "label": "Events & Conferences", "icon": "calendar" },
+  { "id": "tam", "end": 11, "suffix": "", "label": "IAS TAM Participations", "icon": "list" }
+]

@@ -1,0 +1,254 @@
+.page {
+  background-color: #f8f9fa; /* gris clair */
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* Loader */
+.loaderOverlay {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loaderSpinnerImg {
+  width: 80px;
+  height: auto;
+  animation: spin 1.5s linear infinite;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Intro Block */
+.introBlock {
+  background: #ffffff;
+  padding: 60px 40px;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  margin-top: -60px;
+  position: relative;
+  z-index: 10;
+}
+.introBlock h2 {
+  color: #1a7a3c;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+.introBlock p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #444;
+  text-align: justify;
+}
+
+/* Edition Sections */
+.editionSection {
+  margin-bottom: 60px;
+}
+.editionHeaderWrapper {
+  background-color: #1a7a3c;
+  padding: 80px 0;
+  color: #fff;
+}
+.editionTitleWrapper {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+.editionTitle {
+  font-size: 2.8rem;
+  color: #fff;
+  font-weight: 800;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+}
+.editionTitle::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -20px;
+  width: 60px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  transform: rotate(-15deg);
+  z-index: -1;
+}
+
+.editionContainer {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+.rowReverse {
+  flex-direction: row-reverse;
+}
+.editionText {
+  flex: 1;
+}
+.editionText p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #fff;
+  text-align: justify;
+  margin-bottom: 30px;
+}
+.enterBtn {
+  display: inline-block;
+  background: #fff;
+  color: #1a7a3c;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.enterBtn:hover {
+  background: #e6e6e6;
+  transform: translateY(-2px);
+  color: #125c2c;
+}
+.editionThumbnail {
+  flex: 1;
+  text-align: center;
+}
+.editionThumbnail img {
+  max-width: 100%;
+  width: 400px;
+  height: auto;
+  border-radius: 12px;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.2), 0 0 30px rgba(46, 204, 113, 0.3);
+  object-fit: contain;
+}
+
+/* Swiper Gallery */
+.galleryTitle {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.gallerySwiper {
+  padding: 40px 0 60px 0 !important; /* Space for scaling and pagination */
+}
+
+.gallerySlide {
+  width: 320px; /* Base width */
+  aspect-ratio: 4/3;
+  transition: all 0.4s ease;
+  opacity: 0.5; /* Dim inactive slides */
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.gallerySlide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Active slide specific styling */
+.gallerySwiper :global(.swiper-slide-active) {
+  opacity: 1;
+  transform: scale(1.2);
+  border: 4px solid #1a7a3c;
+  border-radius: 8px;
+  padding: 3px;
+  background-color: #1a7a3c;
+  z-index: 10;
+}
+
+/* Fix inner image radius when padded */
+.gallerySwiper :global(.swiper-slide-active img) {
+  border-radius: 4px;
+}
+
+/* Pagination Dots */
+.gallerySwiper :global(.swiper-pagination-bullet) {
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  opacity: 1;
+  margin: 0 6px !important;
+}
+
+.gallerySwiper :global(.swiper-pagination-bullet-active) {
+  background: #1a7a3c;
+}
+
+/* Lightbox */
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lightboxClose {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.lightboxPrev, .lightboxNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+.lightboxPrev:hover, .lightboxNext:hover {
+  background: rgba(255,255,255,0.3);
+}
+.lightboxPrev { left: 30px; }
+.lightboxNext { right: 30px; }
+.lightboxImg {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .editionContainer { flex-direction: column !important; text-align: center; }
+  .titleUnderline { margin: 0 auto 20px auto; }
+  .editionText p { text-align: center; }
+  .introBlock { padding: 40px 20px; }
+  .gallerySlide { width: 280px; }
+}
+@media (max-width: 576px) {
+  .lightboxPrev, .lightboxNext { width: 40px; height: 40px; font-size: 1.2rem; }
+  .lightboxPrev { left: 10px; }
+  .lightboxNext { right: 10px; }
+  .gallerySlide { width: 240px; }
+  .gallerySwiper :global(.swiper-slide-active) { transform: scale(1.1); }
+}

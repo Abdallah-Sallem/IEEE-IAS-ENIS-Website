@@ -1,0 +1,80 @@
+/* =============================================
+   CSS CUSTOM PROPERTIES — Design Tokens
+   Extracted from: https://ias-enis.ieee.tn/assets/css/style.css
+   Primary:  #0c7444  (IEEE IAS ENIS official green)
+   Hover:    #1e9668  (lighter green — hover/light states)
+   Accent:   #1e9668  (light green — kept for CTAs, roles, badges)
+   ============================================= */
+:root {
+  /* ── Brand Colors ──────────────────────────── */
+  --color-primary:       #0c7444;          /* official IAS green */
+  --color-primary-light: #1e9668;          /* green hover / lighter */
+  --color-primary-dark:  #0c7444;          /* removed dark green as requested */
+  --color-accent:        #1e9668;          /* light green — CTAs, roles, badges */
+  --color-accent-dark:   #0c7444;          /* darker green — hover states */
+
+  /* ── Backgrounds ───────────────────────────── */
+  --color-bg:            #ffffff;          /* white page bg */
+  --color-bg-2:          #f4f9fc;          /* light alt bg */
+  --color-bg-card:       #ffffff;          /* white card surface */
+  --color-bg-card-hover: #f9f9f9;          /* card hover surface */
+
+  /* ── Text ──────────────────────────────────── */
+  --color-text:          #444444;          /* primary dark gray text */
+  --color-text-muted:    #777777;          /* muted text */
+
+  /* ── Borders ───────────────────────────────── */
+  --color-border:        #e0e0e0;          /* light gray border */
+  --color-border-accent: rgba(30, 150, 104, 0.3);    /* light green accent border */
+
+  /* ── Gradients ─────────────────────────────── */
+  --gradient-primary: #0c7444;
+  --gradient-accent:  #1e9668;
+  --gradient-hero:    linear-gradient(135deg, #ffffff 0%, #f4f9fc 100%);
+  --gradient-card:    #ffffff;
+  --gradient-text:    #0c7444;
+
+  /* ── Typography ────────────────────────────── */
+  --font-heading: 'Rajdhani', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  /* ── Spacing ───────────────────────────────── */
+  --spacing-xs:   0.25rem;
+  --spacing-sm:   0.5rem;
+  --spacing-md:   1rem;
+  --spacing-lg:   1.5rem;
+  --spacing-xl:   2rem;
+  --spacing-2xl:  3rem;
+  --spacing-3xl:  4rem;
+  --spacing-4xl:  6rem;
+
+  /* ── Border Radius ─────────────────────────── */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ───────────────────────────────── */
+  --shadow-sm:         0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md:         0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg:         0 8px 48px rgba(0, 0, 0, 0.6);
+  --shadow-glow:       0 0 24px rgba(12, 116, 68, 0.45);   /* green glow */
+  --shadow-glow-accent:0 0 24px rgba(30, 150, 104, 0.3);    /* light green glow */
+
+  /* ── Transitions ───────────────────────────── */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* ── Z-Index ───────────────────────────────── */
+  --z-base:    0;
+  --z-above:   10;
+  --z-nav:     100;
+  --z-modal:   200;
+  --z-overlay: 300;
+
+  /* ── Container ─────────────────────────────── */
+  --container-max:     1280px;
+  --container-padding: 1.5rem;
+}

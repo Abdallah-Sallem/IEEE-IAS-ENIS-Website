@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "name": "Mohamed Achraf Ben Saad",
+    "role": "Chairman",
+    "photo": "/src/assets/team/acharf.png",
+    "social": {
+      "facebook": "https://www.facebook.com/med.achraf.bensaad",
+      "instagram": "https://www.instagram.com/medachraf_bensaad/",
+      "linkedin": "https://www.linkedin.com/in/med-achraf-ben-saad-a4a5981a5/"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Mohamed Ketata",
+    "role": "Vice-Chairman",
+    "photo": "/src/assets/team/ketata.png",
+    "social": {
+      "facebook": "https://www.facebook.com/mohamed.ketata.14",
+      "instagram": "https://www.instagram.com/mohamed_ketata1/",
+      "linkedin": "https://www.linkedin.com/in/mohamed-ketata-831244395/"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Oussema Ben Elhadj",
+    "role": "Treasurer",
+    "photo": "/src/assets/team/oussema.png",
+    "social": {
+      "facebook": "https://www.facebook.com/oussema.benelhadj",
+      "instagram": "https://www.instagram.com/oussema.benelhadj/",
+      "linkedin": "https://www.linkedin.com/in/oussema-benelhadj/?locale=en"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Mariem Megdiche",
+    "role": "Secretary",
+    "photo": "/src/assets/team/mariem.png",
+    "social": {
+      "facebook": "https://www.facebook.com/maryouma.megdiche",
+      "instagram": "https://www.instagram.com/mariemmegdiche7/",
+      "linkedin": "https://www.linkedin.com/in/mariem-megdiche-a6591438a/"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Ahmed Makni",
+    "role": "Web Master",
+    "photo": "/src/assets/team/makni.png",
+    "social": {
+      "facebook": "https://www.facebook.com/ahmed.makni.334",
+      "instagram": "https://www.instagram.com/ahmad_maknii/",
+      "linkedin": "https://www.linkedin.com/in/makni-ahmed-76734431b/"
+    }
+  }
+]

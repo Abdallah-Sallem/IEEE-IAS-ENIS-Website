@@ -1,0 +1,55 @@
+.quoteSection {
+  background: linear-gradient(#0c744350, #1e96685d), url('/assets/img/quote-bg.jpg') top center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 100px 0;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional subtle glow overlay pattern */
+.quoteSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 50% 50%, rgba(12, 116, 68, 0.4) 0%, transparent 80%);
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.authorImage {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: var(--spacing-xl);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.quoteText {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  max-width: 900px;
+  margin: 0 auto var(--spacing-md);
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.authorName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}

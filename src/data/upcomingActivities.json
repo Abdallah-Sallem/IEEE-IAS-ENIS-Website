@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "Power Electronics Summit 2025",
+    "date": "2025-05-15",
+    "time": "09:00 AM",
+    "location": "ENIS, Sfax",
+    "category": "Conference",
+    "description": "An in-depth summit covering the latest advances in power electronics, motor drives, and energy conversion systems. Industry experts and academic researchers share cutting-edge research.",
+    "registrationLink": "#"
+  },
+  {
+    "id": 2,
+    "title": "Industrial Automation Workshop",
+    "date": "2025-06-02",
+    "time": "10:00 AM",
+    "location": "Online (Zoom)",
+    "category": "Workshop",
+    "description": "Hands-on workshop on PLC programming, SCADA systems, and industrial IoT integration. Participants will work through real-world automation scenarios.",
+    "registrationLink": "#"
+  },
+  {
+    "id": 3,
+    "title": "Factory Visit – STEG Sfax",
+    "date": "2025-06-20",
+    "time": "08:30 AM",
+    "location": "STEG Plant, Sfax",
+    "category": "Industrial Visit",
+    "description": "A guided tour of the STEG electrical power generation facility in Sfax. Members will observe energy production processes and meet industry professionals.",
+    "registrationLink": "#"
+  },
+  {
+    "id": 4,
+    "title": "IEEE Day Celebration & Career Fair",
+    "date": "2025-10-07",
+    "time": "02:00 PM",
+    "location": "ENIS Campus, Sfax",
+    "category": "Event",
+    "description": "Celebrate IEEE Day with networking sessions, a career fair featuring top engineering companies, and award ceremonies for outstanding student contributions.",
+    "registrationLink": "#"
+  },
+  {
+    "id": 5,
+    "title": "Renewable Energy Seminar",
+    "date": "2025-07-10",
+    "time": "11:00 AM",
+    "location": "Hybrid (ENIS + Online)",
+    "category": "Seminar",
+    "description": "A comprehensive seminar on solar, wind, and hydrogen energy systems, featuring presentations from leading researchers in the MENA region.",
+    "registrationLink": "#"
+  }
+]

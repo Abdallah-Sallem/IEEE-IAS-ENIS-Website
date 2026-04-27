@@ -1,0 +1,10 @@
+[
+  { "id": "home", "label": "Home", "path": "/" },
+  { "id": "about", "label": "About Us", "path": "/about" },
+  { "id": "activities", "label": "Activities", "path": "/activities" },
+  { "id": "media", "label": "Media", "path": "/media" },
+  { "id": "enif", "label": "ENIF", "path": "/enif" },
+  { "id": "upcoming", "label": "Upcoming Activities", "path": "/upcoming" },
+  { "id": "achievements", "label": "Achievements", "path": "/achievements" },
+  { "id": "contact", "label": "Contact", "path": "/contact" }
+]

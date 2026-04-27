@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "year": "2025",
+    "title": "Third prize for student work in the IEEE Smart Village (ISV) student project competition",
+    "description": "Ahmed Jallouli",
+    "icon": "trophy"
+  },
+  {
+    "id": 2,
+    "year": "2024",
+    "title": "IEEE IAS CMD Outstanding Member Award",
+    "description": "Amir Abid ",
+    "icon": "trophy"
+  },
+  {
+    "id": 3,
+    "year": "2024",
+    "title": "IEEE IAS CMD Chapter Best Website Award",
+    "icon": "trophy"
+  },
+  {
+    "id": 4,
+    "year": "2024",
+    "title": "IEEE IAS CMD Humanitarian Award contest",
+    "icon": "trophy"
+  },
+  {
+    "id": 5,
+    "year": "2024",
+    "title": "1st Place in the Non-Technical Challenge at IEEE IAS Tunisia Annual Meeting",
+    "icon": "trophy"
+  },
+  {
+    "id": 6,
+    "year": "2024",
+    "title": "Best IAS Tunisia Student Branch Chapter",
+    "icon": "trophy"
+  }
+]
