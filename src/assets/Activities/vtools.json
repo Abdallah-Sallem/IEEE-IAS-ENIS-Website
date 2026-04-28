@@ -4,97 +4,141 @@
       "name": "Kubernetes Fundamentals",
       "vtools_link": "https://events.vtools.ieee.org/m/420549",
       "category": "DevOps",
-      "photos": ["devops1.jpg", "devops2.jpg", "devops3.jpg"]
+      "photos": [
+        "devops1.jpg",
+        "devops2.jpg",
+        "devops3.jpg"
+      ]
     },
     {
       "name": "Docker Fundamentals",
       "vtools_link": "https://events.vtools.ieee.org/m/420547",
       "category": "DevOps",
-      "photos": ["devops1.jpg", "devops2.jpg"]
+      "photos": [
+        "devops1.jpg",
+        "devops2.jpg"
+      ]
     },
     {
       "name": "Introduction to DevOps",
       "vtools_link": "https://events.vtools.ieee.org/m/418854",
       "category": "DevOps",
-      "photos": ["devops1.jpg", "devops2.jpg", "devops3.jpg"]
+      "photos": [
+        "devops1.jpg",
+        "devops2.jpg",
+        "devops3.jpg"
+      ]
     },
     {
       "name": "3D Modeling - 1st Session",
       "vtools_link": "https://events.vtools.ieee.org/m/414177",
       "category": "Design & Modeling",
-      "photos": ["1.png", "post.jpg"]
+      "photos": [
+        "1.png",
+        "post.jpg"
+      ]
     },
     {
       "name": "3D Modeling - 2nd Session",
       "vtools_link": "https://events.vtools.ieee.org/m/414185",
       "category": "Design & Modeling",
-      "photos": ["3.jpg", "post4.jpg"]
+      "photos": [
+        "3.jpg",
+        "post4.jpg"
+      ]
     },
     {
       "name": "Graphic Design",
       "vtools_link": "https://events.vtools.ieee.org/m/413212",
       "category": "Design & Modeling",
-      "photos": ["4.jpg", "post5.jpg"]
+      "photos": [
+        "4.jpg",
+        "post5.jpg"
+      ]
     },
     {
       "name": "Blockchain - Mr Tarek",
       "vtools_link": "https://events.vtools.ieee.org/m/356381",
       "category": "Blockchain",
-      "photos": ["5.jpg", "post webinar.jpg"]
+      "photos": [
+        "5.jpg",
+        "post webinar.jpg"
+      ]
     },
     {
       "name": "ENIF 3.0",
       "vtools_link": "https://events.vtools.ieee.org/m/325175",
       "category": "ENIF",
-      "photos": ["enif 3.0.png"]
+      "photos": [
+        "enif 3.0.png"
+      ]
     },
     {
       "name": "ENIF 4.0",
       "vtools_link": "https://events.vtools.ieee.org/m/377196",
       "category": "ENIF",
-      "photos": ["enif_4.0.png"]
+      "photos": [
+        "enif_4.0.png"
+      ]
     },
     {
       "name": "ENIF 4.0 Workshop - Intro to AI",
       "vtools_link": "http://events.vtools.ieee.org/m/386524",
       "category": "ENIF",
-      "photos": ["6.png", "post.jpg"]
+      "photos": [
+        "6.png",
+        "post.jpg"
+      ]
     },
     {
       "name": "ENIF 4.0 Workshop - The Impact of Pollution",
       "vtools_link": "https://events.vtools.ieee.org/m/386490",
       "category": "ENIF",
-      "photos": ["8.jpg"]
+      "photos": [
+        "8.jpg"
+      ]
     },
     {
       "name": "ENIF 4.0 Workshop - IoT Product Development",
       "vtools_link": "https://events.vtools.ieee.org/m/385621",
       "category": "ENIF",
-      "photos": ["post4.jpg"]
+      "photos": [
+        "post4.jpg"
+      ]
     },
     {
       "name": "ENIF 5.0",
       "vtools_link": "https://events.vtools.ieee.org/m/449923",
       "category": "ENIF",
-      "photos": ["enif_5.0.png"]
+      "photos": [
+        "enif_5.0.png"
+      ]
     },
     {
       "name": "IASTAM 3.0",
       "vtools_link": "https://events.vtools.ieee.org/m/364580",
       "category": "Annual Meetings",
-      "photos": ["iastam.jpg", "iastam4.jpg", "iasam_logo_2023.jpg"]
+      "photos": [
+        "iastam.jpg",
+        "iastam4.jpg",
+        "iasam_logo_2023.jpg"
+      ]
     },
     {
       "name": "IAS Annual Meeting 3.0",
       "vtools_link": "https://events.vtools.ieee.org/m/408041",
       "category": "Annual Meetings",
-      "photos": ["iasam_logo_2023.jpg"]
+      "photos": [
+        "iasam_logo_2023.jpg"
+      ]
     },
     {
       "name": "IAS Annual Meeting",
       "vtools_link": "https://events.vtools.ieee.org/m/446082",
       "category": "Annual Meetings",
-      "photos": ["iasam_logo_2023.jpg"]
+      "photos": [
+        "iasam_logo_2023.jpg"
+      ]
     }
   ],
   "non_technical_activities": [
@@ -163,20 +207,5 @@
       "photo": []
     }
   ],
-  "special_events": [
-
-  ]
+  "special_events": []
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
