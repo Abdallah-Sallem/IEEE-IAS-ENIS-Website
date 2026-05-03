@@ -1,25 +1,13 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FaFacebookF, FaInstagram, FaLinkedinIn,
   FaChevronRight, FaArrowUp
 } from 'react-icons/fa';
 import navLinks from '../../data/navLinks.json';
+import NewsletterForm from '../NewsletterForm/NewsletterForm';
 import styles from './Footer.module.css';
 
 export default function Footer() {
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setEmail('');
-      setTimeout(() => setSubscribed(false), 4000);
-    }
-  };
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -73,25 +61,7 @@ export default function Footer() {
             <p className={styles.newsletterDesc}>
               Subscribe to our Newsletter and get the latest updates on our training sessions and conferences!
             </p>
-            <form className={styles.newsletterForm} onSubmit={handleSubscribe} noValidate>
-              <div className={styles.inputGroup}>
-                <label htmlFor="footer-newsletter-email" className="sr-only">Email address</label>
-                <input
-                  id="footer-newsletter-email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  aria-required="true"
-                />
-                <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
-              </div>
-              {subscribed && (
-                <p className={styles.subscribeMsg} role="status">
-                  ✓ You're subscribed! Thank you.
-                </p>
-              )}
-            </form>
+            <NewsletterForm />
           </div>
         </div>
       </div>

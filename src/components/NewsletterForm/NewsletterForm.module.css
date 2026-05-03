@@ -1,0 +1,14 @@
+.wrapper { width: 100%; }
+.form { width: 100%; }
+.inputGroup { display: flex; gap: 0; }
+.inputGroup input { flex: 1; padding: 0.65rem 1rem; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); border-right: none; border-radius: 6px 0 0 6px; color: #fff; font-size: 0.9rem; outline: none; transition: border-color 0.2s; }
+.inputGroup input:focus { border-color: rgba(255, 255, 255, 0.4); }
+.inputGroup input::placeholder { color: rgba(255, 255, 255, 0.5); }
+.inputGroup input:disabled { opacity: 0.6; }
+.inputGroup button { padding: 0.65rem 1.2rem; background: var(--color-accent, #1e9668); color: #fff; font-weight: 600; font-size: 0.85rem; border: none; border-radius: 0 6px 6px 0; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+.inputGroup button:hover:not(:disabled) { background: #25b87d; }
+.inputGroup button:disabled { opacity: 0.7; cursor: not-allowed; }
+.successMsg { color: #81c784; font-size: 0.9rem; font-weight: 500; }
+.duplicateMsg { color: #ffb74d; font-size: 0.9rem; font-weight: 500; }
+.errorMsg { color: #ef5350; font-size: 0.82rem; margin-top: 0.4rem; }
+.privacy { font-size: 0.72rem; color: rgba(255, 255, 255, 0.4); margin-top: 0.6rem; line-height: 1.4; }

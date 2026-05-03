@@ -20,7 +20,8 @@ function ScrollToTop() {
 const Home               = lazy(() => import('./pages/Home'));
 const About              = lazy(() => import('./pages/About'));
 const Activities         = lazy(() => import('./pages/Activities'));
-const Media              = lazy(() => import('./pages/Media'));
+const Media              = lazy(() => import('./pages/Media/Media'));
+const IASAM             = lazy(() => import('./pages/IASAM/IASAM'));
 const ENIF               = lazy(() => import('./pages/ENIF'));
 const UpcomingActivities = lazy(() => import('./pages/UpcomingActivities'));
 const Achievements       = lazy(() => import('./pages/Achievements'));
@@ -106,6 +107,14 @@ export default function App() {
             element={
               <Suspense fallback={<PageLoader />}>
                 <Media />
+              </Suspense>
+            }
+          />
+          <Route
+            path="iasam"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <IASAM />
               </Suspense>
             }
           />

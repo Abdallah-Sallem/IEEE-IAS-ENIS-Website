@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Industry 1.0",
+    "subtitle": "The Age of Mechanization",
+    "description": "The first industrial revolution began in the late 18th century with the introduction of water and steam-powered mechanical manufacturing facilities. It fundamentally transformed how goods were produced, shifting from manual labor to machine-based manufacturing.",
+    "videoUrl": "",
+    "thumbnail": "",
+    "status": "coming-soon"
+  },
+  {
+    "id": 2,
+    "title": "Industry 2.0",
+    "subtitle": "The Age of Electrification",
+    "description": "The second industrial revolution started in the early 20th century with the advent of electrical energy and assembly lines. Mass production became possible, leading to unprecedented growth in manufacturing efficiency and output.",
+    "videoUrl": "",
+    "thumbnail": "",
+    "status": "coming-soon"
+  },
+  {
+    "id": 3,
+    "title": "Industry 3.0",
+    "subtitle": "The Digital Revolution",
+    "description": "The third industrial revolution emerged in the 1970s with the rise of electronics, IT systems, and automation. Programmable logic controllers and computers began to automate production processes, enabling greater precision and flexibility.",
+    "videoUrl": "",
+    "thumbnail": "",
+    "status": "coming-soon"
+  },
+  {
+    "id": 4,
+    "title": "Industry 4.0",
+    "subtitle": "The Smart Factory Era",
+    "description": "The fourth industrial revolution is characterized by cyber-physical systems, the Internet of Things (IoT), cloud computing, and artificial intelligence. Smart factories leverage real-time data and interconnected machines to create autonomous, efficient, and adaptive production systems.",
+    "videoUrl": "",
+    "thumbnail": "",
+    "status": "coming-soon"
+  }
+]

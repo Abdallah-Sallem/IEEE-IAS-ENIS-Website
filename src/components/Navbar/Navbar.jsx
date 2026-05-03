@@ -18,7 +18,7 @@ export default function Navbar() {
 
   // Close mobile menu on route change
   useEffect(() => {
-    setMenuOpen(false);
+    setMenuOpen(false); // eslint-disable-line react-hooks/set-state-in-effect -- syncing with router
   }, [pathname]);
 
   // Prevent body scroll when menu is open
