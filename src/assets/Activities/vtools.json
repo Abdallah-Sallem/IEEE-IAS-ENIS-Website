@@ -4,97 +4,121 @@
       "name": "Kubernetes Fundamentals",
       "vtools_link": "https://events.vtools.ieee.org/m/420549",
       "category": "DevOps",
-      "photos": ["devops1.jpg", "devops2.jpg", "devops3.jpg"]
+      "photos": [
+        "devops3.jpg"
+      ]
     },
     {
       "name": "Docker Fundamentals",
       "vtools_link": "https://events.vtools.ieee.org/m/420547",
       "category": "DevOps",
-      "photos": ["devops1.jpg", "devops2.jpg"]
+      "photos": [
+        "devops2.jpg"
+      ]
     },
     {
       "name": "Introduction to DevOps",
       "vtools_link": "https://events.vtools.ieee.org/m/418854",
       "category": "DevOps",
-      "photos": ["devops1.jpg", "devops2.jpg", "devops3.jpg"]
+      "photos": [
+        "devops1.jpg"
+      ]
     },
     {
       "name": "3D Modeling - 1st Session",
       "vtools_link": "https://events.vtools.ieee.org/m/414177",
       "category": "Design & Modeling",
-      "photos": ["1.png", "post.jpg"]
+      "photos": [
+        "post1.jpg"
+      ]
     },
     {
       "name": "3D Modeling - 2nd Session",
       "vtools_link": "https://events.vtools.ieee.org/m/414185",
       "category": "Design & Modeling",
-      "photos": ["3.jpg", "post4.jpg"]
+      "photos": [
+        "post2.jpg"
+      ]
     },
     {
       "name": "Graphic Design",
       "vtools_link": "https://events.vtools.ieee.org/m/413212",
-      "category": "Design & Modeling",
-      "photos": ["4.jpg", "post5.jpg"]
+      "category": "Graphic Design",
+      "photos": [
+        "post5.jpg"
+      ]
     },
     {
-      "name": "Blockchain - Mr Tarek",
+      "name": "Blockchain-1st session ",
       "vtools_link": "https://events.vtools.ieee.org/m/356381",
       "category": "Blockchain",
-      "photos": ["5.jpg", "post webinar.jpg"]
+      "photos": [
+        "4.jpg"
+      ]
     },
     {
-      "name": "ENIF 3.0",
-      "vtools_link": "https://events.vtools.ieee.org/m/325175",
-      "category": "ENIF",
-      "photos": ["enif 3.0.png"]
-    },
-    {
-      "name": "ENIF 4.0",
-      "vtools_link": "https://events.vtools.ieee.org/m/377196",
-      "category": "ENIF",
-      "photos": ["enif_4.0.png"]
+      "name": "Blockchain-2nd session ",
+      "vtools_link": "https://events.vtools.ieee.org/m/356386",
+      "category": "Blockchain",
+      "photos": [
+        "3.jpg"
+      ]
     },
     {
       "name": "ENIF 4.0 Workshop - Intro to AI",
       "vtools_link": "http://events.vtools.ieee.org/m/386524",
       "category": "ENIF",
-      "photos": ["6.png", "post.jpg"]
+      "photos": [
+        "Mariem.jpg"
+      ]
+    },
+    {
+      "name": "video editing ",
+      "vtools_link": "https://events.vtools.ieee.org/m/356390",
+      "category": "video editing ",
+      "photos": [
+        "5.jpg"
+      ]
     },
     {
       "name": "ENIF 4.0 Workshop - The Impact of Pollution",
       "vtools_link": "https://events.vtools.ieee.org/m/386490",
       "category": "ENIF",
-      "photos": ["8.jpg"]
+      "photos": [
+        "mohamed.jpg"
+      ]
     },
     {
       "name": "ENIF 4.0 Workshop - IoT Product Development",
       "vtools_link": "https://events.vtools.ieee.org/m/385621",
       "category": "ENIF",
-      "photos": ["post4.jpg"]
+      "photos": [
+        "hela.jpg"
+      ]
     },
     {
-      "name": "ENIF 5.0",
-      "vtools_link": "https://events.vtools.ieee.org/m/449923",
-      "category": "ENIF",
-      "photos": ["enif_5.0.png"]
+      "name": "ERP training session",
+      "vtools_link": "https://events.vtools.ieee.org/m/310553",
+      "category": "ERP  ",
+      "photos": [
+        "1.png"
+      ]
     },
     {
-      "name": "IASTAM 3.0",
-      "vtools_link": "https://events.vtools.ieee.org/m/364580",
-      "category": "Annual Meetings",
-      "photos": ["iastam.jpg", "iastam4.jpg", "iasam_logo_2023.jpg"]
+      "name": "Web Development -1st Session",
+      "vtools_link": "https://events.vtools.ieee.org/m/473857",
+      "category": "web development ",
+      "photos": [
+        "oussema slimani.jpg"
+      ]
     },
     {
-      "name": "IAS Annual Meeting 3.0",
-      "vtools_link": "https://events.vtools.ieee.org/m/408041",
-      "category": "Annual Meetings",
-      "photos": ["iasam_logo_2023.jpg"]
-    },
-    {
-      "name": "IAS Annual Meeting",
-      "vtools_link": "https://events.vtools.ieee.org/m/446082",
-      "category": "Annual Meetings",
-      "photos": ["iasam_logo_2023.jpg"]
+      "name": "Web Development -2nd Session",
+      "vtools_link": "https://events.vtools.ieee.org/m/473865",
+      "category": "web development ",
+      "photos": [
+        "iheb charfeddine.jpg"
+      ]
     }
   ],
   "non_technical_activities": [
@@ -102,31 +126,52 @@
       "name": "Personal Branding",
       "vtools_link": "https://events.vtools.ieee.org/m/418838",
       "category": "Professional Development",
-      "photos": []
+      "photo": "post.jpg"
     },
     {
       "name": "Boost Your Career in LinkedIn",
       "vtools_link": "https://events.vtools.ieee.org/m/416723",
       "category": "Professional Development",
-      "photos": []
+      "photo": "post4.jpg"
+    },
+    {
+      "name": "ENIF 3.0",
+      "vtools_link": "https://events.vtools.ieee.org/m/325175",
+      "category": "ENIF",
+      "photo": "enif 3.0.png"
+    },
+    {
+      "name": "ENIF 4.0",
+      "vtools_link": "https://events.vtools.ieee.org/m/377196",
+      "category": "ENIF",
+      "photo": "enif_4.0.png"
+    },
+    {
+      "name": "ENIF 5.0",
+      "vtools_link": "https://events.vtools.ieee.org/m/449923",
+      "category": "ENIF",
+      "photo": "enif_5.0.png"
     },
     {
       "name": "Power Africa Conference",
       "vtools_link": "https://events.vtools.ieee.org/m/438914",
+      "category": "Power Africa Conference",
       "photo": "logo PAC.png"
+    },
+    {
+      "name": "IASTAM 3.0",
+      "vtools_link": "https://events.vtools.ieee.org/m/364580",
+      "category": "IASTAM",
+      "photo": "iastam.jpg"
+    },
+    {
+      "name": "IAS annuel meeting",
+      "vtools_link": "https://events.vtools.ieee.org/m/438914",
+      "category": "IAS annuel meeting ",
+      "photo": "iasam_logo_2023.jpg"
     }
   ],
   "speakers_and_participants": [
-    {
-      "name": "Iheb Charfeddine",
-      "vtools_link": "https://events.vtools.ieee.org/m/473865",
-      "photo": "iheb charfeddine.jpg"
-    },
-    {
-      "name": "Oussema Slimani",
-      "vtools_link": "https://events.vtools.ieee.org/m/473857",
-      "photo": "oussema slimani.jpg"
-    },
     {
       "name": "Assil Bouaziz",
       "vtools_link": "https://events.vtools.ieee.org/m/449225",
@@ -143,14 +188,14 @@
       "photo": "imen masmoudi.png"
     },
     {
-      "name": "Mahdi Mesfer",
-      "vtools_link": "https://events.vtools.ieee.org/m/356390",
-      "photo": []
+      "name": "Hela Aidi",
+      "vtools_link": "https://events.vtools.ieee.org/m/377196",
+      "photo": "hela.jpg"
     },
     {
-      "name": "Workshop - Mme Lahami",
-      "vtools_link": "https://events.vtools.ieee.org/m/356386",
-      "photo": []
+      "name": "Taha Mtira ",
+      "vtools_link": "https://events.vtools.ieee.org/m/377196",
+      "photo": "taha.jpg"
     },
     {
       "name": "Eya Trabelsi",
@@ -163,20 +208,5 @@
       "photo": []
     }
   ],
-  "special_events": [
-
-  ]
+  "special_events": []
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
