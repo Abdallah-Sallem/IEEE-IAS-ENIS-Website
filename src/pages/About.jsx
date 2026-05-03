@@ -81,7 +81,15 @@ export default function About() {
                 our members to evolve and improve. Join our family and make a change!
               </p>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '12px',
+              flex: 1,// ✅ centre ce bloc par rapport au texte gauche
+              marginTop: '50px',
+            }}>
               <img
                 src="https://ias-enis.ieee.tn/assets/img/iaslogo.png"
                 alt="IEEE ENIS IAS Chapter Logo"
