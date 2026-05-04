@@ -91,7 +91,6 @@ const ENIF_EDITIONS = [
     title: 'ENIF 6.0',
     description: "For this edition, with the theme 'Advanced Technologies for a Sustainable Future,' ENIF 5.0 will highlight the integration of Industry 5.0 principles into innovative solutions for a more sustainable future. The event will emphasize the collaboration between humans and advanced technologies to enhance sustainability across various fields. A hackathon will be organized, featuring a theme proposed by our industrial partners, directly linked to the overall topic.",
     thumbnail: '/src/assets/Thumbnail/logo enif final-01.png',
-    link: 'https://ias-enis.ieee.tn/enif/',
     gallery: [
       '/src/assets/enif6/1.png',
       '/src/assets/enif6/2.JPG',
@@ -258,6 +257,16 @@ export default function ENIF() {
               them the opportunity to experience a journey in the world of industry through
               workshops, conferences and competitions.
             </p>
+            <div style={{ marginTop: '30px' }}>
+              <a 
+                href="https://ias-enis.ieee.tn/enif/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={styles.btnVisit}
+              >
+                Visit ENIF Website
+              </a>
+            </div>
           </div>
         </div>
       </section>

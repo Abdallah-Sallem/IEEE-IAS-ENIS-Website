@@ -46,6 +46,27 @@
   text-align: justify;
 }
 
+.btnVisit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1a7a3c;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(26, 122, 60, 0.3);
+}
+
+.btnVisit:hover {
+  background: #145e2d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 122, 60, 0.4);
+}
+
 /* Edition Sections */
 .editionSection {
   margin-bottom: 60px;

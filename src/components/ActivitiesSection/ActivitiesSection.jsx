@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaBus, FaUsers, FaChalkboardTeacher, FaArrowRight } from 'react-icons/fa';
+import { FaBus, FaUsers, FaChalkboardTeacher } from 'react-icons/fa';
 import { useInView } from '../../hooks/useInView';
 import styles from './ActivitiesSection.module.css';
 

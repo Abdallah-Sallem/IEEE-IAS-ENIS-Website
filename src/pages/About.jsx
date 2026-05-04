@@ -119,7 +119,7 @@ export default function About() {
         <div className="container">
           <div className={styles.quoteContent}>
             <img
-              src="src/assets/quotes/1.png"
+              src="/src/assets/quotes/1.png"
               alt="Alexander De Croo"
 
               className={styles.quotePhoto}

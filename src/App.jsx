@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState, useEffect } from 'react';
+import { lazy, Suspense, useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Layout from './components/Layout/Layout';
@@ -20,9 +20,13 @@ function ScrollToTop() {
 function PageTransitionLoader() {
   const { pathname } = useLocation();
   const [loading, setLoading] = useState(false);
+  const prevPathname = useRef(pathname);
 
   useEffect(() => {
-    setLoading(true);
+    if (prevPathname.current !== pathname) {
+      prevPathname.current = pathname;
+      setLoading(true);
+    }
     const timer = setTimeout(() => setLoading(false), 800);
     return () => clearTimeout(timer);
   }, [pathname]);
