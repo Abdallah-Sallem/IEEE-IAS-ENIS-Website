@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import Hero from '../components/Hero/Hero';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useInView } from '../hooks/useInView';
@@ -193,12 +194,15 @@ function EditionSection({ edition, index }) {
         </div>
         <div style={{ width: '100%', overflow: 'hidden' }}>
           <Swiper
-            modules={[Pagination, Autoplay]}
+            modules={[Pagination, Autoplay, Navigation]}
             spaceBetween={20}
             slidesPerView="auto"
             centeredSlides={true}
             pagination={{ clickable: true }}
+            navigation={true}
             loop={true}
+            loopAdditionalSlides={3}
+            watchSlidesProgress={true}
             autoplay={{ delay: 3500, disableOnInteraction: false }}
             className={styles.gallerySwiper}
           >

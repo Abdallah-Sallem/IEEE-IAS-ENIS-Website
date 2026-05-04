@@ -469,7 +469,7 @@ export default function Activities() {
           SPEAKERS & PARTICIPANTS — Separate Section
           ═══════════════════════════════════════════════ */}
       {speakersAndParticipants.length > 0 && (
-        <section className={styles.section} id="speakers" aria-label="Speakers and Participants">
+        <section className={styles.section} id="speakers" aria-label="Speakers">
           <div className="container">
             <div style={{ textAlign: 'center', marginBottom: '40px' }}>
               <h2 style={{
@@ -479,7 +479,7 @@ export default function Activities() {
                 letterSpacing: '2px',
                 marginBottom: '10px'
               }}>
-                Speakers & Participants
+                Speakers
               </h2>
               <div style={{
                 width: '50px',

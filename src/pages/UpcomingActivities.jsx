@@ -9,10 +9,9 @@ import styles from './UpcomingActivities.module.css';
 const events = [
   {
     id: 1,
-    title: "ENIF 6.0",
+    title: "ENIF 7.0",
     subtitle: "ENIS Industrial Forum.",
-    date: "November 29th, 2025",
-    location: "ENIS",
+    location: "National Engineering School of Sfax",
     overview: "The ENIS Industrial Forum, now soaring into its sixth awe-inspiring edition. ENIF isn't just an event, it's a dynamic hub where ideas take flight, innovation knows no limits, and creativity reshapes industries. Get ready for a groundbreaking revelation that promises to revolutionize technology and inspire progress. Stay tuned because ENIF 6.0 is about to ignite your passion for innovation like never before.",
     agenda: "Coming soon",
     description: "ENIF is an event organized by the IEEE Industrial Applications Society (IAS) ENIS Student Branch Chapter. It focuses on the advancement of theory in electronic and electrical...",
@@ -21,9 +20,8 @@ const events = [
   {
     id: 2,
     title: "Industrial Visit",
-    subtitle: "Industrial Visit to Technopole El Ghazala.",
-    date: "May 21st, 2025",
-    location: "Technopole El Ghazala - Ariana",
+    subtitle: "Discovering Industry Beyond the Classroom",
+    location: "comming soon",
     overview: "Join us for an exclusive industrial visit to Tech Innovations Inc, a leading player in the realm of technology and innovation. This visit offers a unique opportunity for students and professionals alike to gain insights into the latest advancements in IT, witness cutting-edge technologies in action, and engage with industry experts.",
     agenda: "Coming soon!\nDon't miss this incredible opportunity to immerse yourself in the dynamic world of IT and gain firsthand experience from industry leaders at Tech Innovations Inc. Reserve your spot today!",
     description: "Join us for an exciting Industrial Visit organized by the IEEE ENIS IAS student chapter! This visit will provide a firsthand look at the inner workings of a leading industry player...",
@@ -31,51 +29,59 @@ const events = [
   },
   {
     id: 3,
-    title: "IEEE IAS ENIS SBC Industrial day",
-    subtitle: "Discovering the Icons of the World of Industry",
-    date: "April 19th, 2025",
+    title: "The Cardboard Twin",
+    subtitle: "Exploring Industry Through a cardboard twin",
     location: "Coming soon",
-    overview: "Join us for an electrifying day of discovery and engagement at the IEEE Industrial Day event, where we'll uncover the \"icons\" of the industry world. This event is designed to captivate IEEE members, enticing them to join the IEEE Industry Applications Society (IAS) chapter, and to explore the dynamic landscape of industrial innovation.",
+    overview: "The cardboard twin is a simplified physical replica of an industrial environment, created to help first-year students clearly visualize how industry works and how different components and systems interact in real-life settings, along with a demonstration of our TSYP smart badge prototype to showcase its practical applications within the model.",
     agenda: "Coming soon!",
     description: "Dive into the world of smart systems at ENIS SB IEEE IAS Day! This student-led event, organized by the IEEE Industrial Applications Society (IAS) ENIS Student Branch Chapter...",
-    image: "https://ias-enis.ieee.tn/assets/img/UpcommingEvents/iaslogobg.jpg",
+    image: '/src/assets/IAS presentation .png',
   },
 ];
 
 const workshops = [
   {
     id: 4,
-    title: "ReactJS bootcamp",
-    subtitle: "Collaboration with IEEE CS ENIS SBC",
-    date: "April 30th, 2025",
+    title: "Digital Twin",
+    subtitle: "Introduction to Digital Twin Technology",
     location: "National Engineering School of Sfax",
     overview: "The bootcamp will focus on the ReactJS framework, covering everything from fundamental concepts to advanced development techniques. Participants will learn about key React features, such as components, state management, and the virtual DOM. Hands-on exercises and projects will allow attendees to gain practical experience building dynamic and responsive web applications using modern tools like React Router, Redux, and Next.js. Experts in the field will guide participants through best practices, performance optimization, and deployment strategies to help them become proficient in ReactJS development.",
     agenda: "Coming soon",
-    description: "Collaboration with IEEE CS ENIS SBC A ReactJS bootcamp at the National Engineering School of Sfax, covering core concepts, hands-on projects, and expert-led best practices for modern web development...",
-    image: "https://ias-enis.ieee.tn/assets/img/upcomingWorkshops/workshop2.jpg",
+    description: "An introductory session that explains the concept of creating a virtual model of a physical system. Participants learn how real-world objects or processes can be replicated digitally to simulate, analyze, and improve performance. The workshop focuses on basic principles and real-life applications of digital twin technology in industry.",
+    image: "/src/assets/UpcommingEvents/iaslogobg.jpg",
   },
   {
     id: 5,
-    title: "Exploring the IAS Chapter",
-    subtitle: "Discovering the Icons of the World of Industry application society",
-    date: "May, 2025",
-    location: "Online",
-    overview: "Collaboration with the Tunisia section, this session will delve into the history and significance of the IAS Chapter, highlighting the diverse opportunities it offers to members. We aim to provide a comprehensive overview that will inspire participation and involvement.",
+    title: "Cybersecurity for Industries",
+    subtitle: "Protecting Industrial Systems in the Digital Age",
+    location: "National Engineering School of Sfax",
+    overview: "This workshop introduces the fundamentals of cybersecurity in industrial environments. It explores common threats facing modern industries and explains how critical systems, data, and infrastructure can be protected from cyberattacks. Participants will gain a basic understanding of security practices and the importance of safeguarding industrial operations in an increasingly connected world.",
     agenda: "Coming soon",
-    description: "Collaboration with the Tunisia section, This session dives into the IAS Chapter's history and its importance for members. We'll explore the diverse opportunities it offers, inspiring you to get involved...",
-    image: "https://ias-enis.ieee.tn/assets/img/upcomingWorkshops/iaslogobg.jpg",
+    description: "Collaboration with the Tunisia section this session, guides you through becoming a young professional within IEEE Learn about benefits, networking...",
+    image: "/src/assets/UpcommingEvents/iaslogobg.jpg",
+  },
+
+
+  {
+    id: 5,
+    title: "Blockchain",
+    subtitle: "Decentralizing Trust in the Digital World",
+    location: "National Engineering School of Sfax",
+    overview: "This workshop introduces the fundamentals of cybersecurity in industrial environments. It explores common threats facing modern industries and explains how critical systems, data, and infrastructure can be protected from cyberattacks. Participants will gain a basic understanding of security practices and the importance of safeguarding industrial operations in an increasingly connected world.",
+    agenda: "Coming soon",
+    description: "This workshop introduces the fundamentals of blockchain technology, explaining how decentralized systems work to securely store and verify data. Participants will explore how blockchain ensures transparency, security, and trust without the need for intermediaries, along with its key applications in various industries.",
+    image: "/src/assets/UpcommingEvents/iaslogobg.jpg",
   },
   {
     id: 6,
-    title: "Becoming a Young Professional",
-    subtitle: "Becoming a Young Professional: Processes, Benefits, and Beyond",
-    date: "May, 2025",
-    location: "Online",
+    title: "Exploring the IAS Chapter",
+    subtitle: "Discovering the Icons of the World of Industry application society",
+    location: "National Engineering School of Sfax",
     overview: "Collaboration with the Tunisia section, this session will delve into the history and significance of the IAS Chapter, highlighting the diverse opportunities it offers to members. We aim to provide a comprehensive overview that will inspire participation and involvement.",
     agenda: "Coming soon",
-    description: "Collaboration with the Tunisia section this session, guides you through becoming a young professional within IEEE Learn about benefits, networking...",
-    image: "https://ias-enis.ieee.tn/assets/img/upcomingWorkshops/iaslogobg.jpg",
-  },
+    description: "Collaboration with the Tunisia section, This session dives into the IAS Chapter's history and its importance for members. We'll explore the diverse opportunities it offers, inspiring you to get involved...",
+    image: "/src/assets/UpcommingEvents/iaslogobg.jpg",
+  }
 ];
 
 const fadeUp = {
@@ -234,7 +240,7 @@ export default function UpcomingActivities() {
                     <h4><FaInfoCircle /> Overview</h4>
                     <p>{selectedItem.overview}</p>
                   </div>
-                  
+
                   {selectedItem.agenda && (
                     <div className={styles.modalSection}>
                       <h4><FaListUl /> Agenda</h4>

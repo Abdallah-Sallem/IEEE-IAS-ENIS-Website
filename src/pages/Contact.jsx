@@ -30,13 +30,13 @@ export default function Contact() {
   );
   const [form, setForm] = useState(INITIAL_FORM);
   const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors]   = useState({});
+  const [errors, setErrors] = useState({});
   const [ref, inView] = useInView();
 
   const validate = () => {
     const e = {};
     if (!form.firstName.trim()) e.firstName = 'Required';
-    if (!form.lastName.trim())  e.lastName  = 'Required';
+    if (!form.lastName.trim()) e.lastName = 'Required';
     if (!form.email.trim() || !/\S+@\S+\.\S+/.test(form.email)) e.email = 'Valid email required';
     if (!form.subject.trim()) e.subject = 'Required';
     if (!form.message.trim()) e.message = 'Required';
@@ -78,7 +78,7 @@ export default function Contact() {
                   <div className={styles.contactItemIcon} aria-hidden="true"><FaPhone /></div>
                   <div className={styles.contactItemText}>
                     <h4>Phone</h4>
-                    <a href="tel:+21626337322">+216 26 337 322</a>
+                    <a href="tel:+21626337322">+216 50 737 271</a>
                   </div>
                 </div>
 
@@ -86,7 +86,8 @@ export default function Contact() {
                   <div className={styles.contactItemIcon} aria-hidden="true"><FaEnvelope /></div>
                   <div className={styles.contactItemText}>
                     <h4>Email</h4>
-                    <a href="mailto:sbc.enis.ias@ieee.org">sbc.enis.ias@ieee.org</a>
+                    <a href="mailto:sbc.enis.ias@ieee.org">sbc.enis.ias@ieee.org</a><br />
+                    <a href="mailto:bensaadachraf574@gmail.com">bensaadachraf574@gmail.com</a>
                   </div>
                 </div>
 

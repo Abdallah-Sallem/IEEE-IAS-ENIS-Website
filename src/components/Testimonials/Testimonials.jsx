@@ -5,6 +5,23 @@ import testimonials from '../../data/testimonials.json';
 import { useInView } from '../../hooks/useInView';
 import styles from './Testimonials.module.css';
 
+/* ── Eagerly import all testimonial photos ──────────── */
+const testimonialImages = import.meta.glob(
+  '../../assets/testimonials/*.{jpg,jpeg,png,webp}',
+  { eager: true, import: 'default' }
+);
+
+function resolvePhoto(filename) {
+  if (!filename) return null;
+  // If it's already an absolute/URL path, use as-is
+  if (filename.startsWith('http') || filename.startsWith('/')) return filename;
+  // Otherwise resolve from the glob
+  const match = Object.entries(testimonialImages).find(([path]) =>
+    path.endsWith('/' + filename)
+  );
+  return match ? match[1] : null;
+}
+
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -50,8 +67,8 @@ export default function Testimonials() {
                 </p>
                 <div className={styles.author}>
                   <img
-                    src={testimonials[current].photo}
-                    alt={testimonials[current].name}
+                    src={resolvePhoto(testimonials[current].photo)}
+                    alt={`${testimonials[current].name} previous IAS ENIS experience`}
                     className={styles.authorPhoto}
                     loading="lazy"
                     onError={(e) => {

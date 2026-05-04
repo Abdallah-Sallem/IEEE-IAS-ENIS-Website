@@ -23,9 +23,10 @@ export default function Footer() {
               The IEEE industrial application society was founded in 2010, it is interested in advancement of theory of Electronic and electrical engineering in development, manufacturing smart systems it builds linkage between students and industries from training sessions and events.
             </p>
             <div className={styles.footerContact}>
-              <p><strong>Phone Number:</strong> +216 26 337 322</p>
+              <p><strong>Phone Number:</strong> +216 50 737 271</p>
               <p><strong>Address:</strong> Route Soukra km 3 B.P 1173, Sfax, 3038 , Tunisia</p>
               <p><strong>Email:</strong> sbc.enis.ias@ieee.org</p>
+              <p><strong>Email:</strong> bensaadachraf574@gmail.com</p>
             </div>
             <div className={styles.socialLinks}>
               <a href="https://www.facebook.com/ieee.ias.enis" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Facebook">
