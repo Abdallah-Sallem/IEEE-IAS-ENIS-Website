@@ -6,7 +6,7 @@
 }
 
 .section {
-  padding: var(--spacing-4xl) 0 0 0;
+  padding: var(--spacing-4xl) 0;
   position: relative;
   z-index: 1;
 }

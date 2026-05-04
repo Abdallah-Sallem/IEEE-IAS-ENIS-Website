@@ -15,7 +15,7 @@ const events = [
     overview: "The ENIS Industrial Forum, now soaring into its sixth awe-inspiring edition. ENIF isn't just an event, it's a dynamic hub where ideas take flight, innovation knows no limits, and creativity reshapes industries. Get ready for a groundbreaking revelation that promises to revolutionize technology and inspire progress. Stay tuned because ENIF 6.0 is about to ignite your passion for innovation like never before.",
     agenda: "Coming soon",
     description: "ENIF is an event organized by the IEEE Industrial Applications Society (IAS) ENIS Student Branch Chapter. It focuses on the advancement of theory in electronic and electrical...",
-    image: "https://ias-enis.ieee.tn/assets/img/UpcommingEvents/enif.jpg",
+    image: "/src/assets/UpcommingEvents/7.jpg",
   },
   {
     id: 2,

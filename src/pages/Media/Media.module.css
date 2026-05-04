@@ -175,3 +175,79 @@
   display: block;
   height: auto;
 }
+
+/* ── Podcast Section ─────────────────── */
+.podcastBlock {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xl);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl) 0;
+}
+
+.podcastContent {
+  flex: 1;
+}
+
+.podcastTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1.3;
+}
+
+.podcastIcon {
+  color: var(--color-primary);
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.podcastText {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.podcastText strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.podcastImageWrapper {
+  flex-shrink: 0;
+  width: 300px;
+}
+
+.podcastImage {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .podcastBlock {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .podcastTitle {
+    justify-content: center;
+  }
+
+  .podcastText {
+    text-align: center;
+  }
+
+  .podcastImageWrapper {
+    width: 220px;
+  }
+}

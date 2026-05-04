@@ -85,7 +85,7 @@
       "vtools_link": "https://events.vtools.ieee.org/m/386490",
       "category": "ENIF",
       "photos": [
-        "mohamed.jpg"
+        "tasy.jpg"
       ]
     },
     {
@@ -93,8 +93,28 @@
       "vtools_link": "https://events.vtools.ieee.org/m/385621",
       "category": "ENIF",
       "photos": [
-        "hela.jpg"
+        "mohamed.jpg"
       ]
+    },
+        {
+      "name": "ENIF 5.0 Workshop - Introduction to Docker",
+      "vtools_link": "https://events.vtools.ieee.org/m/449225",
+      "category": "ENIF",
+      "photo": "assil bouaziz1.png"
+    },
+    {
+      "name": "ENIF 5.0 Workshop - Introduction to Blockchain",
+      "vtools_link": "https://events.vtools.ieee.org/m/449219",
+      "category": "ENIF",
+
+      "photo": "houcem dammak.png"
+    },
+    {
+      "name": "ENIF 5.0 Workshop -Demand Forecasting for a Smart Industry",
+      "vtools_link": "https://events.vtools.ieee.org/m/449216",
+      "category": "ENIF",
+
+      "photo": "imen masmoudi.png"
     },
     {
       "name": "ERP training session",
@@ -129,6 +149,12 @@
       "photo": "post.jpg"
     },
     {
+      "name": "Road to a professional portfolio",
+      "vtools_link": "https://events.vtools.ieee.org/m/332673",
+      "category": "Professional Development",
+      "photo": "2.jpg"
+    },
+    {
       "name": "Boost Your Career in LinkedIn",
       "vtools_link": "https://events.vtools.ieee.org/m/416723",
       "category": "Professional Development",
@@ -153,6 +179,12 @@
       "photo": "enif_5.0.png"
     },
     {
+      "name": "ENIF 6.0",
+      "vtools_link": "https://events.vtools.ieee.org/m/553109",
+      "category": "ENIF",
+      "photo": "logo enif final-01.png"
+    },
+    {
       "name": "Power Africa Conference",
       "vtools_link": "https://events.vtools.ieee.org/m/438914",
       "category": "Power Africa Conference",
@@ -173,19 +205,20 @@
   ],
   "speakers_and_participants": [
     {
-      "name": "Assil Bouaziz",
-      "vtools_link": "https://events.vtools.ieee.org/m/449225",
-      "photo": "assil bouaziz1.png"
+      "name": "Walid Labidi",
+      "vtools_link": "https://events.vtools.ieee.org/m/449923",
+      "photo": "walid labidi.png"
     },
     {
-      "name": "Houssem Dammak",
-      "vtools_link": "https://events.vtools.ieee.org/m/449219",
-      "photo": "houcem dammak.png"
+      "name": "Achraf Selmi",
+      "vtools_link": "https://events.vtools.ieee.org/m/449923",
+      "photo": "achref selmi1.png"
     },
     {
-      "name": "Imen Masmoudi",
-      "vtools_link": "https://events.vtools.ieee.org/m/449216",
-      "photo": "imen masmoudi.png"
+      "name": "Hela Aidi",
+      "vtools_link": "https://events.vtools.ieee.org/m/449923",
+      
+      "photo": "hela aidi.png"
     },
     {
       "name": "Hela Aidi",
@@ -196,17 +229,8 @@
       "name": "Taha Mtira ",
       "vtools_link": "https://events.vtools.ieee.org/m/377196",
       "photo": "taha.jpg"
-    },
-    {
-      "name": "Eya Trabelsi",
-      "vtools_link": "https://events.vtools.ieee.org/m/332673",
-      "photo": []
-    },
-    {
-      "name": "Seif Elhajjem",
-      "vtools_link": "https://events.vtools.ieee.org/m/310553",
-      "photo": []
     }
+
   ],
   "special_events": []
 }

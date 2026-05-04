@@ -4,7 +4,7 @@
     "title": "Industry 1.0",
     "subtitle": "The Age of Mechanization",
     "description": "The adventure begins and our first destination is the world of industry. So what are you waiting for? Take your seats and enjoy the journey with us.",
-    "videoUrl": "",
+    "videoFile": "1.0 HADHER.mp4",
     "thumbnail": "",
     "status": "available"
   },
@@ -13,7 +13,7 @@
     "title": "Industry 2.0",
     "subtitle": "The Age of Electrification",
     "description": "Are you still with us ? Our adventure is still on and we just arrived at our next station : industry 2.0 . It's a new area with marvelous inventions you don't wanna miss : ENJOY !",
-    "videoUrl": "",
+    "videoFile": "2.0 MRGL.mp4",
     "thumbnail": "",
     "status": "available"
   },
@@ -21,18 +21,18 @@
     "id": 3,
     "title": "Industry 3.0",
     "subtitle": "The Digital Revolution",
-    "description": "COMING SOON !!",
-    "videoUrl": "",
+    "description": "Welcome to Industry 3.0! The digital revolution brought computers, automation, and the birth of the internet — forever changing the way factories operate.",
+    "videoFile": "3.0 REKAH.mp4",
     "thumbnail": "",
-    "status": "coming-soon"
+    "status": "available"
   },
   {
     "id": 4,
     "title": "Industry 4.0",
     "subtitle": "The Smart Factory Era",
-    "description": "COMING SOON !!",
-    "videoUrl": "",
+    "description": "Industry 4.0 — the era of smart factories, AI, IoT, and cyber-physical systems. Discover how technology is reshaping manufacturing and beyond.",
+    "videoFile": "4.0 MNADHEM.mp4",
     "thumbnail": "",
-    "status": "coming-soon"
+    "status": "available"
   }
 ]

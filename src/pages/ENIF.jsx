@@ -93,13 +93,13 @@ const ENIF_EDITIONS = [
     thumbnail: '/src/assets/Thumbnail/logo enif final-01.png',
     link: 'https://ias-enis.ieee.tn/enif/',
     gallery: [
-      '/src/assets/img/enif5/1.jpg',
-      '/src/assets/img/enif5/2.jpg',
-      '/src/assets/img/enif5/3.jpg',
-      '/src/assets/img/enif5/4.jpg',
-      '/src/assets/img/enif5/5.jpg',
-      '/src/assets/img/enif5/6.jpg',
-      '/src/assets/img/enif5/7.jpg',
+      '/src/assets/enif6/1.png',
+      '/src/assets/enif6/2.JPG',
+      '/src/assets/enif6/3.png',
+      '/src/assets/enif6/4.jpg',
+      '/src/assets/enif6/5.jpg',
+      '/src/assets/enif6/6.jpg',
+      '/src/assets/enif6/7.jpg',
     ]
   }
 ];
@@ -201,16 +201,24 @@ function EditionSection({ edition, index }) {
             pagination={{ clickable: true }}
             navigation={true}
             loop={true}
-            loopAdditionalSlides={3}
+            loopAdditionalSlides={5}
             watchSlidesProgress={true}
             autoplay={{ delay: 3500, disableOnInteraction: false }}
             className={styles.gallerySwiper}
           >
-            {edition.gallery.map((imgSrc, idx) => (
-              <SwiperSlide key={idx} className={styles.gallerySlide}>
-                <img src={imgSrc} alt={`Gallery ${idx}`} loading="lazy" onClick={() => openLightbox(idx)} />
-              </SwiperSlide>
-            ))}
+            {[...edition.gallery, ...edition.gallery, ...edition.gallery].map((imgSrc, idx) => {
+              const originalIdx = idx % edition.gallery.length;
+              return (
+                <SwiperSlide key={idx} className={styles.gallerySlide}>
+                  <img 
+                    src={imgSrc} 
+                    alt={`Gallery ${originalIdx}`} 
+                    loading="lazy" 
+                    onClick={() => openLightbox(originalIdx)} 
+                  />
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </div>
       </div>

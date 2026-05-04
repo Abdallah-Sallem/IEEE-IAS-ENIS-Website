@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaClock, FaIndustry } from 'react-icons/fa';
+import { FaClock, FaIndustry, FaPodcast } from 'react-icons/fa';
 import Hero from '../../components/Hero/Hero';
 import JoinCTA from '../../components/JoinCTA/JoinCTA';
 import { useDocumentTitle } from '../../hooks/useDocumentTitle';
@@ -7,13 +7,21 @@ import { useInView } from '../../hooks/useInView';
 import mediaVideos from '../../data/mediaVideos.json';
 import styles from './Media.module.css';
 import tunisiaVideo from '../../assets/retrotech/tunisia.mp4';
-import video1 from '../../assets/retrotech/1.mp4';
-import video2 from '../../assets/retrotech/2.mp4';
+import podcastImg from '../../assets/retrotech/podcast.png';
 
-const localVideos = {
-  1: video1,
-  2: video2
-};
+/* ── Eagerly import all retrotech video files ──────────── */
+const retroVideos = import.meta.glob(
+  '../../assets/retrotech/*.mp4',
+  { eager: true, import: 'default' }
+);
+
+function resolveVideo(filename) {
+  if (!filename) return null;
+  const match = Object.entries(retroVideos).find(([path]) =>
+    path.endsWith('/' + filename)
+  );
+  return match ? match[1] : null;
+}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -27,8 +35,9 @@ const fadeUp = {
 const INDUSTRY_ICONS = ['🔧', '⚡', '💻', '🤖'];
 
 function VideoCard({ video, index, inView }) {
+  const localVideoSrc = resolveVideo(video.videoFile);
   const hasVideo = video.videoUrl && video.status !== 'coming-soon';
-  const hasLocalVideo = localVideos[video.id] && video.status !== 'coming-soon';
+  const hasLocalVideo = localVideoSrc && video.status !== 'coming-soon';
 
   return (
     <motion.article
@@ -41,7 +50,7 @@ function VideoCard({ video, index, inView }) {
       <div className={styles.videoThumbnail}>
         {hasLocalVideo ? (
           <video
-            src={localVideos[video.id]}
+            src={localVideoSrc}
             controls
             className={styles.videoIframe}
             preload="metadata"
@@ -131,6 +140,38 @@ export default function Media() {
               />
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Podcast Section ───────────────────────── */}
+      <section className={styles.sectionAlt} id="podcast">
+        <div className="container">
+          <motion.div
+            className={styles.podcastBlock}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className={styles.podcastContent}>
+              <h2 className={styles.podcastTitle}>
+                <FaPodcast className={styles.podcastIcon} />
+                Powering the Future with IEEE IAS Podcast
+              </h2>
+              <p className={styles.podcastText}>
+                "Powering the Future with IEEE IAS" is an exciting new podcast that will be launching soon, bringing you the latest insights and expert analysis from the world of electrical power and energy. Stay tuned for updates on the launch date and where you can listen. Whether you're an industry professional, a student, or simply curious about the world of energy, this podcast will offer a wealth of information and fascinating perspectives on the challenges and opportunities facing the industry today.{' '}
+                <strong>Don't miss out on this exciting new podcast coming soon!</strong>
+              </p>
+            </div>
+            <div className={styles.podcastImageWrapper}>
+              <img
+                src={podcastImg}
+                alt="Powering the Future with IEEE IAS Podcast"
+                className={styles.podcastImage}
+                loading="lazy"
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
 
