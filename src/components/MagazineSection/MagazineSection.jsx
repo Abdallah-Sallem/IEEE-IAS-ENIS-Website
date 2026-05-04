@@ -15,34 +15,41 @@ export default function MagazineSection() {
   const [ref, inView] = useInView();
 
   return (
-    <section className={styles.section} ref={ref} aria-label="Our Magazine">
-      <div className="container">
-        <motion.div
-          className={styles.card}
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-        >
-          <div className={styles.iconBox}>
-            <FaBookOpen />
-          </div>
-          <div className={styles.content}>
-            <h2 className={styles.title}>Our Magazine</h2>
-            <p className={styles.desc}>
-              Explore our latest magazine featuring activities, achievements, technical
-              content, and highlights from IEEE IAS ENIS SBC.
-            </p>
-            <a
-              href={MAGAZINE_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.cta}
-            >
-              Read the Magazine <FaArrowRight />
-            </a>
-          </div>
-        </motion.div>
+    <div ref={ref}>
+      <div className="container" style={{ paddingTop: 'var(--spacing-4xl)', paddingBottom: 'var(--spacing-lg)' }}>
+        <div className="section-title">
+          <h2>Our Magazine</h2>
+          <p>Read the latest edition of the IEEE IAS ENIS SBC magazine</p>
+        </div>
       </div>
-    </section>
+      <section className={styles.section} aria-label="Our Magazine">
+        <div className="container">
+          <motion.div
+            className={styles.card}
+            variants={fadeUp}
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+          >
+            <div className={styles.iconBox}>
+              <FaBookOpen />
+            </div>
+            <div className={styles.content}>
+              <p className={styles.desc}>
+                Explore our latest magazine featuring activities, achievements, technical
+                content, and highlights from IEEE IAS ENIS SBC.
+              </p>
+              <a
+                href={MAGAZINE_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.cta}
+              >
+                Read the Magazine <FaArrowRight />
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 }

@@ -1,12 +1,19 @@
 import { motion } from 'framer-motion';
 import { FaClock, FaIndustry } from 'react-icons/fa';
 import Hero from '../../components/Hero/Hero';
-import GallerySection from '../../components/GallerySection/GallerySection';
 import JoinCTA from '../../components/JoinCTA/JoinCTA';
 import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import { useInView } from '../../hooks/useInView';
 import mediaVideos from '../../data/mediaVideos.json';
 import styles from './Media.module.css';
+import tunisiaVideo from '../../assets/retrotech/tunisia.mp4';
+import video1 from '../../assets/retrotech/1.mp4';
+import video2 from '../../assets/retrotech/2.mp4';
+
+const localVideos = {
+  1: video1,
+  2: video2
+};
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -21,6 +28,7 @@ const INDUSTRY_ICONS = ['🔧', '⚡', '💻', '🤖'];
 
 function VideoCard({ video, index, inView }) {
   const hasVideo = video.videoUrl && video.status !== 'coming-soon';
+  const hasLocalVideo = localVideos[video.id] && video.status !== 'coming-soon';
 
   return (
     <motion.article
@@ -31,7 +39,14 @@ function VideoCard({ video, index, inView }) {
       animate={inView ? 'visible' : 'hidden'}
     >
       <div className={styles.videoThumbnail}>
-        {hasVideo ? (
+        {hasLocalVideo ? (
+          <video
+            src={localVideos[video.id]}
+            controls
+            className={styles.videoIframe}
+            preload="metadata"
+          />
+        ) : hasVideo ? (
           <iframe
             src={video.videoUrl}
             title={video.title}
@@ -74,11 +89,9 @@ export default function Media() {
       <section className={styles.section} id="industry-evolution" ref={ref}>
         <div className="container">
           <div className="section-title">
-            <h2>The Evolution of Industry</h2>
+            <h2>Retro Tech</h2>
             <p>
-              From steam-powered machines to smart factories — explore the four
-              industrial revolutions that have shaped modern manufacturing and
-              the role of IEEE IAS in driving industry innovation.
+              Retro Tech is an informative video series that traces the evolution of industry from Industry 1.0 to Industry 4.0. Through a journey that explores the key innovations and breakthroughs that shaped each era, Retro Tech provides an understanding of how technology has revolutionized industry and transformed our lives. Discover the fascinating story of industrial evolution and its impact on society by tuning in to Retro Tech today.
             </p>
           </div>
 
@@ -90,10 +103,36 @@ export default function Media() {
         </div>
       </section>
 
-      {/* ── Photo Gallery ─────────────────────── */}
-      <div id="gallery">
-        <GallerySection showAll />
-      </div>
+      {/* ── Beauty of Tunisia Video Section ───────── */}
+      <section className={styles.section} id="tunisia-video">
+        <div className="container">
+          <div className="section-title">
+            <h2 style={{ color: 'var(--color-primary)' }}>Video highlighting the beauty of Tunisia</h2>
+            <p>Showcased at the prestigious Power Africa Congress</p>
+          </div>
+          
+          <div className={styles.tunisiaContent}>
+            <p className={styles.tunisiaText}>
+              IEEE IAS ENIS SBC Shines at Power Africa Congress! We are incredibly proud to have represented our chapter at the prestigious Power Africa Congress! During the event, we showcased an inspiring video highlighting the beauty of Tunisia and the incredible activities we've undertaken throughout our mandate in 2024. The response? Absolutely overwhelming! Everyone was captivated and amazed by the video and the energy, dedication, and passion of our chapter. This video, a masterpiece crafted by our talented friend Abderrahmen Marrakchi, also known as The AMmaker, perfectly encapsulated our journey and vision. His creativity and passion have truly put Tunisia and our chapter on the map! Check out the video below and experience its beauty yourself! We are thrilled to have left such an impression and proud to represent Tunisia at this international event. Together, we continue to inspire and make a difference!
+            </p>
+            
+            <motion.div 
+              className={styles.tunisiaVideoContainer}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <video 
+                src={tunisiaVideo} 
+                controls 
+                className={styles.tunisiaVideo}
+                preload="metadata"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       <JoinCTA />
     </div>

@@ -9,6 +9,7 @@ import Hero from '../components/Hero/Hero';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useInView } from '../hooks/useInView';
 import styles from '../styles/enif.module.css';
+import pageStyles from '../styles/pages.module.css';
 
 const ENIF_EDITIONS = [
   {
@@ -183,26 +184,31 @@ function EditionSection({ edition, index }) {
         </div>
       </div>
 
-      <div className="container" style={{ marginTop: '40px' }}>
-        <h3 className={styles.galleryTitle}>{edition.title} Gallery</h3>
-      </div>
-      <div style={{ width: '100%', overflow: 'hidden' }}>
-        <Swiper
-          modules={[Pagination, Autoplay]}
-          spaceBetween={20}
-          slidesPerView="auto"
-          centeredSlides={true}
-          pagination={{ clickable: true }}
-          loop={true}
-          autoplay={{ delay: 3500, disableOnInteraction: false }}
-          className={styles.gallerySwiper}
-        >
-          {edition.gallery.map((imgSrc, idx) => (
-            <SwiperSlide key={idx} className={styles.gallerySlide}>
-              <img src={imgSrc} alt={`Gallery ${idx}`} loading="lazy" onClick={() => openLightbox(idx)} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      <div className={pageStyles.sectionAlt} style={{ padding: '60px 0 20px 0' }}>
+        <div className="container">
+          <div className="section-title">
+            <h2>{edition.title} Gallery</h2>
+            <p>Highlights from {edition.title}</p>
+          </div>
+        </div>
+        <div style={{ width: '100%', overflow: 'hidden' }}>
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            spaceBetween={20}
+            slidesPerView="auto"
+            centeredSlides={true}
+            pagination={{ clickable: true }}
+            loop={true}
+            autoplay={{ delay: 3500, disableOnInteraction: false }}
+            className={styles.gallerySwiper}
+          >
+            {edition.gallery.map((imgSrc, idx) => (
+              <SwiperSlide key={idx} className={styles.gallerySlide}>
+                <img src={imgSrc} alt={`Gallery ${idx}`} loading="lazy" onClick={() => openLightbox(idx)} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -223,27 +229,8 @@ function EditionSection({ edition, index }) {
 export default function ENIF() {
   useDocumentTitle('ENIF', 'ENIF — Engineering and Industry Forum.');
 
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate initial loading as requested by user
-    const timer = setTimeout(() => setLoading(false), 800);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <div className={styles.page}>
-      <AnimatePresence>
-        {loading && (
-          <motion.div
-            className={styles.loaderOverlay}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <img src="/src/assets/LOGO.png" alt="Loading..." className={styles.loaderSpinnerImg} />
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       <Hero title="ENIF" isHome={false} />
 

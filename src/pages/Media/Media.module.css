@@ -139,3 +139,39 @@
     padding: var(--spacing-md);
   }
 }
+
+/* ── Tunisia Video Section ───────────────── */
+.sectionAlt {
+  background: var(--color-bg-2);
+}
+
+.tunisiaContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.tunisiaText {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.tunisiaVideoContainer {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: #000;
+  border: 1px solid var(--color-border);
+}
+
+.tunisiaVideo {
+  width: 100%;
+  display: block;
+  height: auto;
+}

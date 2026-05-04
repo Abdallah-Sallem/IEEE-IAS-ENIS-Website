@@ -20,11 +20,7 @@
 .editionInner { background: var(--gradient-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; transition: all var(--transition-base); }
 .editionInner:hover { border-color: var(--color-primary-light); box-shadow: var(--shadow-glow); }
 
-/* Cover image */
-.editionCover { position: relative; width: 100%; height: 280px; overflow: hidden; cursor: pointer; }
-.editionCover img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-base); }
-.editionCover:hover img { transform: scale(1.03); }
-.editionCoverOverlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 0.5rem 1rem; background: linear-gradient(transparent, rgba(0,0,0,0.6)); color: #fff; font-size: 0.8rem; font-weight: 600; text-align: right; }
+/* Cover image replaced by Swiper */
 
 /* Info */
 .editionInfo { padding: var(--spacing-xl); }
@@ -37,12 +33,7 @@
 .editionHighlights li { font-size: 0.88rem; color: var(--color-text-muted); display: flex; align-items: center; gap: 0.5rem; }
 .editionHighlights li::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--color-accent); flex-shrink: 0; }
 
-/* Thumbnails */
-.editionThumbs { display: flex; gap: var(--spacing-sm); flex-wrap: wrap; margin-top: var(--spacing-sm); }
-.editionThumb { width: 80px; height: 60px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--color-border); cursor: pointer; transition: all var(--transition-base); }
-.editionThumb:hover { border-color: var(--color-primary); transform: scale(1.05); box-shadow: 0 4px 12px rgba(12, 116, 68, 0.15); }
-.editionThumbMore { width: 80px; height: 60px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); background: rgba(12, 116, 68, 0.08); color: var(--color-primary); font-weight: 700; font-size: 1rem; cursor: pointer; transition: all var(--transition-base); display: flex; align-items: center; justify-content: center; }
-.editionThumbMore:hover { background: rgba(12, 116, 68, 0.15); border-color: var(--color-primary); }
+/* Thumbnails replaced by Swiper */
 
 /* ── Lightbox ─────────────────────────── */
 .lightboxOverlay { position: fixed; inset: 0; z-index: var(--z-overlay); background: rgba(0, 0, 0, 0.85); display: flex; align-items: center; justify-content: center; padding: var(--spacing-xl); backdrop-filter: blur(8px); }
@@ -59,13 +50,9 @@
 /* ── Responsive ───────────────────────── */
 @media (max-width: 1024px) {
   .highlightsGrid { grid-template-columns: repeat(2, 1fr); }
-  .editionCover { height: 220px; }
 }
 @media (max-width: 768px) {
   .highlightsGrid { grid-template-columns: 1fr; }
-  .editionCover { height: 180px; }
   .lightboxPrev { left: 8px; }
   .lightboxNext { right: 8px; }
-  .editionThumbs { gap: 4px; }
-  .editionThumb { width: 60px; height: 45px; }
 }

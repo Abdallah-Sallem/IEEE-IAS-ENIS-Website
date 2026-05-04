@@ -2,8 +2,27 @@
   {
     "id": 1,
     "year": "2025",
+    "title": "Best Large Student Branch Chapter in Region 8 for 2025",
+    "icon": "trophy"
+  },
+  {
+    "id": 1,
+    "year": "2025",
     "title": "Third prize for student work in the IEEE Smart Village (ISV) student project competition",
     "description": "Ahmed Jallouli",
+    "icon": "trophy"
+  },
+  {
+    "id": 2,
+    "year": "2025",
+    "title": "IEEE IAS CMD Outstanding Member Award",
+    "description": "Hamza Gharsellaoui ",
+    "icon": "trophy"
+  },
+  {
+    "id": 2,
+    "year": "2024",
+    "title": "IEEE IAS CMD Chapter Outstanding Large IAS Chapter Award",
     "icon": "trophy"
   },
   {

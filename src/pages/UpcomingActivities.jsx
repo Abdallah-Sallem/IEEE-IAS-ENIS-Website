@@ -1,6 +1,10 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaCalendarAlt, FaMapMarkerAlt, FaInfoCircle, FaListUl, FaTimes, FaArrowRight } from 'react-icons/fa';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import Hero from '../components/Hero/Hero';
+import JoinCTA from '../components/JoinCTA/JoinCTA';
+import styles from './UpcomingActivities.module.css';
 
 const events = [
   {
@@ -19,7 +23,7 @@ const events = [
     title: "Industrial Visit",
     subtitle: "Industrial Visit to Technopole El Ghazala.",
     date: "May 21st, 2025",
-    location: "Technopole El Ghazala - Ariana, Tunisia",
+    location: "Technopole El Ghazala - Ariana",
     overview: "Join us for an exclusive industrial visit to Tech Innovations Inc, a leading player in the realm of technology and innovation. This visit offers a unique opportunity for students and professionals alike to gain insights into the latest advancements in IT, witness cutting-edge technologies in action, and engage with industry experts.",
     agenda: "Coming soon!\nDon't miss this incredible opportunity to immerse yourself in the dynamic world of IT and gain firsthand experience from industry leaders at Tech Innovations Inc. Reserve your spot today!",
     description: "Join us for an exciting Industrial Visit organized by the IEEE ENIS IAS student chapter! This visit will provide a firsthand look at the inner workings of a leading industry player...",
@@ -74,242 +78,206 @@ const workshops = [
   },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.6, ease: 'easeOut' },
+  }),
+};
+
 export default function UpcomingActivities() {
   useDocumentTitle('Upcoming Activities', 'See upcoming IEEE IAS ENIS SBC events, conferences, workshops, and industrial visits.');
   const [selectedItem, setSelectedItem] = useState(null);
 
+  // Close modal on escape key
+  const handleKeyDown = (e) => {
+    if (e.key === 'Escape') setSelectedItem(null);
+  };
+
   return (
-    <div className="bg-white min-h-screen">
+    <div className={styles.page}>
       <Hero title="Upcoming Activities" isHome={false} />
 
       {/* ══════ SECTION 1: Upcoming Events ══════ */}
-      <section className="py-12 px-4">
-        <h2
-          className="text-center font-bold mb-8"
-          style={{ color: '#16a34a', fontSize: '1.75rem' }}
-        >
-          Upcoming Events
-        </h2>
+      <section className={styles.section}>
+        <div className="container">
+          <div className="section-title">
+            <h2>Upcoming Events</h2>
+            <p>Don't miss out on our upcoming major events and industrial visits</p>
+          </div>
 
-        {/* flex-wrap centered — matches Bootstrap d-flex justify-content-center flex-wrap */}
-        <div className="flex flex-wrap justify-center">
-          {events.map((item) => (
-            /* m-4 wrapper — matches Bootstrap m-4 */
-            <div key={item.id} className="m-6">
-              {/* card shadow — visible box shadow on each card */}
-              <div
-                className="bg-white overflow-hidden flex flex-col h-full"
-                style={{
-                  width: '25rem',
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
-                  border: '1px solid rgba(0,0,0,.1)',
-                  gap: '20px',
-                  borderRadius: '10px',
-                }}
+          <div className={styles.grid}>
+            {events.map((item, i) => (
+              <motion.div
+                key={item.id}
+                custom={i}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-50px' }}
+                onClick={() => setSelectedItem(item)}
               >
-                {/* card-img-top — full-bleed, top corners rounded */}
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full object-cover"
-                  style={{
-                    height: '200px',
-                    borderRadius: '16px 16px 0 0',
-                  }}
-                />
-                {/* card-body text-center */}
-                <div className="p-4 text-center flex flex-col flex-grow items-center">
-                  <h5 className="font-semibold text-lg text-gray-900 mb-2">{item.title}</h5>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-4 flex-grow">{item.description}</p>
-                  {/* btn btn-secondary */}
-                  <button
-                    onClick={() => setSelectedItem(item)}
-                    style={{
-                      backgroundColor: '#15803d',
-                      color: 'white',
-                      padding: '10px 24px',
-                      border: 'none',
-                      borderRadius: '8px',
-                      fontSize: '14px',
-                      fontWeight: '500',
-                      cursor: 'pointer',
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#166534'}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#15803d'}
-                  >
-                    See Details
-                  </button>
+                <div className={styles.card}>
+                  <div className={styles.cardImageWrapper}>
+                    <img src={item.image} alt={item.title} className={styles.cardImage} loading="lazy" />
+                    <div className={styles.cardImageOverlay}>
+                      <span className={styles.cardDate}>{item.date}</span>
+                    </div>
+                  </div>
+                  <div className={styles.cardContent}>
+                    <h3 className={styles.cardTitle}>{item.title}</h3>
+                    <p className={styles.cardDesc}>{item.description}</p>
+                    <div className={styles.cardFooter}>
+                      <div className={styles.cardLocation}>
+                        <FaMapMarkerAlt className={styles.cardLocationIcon} />
+                        <span>{item.location}</span>
+                      </div>
+                      <button className={styles.cardButton} aria-label="See Details">
+                        Details <FaArrowRight style={{ fontSize: '0.8rem' }} />
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ══════ SECTION 2: Upcoming Workshops ══════ */}
-      <section className="py-12 px-4">
-        <h2
-          className="text-center font-bold mb-8"
-          style={{ color: '#16a34a', fontSize: '1.75rem' }}
-        >
-          Upcoming Workshops
-        </h2>
+      <section className={`${styles.section} ${styles.sectionAlt}`} style={{ marginTop: 'var(--spacing-4xl)' }}>
+        <div className="container">
+          <div className="section-title">
+            <h2>Upcoming Workshops</h2>
+            <p>Enhance your skills with our upcoming technical and soft skills workshops</p>
+          </div>
 
-        <div className="flex flex-wrap justify-center">
-          {workshops.map((item) => (
-            <div key={item.id} className="m-6">
-              <div
-                className="bg-white overflow-hidden flex flex-col h-full"
-                style={{
-                  width: '25rem',
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
-                  border: '1px solid rgba(0,0,0,.1)',
-                  gap: '20px',
-                  borderRadius: '10px',
-
-
-                }}
+          <div className={styles.grid}>
+            {workshops.map((item, i) => (
+              <motion.div
+                key={item.id}
+                custom={i}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-50px' }}
+                onClick={() => setSelectedItem(item)}
               >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full object-cover"
-                  style={{
-                    height: '200px',
-                    borderRadius: '16px 16px 0 0',
-                  }}
-                />
-                <div className="p-4 text-center flex flex-col flex-grow items-center">
-                  <h5 className="font-semibold text-lg text-gray-900 mb-2">{item.title}</h5>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-4 flex-grow">{item.description}</p>
-                  <button
-                    onClick={() => setSelectedItem(item)}
-                    style={{
-                      backgroundColor: '#15803d',
-                      color: 'white',
-                      padding: '10px 24px',
-                      border: 'none',
-                      borderRadius: '8px',
-                      fontSize: '14px',
-                      fontWeight: '500',
-                      cursor: 'pointer',
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#166534'}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#15803d'}
-                  >
-                    See Details
-                  </button>
+                <div className={styles.card}>
+                  <div className={styles.cardImageWrapper}>
+                    <img src={item.image} alt={item.title} className={styles.cardImage} loading="lazy" />
+                    <div className={styles.cardImageOverlay}>
+                      <span className={styles.cardDate}>{item.date}</span>
+                    </div>
+                  </div>
+                  <div className={styles.cardContent}>
+                    <h3 className={styles.cardTitle}>{item.title}</h3>
+                    <p className={styles.cardDesc}>{item.description}</p>
+                    <div className={styles.cardFooter}>
+                      <div className={styles.cardLocation}>
+                        <FaMapMarkerAlt className={styles.cardLocationIcon} />
+                        <span>{item.location}</span>
+                      </div>
+                      <button className={styles.cardButton} aria-label="See Details">
+                        Details <FaArrowRight style={{ fontSize: '0.8rem' }} />
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ══════ MODAL ══════ */}
-      {selectedItem && (
-        <div
-          className="fixed inset-0 bg-black/60 flex items-center justify-center z-[9999]"
-          onClick={() => setSelectedItem(null)}
-        >
-          <div
-            className="bg-white rounded-xl overflow-hidden flex flex-col"
-            style={{ width: '850px', maxWidth: '92vw', maxHeight: '90vh' }}
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {selectedItem && (
+          <motion.div
+            className={styles.modalOverlay}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedItem(null)}
+            onKeyDown={handleKeyDown}
+            tabIndex={-1}
           >
-            {/* ── Image header ── */}
-            <div className="relative flex-shrink-0" style={{ height: '280px' }}>
-              <img
-                src={selectedItem.image}
-                alt={selectedItem.title}
-                className="w-full h-full object-cover"
-              />
-              <button
-                onClick={() => setSelectedItem(null)}
-                className="absolute top-4 right-4 text-white text-2xl leading-none hover:opacity-80 transition-opacity"
-                style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '28px' }}
-                aria-label="Close"
-              >
-                ✕
-              </button>
-            </div>
+            <motion.div
+              className={styles.modalContent}
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className={styles.modalHeader}>
+                <img src={selectedItem.image} alt={selectedItem.title} />
+                <div className={styles.modalHeaderOverlay}></div>
+                <button
+                  className={styles.modalClose}
+                  onClick={() => setSelectedItem(null)}
+                  aria-label="Close"
+                >
+                  <FaTimes />
+                </button>
+                <div className={styles.modalTitleWrapper}>
+                  <h2 className={styles.modalTitle}>{selectedItem.title}</h2>
+                  <p className={styles.modalSubtitle}>{selectedItem.subtitle}</p>
+                </div>
+              </div>
 
-            {/* ── Modal body (scrollable) ── */}
-            <div className="p-8 overflow-y-auto" style={{ flex: '1 1 auto' }}>
-              {/* Green centered title */}
-              <h2
-                className="text-center font-bold mb-4"
-                style={{ color: '#15803d', fontSize: '2rem' }}
-              >
-                {selectedItem.title}
-              </h2>
+              <div className={styles.modalBody}>
+                <div className={styles.modalMain}>
+                  <div className={styles.modalSection}>
+                    <h4><FaInfoCircle /> Overview</h4>
+                    <p>{selectedItem.overview}</p>
+                  </div>
+                  
+                  {selectedItem.agenda && (
+                    <div className={styles.modalSection}>
+                      <h4><FaListUl /> Agenda</h4>
+                      <p>{selectedItem.agenda}</p>
+                    </div>
+                  )}
+                </div>
 
-              {/* Subtitle centered */}
-              <p className="text-center text-gray-500 mb-8" style={{ fontSize: '1rem' }}>
-                {selectedItem.subtitle}
-              </p>
+                <div className={styles.modalSidebar}>
+                  <div className={styles.modalInfoItem}>
+                    <span className={styles.modalInfoLabel}>Date</span>
+                    <span className={styles.modalInfoValue}>
+                      <FaCalendarAlt className={styles.cardLocationIcon} /> {selectedItem.date}
+                    </span>
+                  </div>
+                  <div className={styles.modalInfoItem}>
+                    <span className={styles.modalInfoLabel}>Location</span>
+                    <span className={styles.modalInfoValue}>
+                      <FaMapMarkerAlt className={styles.cardLocationIcon} /> {selectedItem.location}
+                    </span>
+                  </div>
+                </div>
+              </div>
 
-              {/* Date */}
-              <h5 className="font-bold text-gray-900 mb-1" style={{ fontSize: '1.1rem' }}>Date:</h5>
-              <p className="text-gray-600 mb-5">{selectedItem.date}</p>
+              <div className={styles.modalFooter}>
+                <button className={styles.btnOutline} onClick={() => setSelectedItem(null)}>
+                  Close
+                </button>
+                <a
+                  href="https://www.linkedin.com/company/ieee-ias-enis"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.btnPrimary}
+                >
+                  Contact Us
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-              {/* Location */}
-              <h5 className="font-bold text-gray-900 mb-1" style={{ fontSize: '1.1rem' }}>Location:</h5>
-              <p className="text-gray-600 mb-5">{selectedItem.location}</p>
-
-              {/* Overview */}
-              <h5 className="font-bold text-gray-900 mb-1" style={{ fontSize: '1.1rem' }}>Overview:</h5>
-              <p className="text-gray-600 leading-relaxed mb-5">{selectedItem.overview}</p>
-
-              {/* Agenda */}
-              <h5 className="font-bold text-gray-900 mb-1" style={{ fontSize: '1.1rem' }}>Agenda:</h5>
-              <p className="text-gray-600 whitespace-pre-line mb-2">{selectedItem.agenda}</p>
-            </div>
-
-            {/* ── Footer with green buttons ── */}
-            <div className="px-8 py-4 border-t border-gray-200 flex justify-end gap-3 flex-shrink-0">
-              <button
-                onClick={() => setSelectedItem(null)}
-                style={{
-                  backgroundColor: '#15803d',
-                  color: 'white',
-                  padding: '10px 24px',
-                  border: 'none',
-                  borderRadius: '8px',
-                  fontSize: '14px',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#166534'}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#15803d'}
-              >
-                Close
-              </button>
-              <a
-                href="https://www.linkedin.com/company/ieee-ias-enis"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  backgroundColor: '#15803d',
-                  color: 'white',
-                  padding: '10px 24px',
-                  border: 'none',
-                  borderRadius: '8px',
-                  fontSize: '14px',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  textDecoration: 'none',
-                  display: 'inline-block',
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#166534'}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#15803d'}
-              >
-                Contact Us
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
+      <JoinCTA />
     </div>
   );
 }

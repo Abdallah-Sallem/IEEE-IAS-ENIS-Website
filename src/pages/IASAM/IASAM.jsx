@@ -1,12 +1,17 @@
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGlobeAmericas, FaTrophy, FaUsers, FaLightbulb, FaTimes, FaChevronLeft, FaChevronRight, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 import Hero from '../../components/Hero/Hero';
 import JoinCTA from '../../components/JoinCTA/JoinCTA';
 import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import { useInView } from '../../hooks/useInView';
 import iasamData from '../../data/iasamParticipation.json';
 import styles from './IASAM.module.css';
+import enifStyles from '../../styles/enif.module.css';
 
 const iasamImages = import.meta.glob('../../assets/iasam/**/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' });
 
@@ -47,40 +52,54 @@ function PhotoLightbox({ images, currentIndex, onClose, onNext, onPrev }) {
 }
 
 function EditionCard({ edition, index, inView, onOpenLightbox }) {
-  const coverSrc = resolveImage(edition.images?.[0]);
   return (
     <motion.article className={styles.editionCard} custom={index} variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
       <div className={styles.timelineDot} />
+      
+      {/* The Box */}
       <div className={styles.editionInner}>
-        {coverSrc && (
-          <div className={styles.editionCover} onClick={() => onOpenLightbox(edition.images, 0)} role="button" tabIndex={0} aria-label={`View ${edition.edition} gallery`}>
-            <img src={coverSrc} alt={edition.edition} loading="lazy" />
-            <div className={styles.editionCoverOverlay}><span>{edition.images.length} photos</span></div>
-          </div>
-        )}
         <div className={styles.editionInfo}>
           <div className={styles.editionMeta}>
             <span className={styles.editionYear}><FaCalendarAlt /> {edition.date}</span>
             <span className={styles.editionLocation}><FaMapMarkerAlt /> {edition.location}</span>
           </div>
           <h3 className={styles.editionTitle}>{edition.edition} — {edition.title}</h3>
-          <p className={styles.editionDesc}>{edition.description}</p>
           {edition.highlights?.length > 0 && (
-            <ul className={styles.editionHighlights}>
+            <ul className={styles.editionHighlights} style={{ marginBottom: 0 }}>
               {edition.highlights.map((h, i) => <li key={i}>{h}</li>)}
             </ul>
           )}
-          {edition.images?.length > 1 && (
-            <div className={styles.editionThumbs}>
-              {edition.images.slice(0, 6).map((img, i) => {
+        </div>
+      </div>
+
+      {/* Below the Box */}
+      <div style={{ marginTop: '1.5rem' }}>
+        <p className={styles.editionDesc} style={{ marginBottom: '1.5rem' }}>{edition.description}</p>
+        
+        {edition.images && edition.images.length > 0 && (
+          <div style={{ width: '100%', overflow: 'hidden' }}>
+            <Swiper
+              modules={[Pagination, Autoplay]}
+              spaceBetween={20}
+              slidesPerView="auto"
+              centeredSlides={true}
+              pagination={{ clickable: true }}
+              loop={edition.images.length > 1}
+              autoplay={{ delay: 3500, disableOnInteraction: false }}
+              className={enifStyles.gallerySwiper}
+            >
+              {edition.images.map((img, idx) => {
                 const src = resolveImage(img);
                 if (!src) return null;
-                return <img key={i} src={src} alt={`${edition.edition} - ${i + 1}`} loading="lazy" className={styles.editionThumb} onClick={() => onOpenLightbox(edition.images, i)} />;
+                return (
+                  <SwiperSlide key={idx} className={enifStyles.gallerySlide}>
+                    <img src={src} alt={`${edition.edition} photo ${idx + 1}`} loading="lazy" onClick={() => onOpenLightbox(edition.images, idx)} />
+                  </SwiperSlide>
+                );
               })}
-              {edition.images.length > 6 && <button className={styles.editionThumbMore} onClick={() => onOpenLightbox(edition.images, 6)}>+{edition.images.length - 6}</button>}
-            </div>
-          )}
-        </div>
+            </Swiper>
+          </div>
+        )}
       </div>
     </motion.article>
   );
