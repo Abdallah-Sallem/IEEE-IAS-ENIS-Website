@@ -10,19 +10,19 @@ const ACTIVITIES = [
     id: 1,
     Icon: FaBus,
     title: 'Industrial Visits',
-    desc: 'Industrial visits to companies and research laboratories in various fields are arranged each year to help members discover professional work environments and build real-world connections.',
+    desc: 'Industrial visits to industrial companies or research laboratories working in various fields are arranged each year by our chapter to help our members discover professional work environments.',
   },
   {
     id: 2,
     Icon: FaUsers,
     title: 'Conferences',
-    desc: 'Technical conferences provide updates on the development of specific products and business sectors. Industry-oriented events that promote ongoing development of products and innovations.',
+    desc: 'Technical Conferences provide updates on the development of specific products and business sectors. It is industry and apllication oriented and promotoes the ongoing development of products.',
   },
   {
     id: 3,
     Icon: FaChalkboardTeacher,
     title: 'Trainings & Workshops',
-    desc: 'Establish technical industry expertise with our training and certification programs. Professional development, service-oriented, and comprehensive training in cutting-edge technologies.',
+    desc: ' Establish technical industry expertise with our training & certification. Learning different technologies. Professional Development Service-Oriented Comprehensive Training.',
   },
 ];
 
@@ -61,9 +61,7 @@ export default function ActivitiesSection() {
               </div>
               <h3 className={styles.cardTitle}>{activity.title}</h3>
               <p className={styles.cardDesc}>{activity.desc}</p>
-              <Link to="/activities" className={styles.cardLink} aria-label={`Learn more about ${activity.title}`}>
-                Explore <FaArrowRight aria-hidden="true" />
-              </Link>
+
             </motion.article>
           ))}
         </div>

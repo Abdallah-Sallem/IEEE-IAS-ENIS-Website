@@ -61,7 +61,7 @@ function AnimatedCounter({ end, suffix = '', duration = 2000, active }) {
   const startRef = useRef(null);
 
   useEffect(() => {
-    if (!active) { setCount(0); return; }
+    if (!active) { setCount(0); return; } // eslint-disable-line react-hooks/set-state-in-effect -- animation reset
 
     startRef.current = null;
 

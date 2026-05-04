@@ -1,6 +1,6 @@
 import { lazy, Suspense, useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Layout from './components/Layout/Layout';
 import IntroScreen from './components/IntroScreen/IntroScreen';
 import './styles/global.css';
@@ -16,11 +16,54 @@ function ScrollToTop() {
   return null;
 }
 
+/* ─── Global Page Transition Loader ─────────────────── */
+function PageTransitionLoader() {
+  const { pathname } = useLocation();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, [pathname]);
+
+  return (
+    <AnimatePresence>
+      {loading && (
+        <motion.div
+          key="page-loader"
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'var(--color-bg)',
+            zIndex: 99999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <motion.img
+            src="/src/assets/LOGO.png"
+            alt="Loading..."
+            animate={{ scale: [0.9, 1.1, 0.9], opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+            style={{ width: '120px', height: 'auto' }}
+          />
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 /* ─── Lazy-loaded pages ─────────────────────────────── */
 const Home               = lazy(() => import('./pages/Home'));
 const About              = lazy(() => import('./pages/About'));
 const Activities         = lazy(() => import('./pages/Activities'));
-const Media              = lazy(() => import('./pages/Media'));
+const Media              = lazy(() => import('./pages/Media/Media'));
+const IASAM             = lazy(() => import('./pages/IASAM/IASAM'));
 const ENIF               = lazy(() => import('./pages/ENIF'));
 const UpcomingActivities = lazy(() => import('./pages/UpcomingActivities'));
 const Achievements       = lazy(() => import('./pages/Achievements'));
@@ -74,6 +117,8 @@ export default function App() {
         )}
       </AnimatePresence>
 
+      <PageTransitionLoader />
+
       {/* ── Main app routes ───────────────────────────── */}
       <Routes>
         <Route element={<Layout />}>
@@ -106,6 +151,14 @@ export default function App() {
             element={
               <Suspense fallback={<PageLoader />}>
                 <Media />
+              </Suspense>
+            }
+          />
+          <Route
+            path="iasam"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <IASAM />
               </Suspense>
             }
           />

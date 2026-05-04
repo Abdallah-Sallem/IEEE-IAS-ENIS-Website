@@ -207,7 +207,6 @@
   flex-direction: column;
   align-items: center;
   gap: 60px;
-  /* Space between rows */
   width: 100%;
   padding: 20px 40px;
   margin-top: 60px;
@@ -265,10 +264,10 @@
   object-fit: contain;
   object-position: bottom;
   position: relative;
-  z-index: 2;
-  /* In front of green box */
+  z-index: 1;
+  /* Behind green box */
   margin-bottom: -40px;
-  /* Photo overlaps top of green box */
+  /* Photo overlaps with green box */
   display: block;
   background: transparent;
 }
@@ -279,23 +278,23 @@
   width: 100%;
   border-radius: 12px;
   /* Requested 12px */
-  padding: 50px 20px 20px 20px;
-  /* Top padding accommodates photo overlap */
+  padding: 20px;
+  /* Normal padding since it's now in front */
   text-align: center;
   position: relative;
-  z-index: 1;
-  /* Behind photo */
+  z-index: 2;
+  /* In front of photo */
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 
   /* Hover animation */
-  max-height: 140px;
+  max-height: 110px;
   /* Visible height for Name, Line, Role */
   overflow: hidden;
   transition: max-height 0.4s ease-in-out;
 }
 
 .memberCard:hover .memberInfo {
-  max-height: 250px;
+  max-height: 220px;
   /* Expands to show icons */
 }
 

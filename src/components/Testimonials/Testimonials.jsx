@@ -8,7 +8,7 @@ import styles from './Testimonials.module.css';
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
-  const [ref, inView] = useInView();
+  const [ref] = useInView();
 
   const total = testimonials.length;
 

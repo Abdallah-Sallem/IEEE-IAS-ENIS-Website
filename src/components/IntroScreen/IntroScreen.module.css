@@ -32,15 +32,18 @@
   z-index: 0;
 }
 
-/* Content */
 .content {
-  position: relative;
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
   text-align: center;
+  width: 100%;
   padding: 2rem;
 }
 

@@ -1,0 +1,58 @@
+.page { position: relative; }
+.section { padding: var(--spacing-4xl) 0; background: var(--color-bg); }
+.sectionAlt { padding: var(--spacing-4xl) 0; background: var(--color-bg-2); }
+
+/* ── Highlights Grid ──────────────────── */
+.highlightsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-xl); margin-top: var(--spacing-2xl); }
+.highlightCard { background: var(--gradient-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--spacing-xl); text-align: center; transition: all var(--transition-base); }
+.highlightCard:hover { border-color: var(--color-primary-light); transform: translateY(-4px); box-shadow: var(--shadow-glow); }
+.highlightIcon { font-size: 2rem; color: var(--color-accent); margin-bottom: var(--spacing-md); }
+.highlightTitle { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--color-text); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: var(--spacing-sm); }
+.highlightDesc { font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6; }
+
+/* ── Timeline ─────────────────────────── */
+.timeline { position: relative; padding-left: 2.5rem; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--color-primary), var(--color-primary-light), var(--color-primary)); }
+
+.editionCard { position: relative; margin-bottom: var(--spacing-3xl); }
+.timelineDot { position: absolute; left: -2.5rem; top: 1.5rem; width: 14px; height: 14px; border-radius: 50%; background: var(--color-primary); border: 2px solid var(--color-bg-2); box-shadow: 0 0 10px rgba(30, 150, 104, 0.4); transform: translateX(-6px); }
+
+.editionInner { background: var(--gradient-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; transition: all var(--transition-base); }
+.editionInner:hover { border-color: var(--color-primary-light); box-shadow: var(--shadow-glow); }
+
+/* Cover image replaced by Swiper */
+
+/* Info */
+.editionInfo { padding: var(--spacing-xl); }
+.editionMeta { display: flex; flex-wrap: wrap; gap: var(--spacing-md); margin-bottom: var(--spacing-md); }
+.editionYear, .editionLocation { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; font-weight: 600; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.08em; }
+.editionTitle { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--color-text); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: var(--spacing-sm); }
+.editionDesc { font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: var(--spacing-md); }
+
+.editionHighlights { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: var(--spacing-md); }
+.editionHighlights li { font-size: 0.88rem; color: var(--color-text-muted); display: flex; align-items: center; gap: 0.5rem; }
+.editionHighlights li::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--color-accent); flex-shrink: 0; }
+
+/* Thumbnails replaced by Swiper */
+
+/* ── Lightbox ─────────────────────────── */
+.lightboxOverlay { position: fixed; inset: 0; z-index: var(--z-overlay); background: rgba(0, 0, 0, 0.85); display: flex; align-items: center; justify-content: center; padding: var(--spacing-xl); backdrop-filter: blur(8px); }
+.lightboxContent { position: relative; max-width: 900px; max-height: 85vh; width: 100%; display: flex; align-items: center; justify-content: center; }
+.lightboxImg { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius-md); box-shadow: 0 8px 48px rgba(0, 0, 0, 0.5); }
+.lightboxClose { position: absolute; top: -40px; right: 0; width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; font-size: 1rem; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all var(--transition-fast); }
+.lightboxClose:hover { background: rgba(255, 255, 255, 0.3); }
+.lightboxPrev, .lightboxNext { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; font-size: 1rem; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all var(--transition-fast); z-index: 2; }
+.lightboxPrev:hover, .lightboxNext:hover { background: rgba(255, 255, 255, 0.3); }
+.lightboxPrev { left: -56px; }
+.lightboxNext { right: -56px; }
+.lightboxCounter { position: absolute; bottom: -36px; left: 50%; transform: translateX(-50%); font-size: 0.85rem; color: rgba(255, 255, 255, 0.7); font-weight: 500; letter-spacing: 0.1em; }
+
+/* ── Responsive ───────────────────────── */
+@media (max-width: 1024px) {
+  .highlightsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .highlightsGrid { grid-template-columns: 1fr; }
+  .lightboxPrev { left: 8px; }
+  .lightboxNext { right: 8px; }
+}

@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import styles from './IntroScreen.module.css';
 import introVideo from '../../assets/INTRO.mp4';
 

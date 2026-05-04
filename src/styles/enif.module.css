@@ -122,7 +122,7 @@
 .editionThumbnail img {
   max-width: 100%;
   width: 400px;
-  height: auto;
+  aspect-ratio: 1 / 1;
   border-radius: 12px;
   background-color: #ffffff;
   padding: 20px;
@@ -131,13 +131,6 @@
 }
 
 /* Swiper Gallery */
-.galleryTitle {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 2rem;
-}
-
 .gallerySwiper {
   padding: 40px 0 60px 0 !important; /* Space for scaling and pagination */
 }

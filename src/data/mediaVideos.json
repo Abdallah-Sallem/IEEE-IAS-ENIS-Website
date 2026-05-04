@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Industry 1.0",
+    "subtitle": "The Age of Mechanization",
+    "description": "The adventure begins and our first destination is the world of industry. So what are you waiting for? Take your seats and enjoy the journey with us.",
+    "videoUrl": "",
+    "thumbnail": "",
+    "status": "available"
+  },
+  {
+    "id": 2,
+    "title": "Industry 2.0",
+    "subtitle": "The Age of Electrification",
+    "description": "Are you still with us ? Our adventure is still on and we just arrived at our next station : industry 2.0 . It's a new area with marvelous inventions you don't wanna miss : ENJOY !",
+    "videoUrl": "",
+    "thumbnail": "",
+    "status": "available"
+  },
+  {
+    "id": 3,
+    "title": "Industry 3.0",
+    "subtitle": "The Digital Revolution",
+    "description": "COMING SOON !!",
+    "videoUrl": "",
+    "thumbnail": "",
+    "status": "coming-soon"
+  },
+  {
+    "id": 4,
+    "title": "Industry 4.0",
+    "subtitle": "The Smart Factory Era",
+    "description": "COMING SOON !!",
+    "videoUrl": "",
+    "thumbnail": "",
+    "status": "coming-soon"
+  }
+]

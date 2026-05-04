@@ -6,6 +6,7 @@ import GallerySection from '../components/GallerySection/GallerySection';
 import Testimonials from '../components/Testimonials/Testimonials';
 import QuoteSection from '../components/QuoteSection/QuoteSection';
 import JoinCTA from '../components/JoinCTA/JoinCTA';
+import MagazineSection from '../components/MagazineSection/MagazineSection';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <ActivitiesSection />
       <StatsSection />
       <JoinCTA />
+      <MagazineSection />
       <GallerySection />
       <QuoteSection />
       <Testimonials />

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaGlobe, FaBullseye, FaUsers, FaLightbulb } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaGlobe, FaUsers, FaLightbulb } from 'react-icons/fa';
 import Hero from '../components/Hero/Hero';
 import JoinCTA from '../components/JoinCTA/JoinCTA';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
@@ -28,17 +28,7 @@ const GOALS = [
   },
 ];
 
-const SOCIAL_ICONS = {
-  facebook: <FaFacebookF />,
-  instagram: <FaInstagram />,
-  linkedin: <FaLinkedinIn />,
-};
 
-const SOCIAL_LABELS = {
-  facebook: 'Facebook',
-  instagram: 'Instagram',
-  linkedin: 'LinkedIn',
-};
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
