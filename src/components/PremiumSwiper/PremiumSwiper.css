@@ -43,6 +43,7 @@
 .ps-card.is-active {
   transform: scale(1);
   opacity: 1;
+  border: 3px solid #1a7a3c;
   box-shadow: 0 22px 60px rgba(0, 100, 55, 0.18);
 }
 
