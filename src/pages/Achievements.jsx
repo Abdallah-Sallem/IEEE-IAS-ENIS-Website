@@ -176,7 +176,7 @@ export default function Achievements() {
                     {ICON_MAP[item.icon] || <FaTrophy />}
                   </div>
                   <h3 className={styles.timelineTitle}>{item.title}</h3>
-                  {item.organization && <p className={styles.timelineOrg}>{item.organization}</p>}
+                  {item.name && <p className={styles.timelineOrg}>{item.name}</p>}
                   <p className={styles.timelineDesc}>{item.description?.substring(0, 80)}...</p>
                   <span className="read-more-text">Read More</span>
                 </div>
@@ -213,12 +213,16 @@ export default function Achievements() {
               <div className="awards-modal-body">
                 <div className="awards-modal-image">
                   <img 
-                    src={selectedAward.photo || '/assets/LOGO.webp'} 
+                    src={selectedAward.photo} 
                     alt={selectedAward.title} 
                     loading="lazy" 
                   />
                 </div>
                 <div className="awards-modal-info">
+                  <div className="awards-info-group">
+                    <span className="awards-info-label">Winner:</span>
+                    <span className="awards-info-value">{selectedAward.name}</span>
+                  </div>
                   <div className="awards-info-group">
                     <span className="awards-info-label">Year:</span>
                     <span className="awards-info-value">{selectedAward.year}</span>
