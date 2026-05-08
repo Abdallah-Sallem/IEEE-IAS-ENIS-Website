@@ -1,6 +1,6 @@
 .section { 
   padding: var(--spacing-4xl) 0; 
-  background-image: url('../../assets/magazine.webp');
+  background-image: url('../../assets/magazine.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -22,13 +22,27 @@
 
 .card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: var(--spacing-xl);
+  text-align: left;
+  gap: var(--spacing-2xl);
   padding: var(--spacing-2xl) 0;
   transition: all var(--transition-base);
+}
+
+.coverWrap {
+  flex-shrink: 0;
+  width: 220px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.cover {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .iconBox {
@@ -94,6 +108,18 @@
 
 @media (max-width: 768px) {
   .card {
+    flex-direction: column;
+    text-align: center;
     padding: var(--spacing-xl) 0;
+  }
+
+  .coverWrap {
+    width: 180px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }

@@ -13,29 +13,29 @@ try {
 }
 
 const nameMap = {
-    'award_2025_region8.jpg': '/assets/awards/awards_section/Large_chapter_award.webp',
-    'award_2025_isv.jpg': '/assets/awards/iastam.webp',
-    'award_2025_ahmed_jallouli.jpg': '/assets/awards/awards_section/hamza_gharsellaoui.webp',
-    'award_2025_hamza_gharsellaoui.jpg': '/assets/awards/OutstandingChapter.webp',
-    'award_2024_large_chapter.jpg': '/assets/awards/awards_section/amir_abid.webp',
-    'award_2024_amir_abid.jpg': '/assets/awards/awards_section/best_website.webp',
-    'award_2024_website.jpg': '/assets/awards/awards_section/humanitarian_.webp',
-    'award_2024_humanitarian.jpg': '/assets/awards/anmeeting1.webp',
-    'award_2024_nontechnical.jpg': '/assets/awards/bestiast.webp',
-    'award_2022_web_contest.jpg': '/assets/awards/Best Website.webp',
-    'award_2022_tsyp10.jpg': '/assets/awards/tsyp3.webp',
-    'award_2021_tsyp8.jpg': '/assets/awards/tsyp1.webp',
-    'award_2021_tsyp8_challenge.jpg': '/assets/awards/tsyp2.webp',
-    'award_2021_iastam.jpg': '/assets/awards/iastam2.webp',
-    'award_2021_gmp.jpg': '/assets/awards/anmeeting2.webp',
-    'award_2019_web.jpg': '/assets/awards/tsyp4.webp',
-    'award_2018_web.jpg': '/assets/awards/tsyp5.webp'
+    'award_2025_region8.jpg': '/assets/awards/awards_section/Large_chapter_award.jpg',
+    'award_2025_isv.jpg': '/assets/awards/iastam.jpg',
+    'award_2025_ahmed_jallouli.jpg': '/assets/awards/awards_section/hamza_gharsellaoui.jpg',
+    'award_2025_hamza_gharsellaoui.jpg': '/assets/awards/OutstandingChapter.jpg',
+    'award_2024_large_chapter.jpg': '/assets/awards/awards_section/amir_abid.jpg',
+    'award_2024_amir_abid.jpg': '/assets/awards/awards_section/best_website.jpg',
+    'award_2024_website.jpg': '/assets/awards/awards_section/humanitarian_.jpg',
+    'award_2024_humanitarian.jpg': '/assets/awards/anmeeting1.jpg',
+    'award_2024_nontechnical.jpg': '/assets/awards/bestiast.jpg',
+    'award_2022_web_contest.jpg': '/assets/awards/Best Website.jpg',
+    'award_2022_tsyp10.jpg': '/assets/awards/tsyp3.jpg',
+    'award_2021_tsyp8.jpg': '/assets/awards/tsyp1.jpg',
+    'award_2021_tsyp8_challenge.jpg': '/assets/awards/tsyp2.jpg',
+    'award_2021_iastam.jpg': '/assets/awards/iastam2.jpg',
+    'award_2021_gmp.jpg': '/assets/awards/anmeeting2.jpg',
+    'award_2019_web.jpg': '/assets/awards/tsyp4.jpg',
+    'award_2018_web.jpg': '/assets/awards/tsyp5.jpg'
 };
 
 if (data) {
     const finalData = data.map((d, i) => {
         let photoName = d.photo.replace('images/', '');
-        let mappedPhoto = nameMap[photoName] || '/assets/awards/Best Website.webp';
+        let mappedPhoto = nameMap[photoName] || '/assets/awards/Best Website.jpg';
         return {
             id: i + 1,
             title: d.title,

@@ -14,26 +14,57 @@ function walk(dir, cb) {
   }
 }
 
-walk(root, (f) => { if (f.endsWith('.json')) jsonFiles.push(f); });
+walk(root, (f) => {
+  if (f.endsWith('.json')) jsonFiles.push(f);
+});
+
+function stripOptimizedPrefix(stem) {
+  const firstDash = stem.indexOf('-');
+  if (firstDash <= 0) return stem;
+
+  const suffix = stem.slice(firstDash + 1);
+  if (/^(?:\d+|img\d*|image\d*|photo\d*|pic\d*)$/i.test(suffix)) {
+    return suffix;
+  }
+
+  return stem;
+}
+
+function findOriginalCandidates(relPath) {
+  const relativeDir = path.dirname(relPath);
+  const stem = path.parse(relPath).name;
+  const stemVariants = [...new Set([stem, stripOptimizedPrefix(stem)])];
+  const extensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
+  const candidates = [];
+
+  for (const rootDir of searchRoots) {
+    const baseDirs = relativeDir === '.' ? [rootDir] : [path.join(rootDir, relativeDir), rootDir];
+    for (const baseDir of baseDirs) {
+      for (const stemVariant of stemVariants) {
+        for (const extension of extensions) {
+          candidates.push(path.join(baseDir, `${stemVariant}${extension}`));
+        }
+      }
+    }
+  }
+
+  return candidates;
+}
 
 function findOriginalByBasename(basename) {
-  // 1) exact basename match under src/assets preferred
+  const stem = path.parse(basename).name;
+  const stemVariants = [...new Set([stem, stripOptimizedPrefix(stem)])];
+
   for (const rootDir of searchRoots) {
-    const candidates = [];
+    let found = null;
     walk(rootDir, (file) => {
-      if (path.basename(file) === basename) candidates.push(file);
+      if (found) return;
+      const fileStem = path.parse(file).name;
+      if (stemVariants.includes(fileStem)) found = file;
     });
-    if (candidates.length > 0) return candidates[0];
+    if (found) return found;
   }
-  // 2) match by name without extension (any ext)
-  const nameNoExt = path.parse(basename).name;
-  for (const rootDir of searchRoots) {
-    const candidates = [];
-    walk(rootDir, (file) => {
-      if (path.parse(file).name === nameNoExt) candidates.push(file);
-    });
-    if (candidates.length > 0) return candidates[0];
-  }
+
   return null;
 }
 
@@ -42,31 +73,32 @@ let replaced = 0;
 
 for (const jf of jsonFiles) {
   let text = fs.readFileSync(jf, 'utf8');
-  const regex = /"(\/optimized_assets\/[^"]+?)"/gi;
+  const regex = /"(\/optimized_assets\/[^"\n]+?)"/gi;
   const matches = [...text.matchAll(regex)];
   if (matches.length === 0) continue;
   const changes = [];
+
   for (const m of matches) {
     total++;
-    const optPath = m[1]; // e.g. /optimized_assets/filename.webp or /assets/gallery/gallery-1.webp
-    const basename = path.basename(optPath);
-    const original = findOriginalByBasename(basename);
+    const optPath = m[1];
+    const rel = optPath.replace(/^\/?optimized_assets\//, '');
+    const original = findOriginalCandidates(rel).find(candidate => fs.existsSync(candidate)) || findOriginalByBasename(path.basename(optPath));
+
     if (original) {
-      // determine which assets root it belongs to, and build /assets/... path
       const which = searchRoots.find(r => original.startsWith(r));
-      let rel = path.relative(which, original).split(path.sep).join('/');
-      const newUrl = '/assets/' + rel;
-      changes.push({ from: optPath, to: newUrl });
+      const relPath = path.relative(which, original).split(path.sep).join('/');
+      changes.push({ from: optPath, to: '/assets/' + relPath });
     }
   }
+
   if (changes.length > 0) {
     for (const c of changes) {
       const fromQ = '"' + c.from + '"';
       const toQ = '"' + c.to + '"';
       text = text.split(fromQ).join(toQ);
       replaced++;
-    }
-    fs.writeFileSync(jf, text, 'utf8');
+      const basename = path.basename(optPath);
+      const original = findOriginalByBasename(basename);
     console.log(`Updated ${changes.length} entries in ${jf}`);
   }
 }

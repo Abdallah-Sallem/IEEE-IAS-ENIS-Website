@@ -6,8 +6,8 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useInView } from '../hooks/useInView';
 import teamData from '../data/team.json';
 import styles from '../styles/pages.module.css';
-import iasLogo from '../assets/iaslogo.webp';
-import quoteImg from '../assets/quotes/1.webp';
+import iasLogo from '../assets/iaslogo.png';
+import quoteImg from '../assets/quotes/1.png';
 
 const GOALS = [
   {

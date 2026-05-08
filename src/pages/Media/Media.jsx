@@ -7,7 +7,7 @@ import { useInView } from '../../hooks/useInView';
 import mediaVideos from '../../data/mediaVideos.json';
 import styles from './Media.module.css';
 import tunisiaVideo from '../../assets/retrotech/tunisia.mp4';
-import podcastImg from '../../assets/retrotech/podcast.webp';
+import podcastImg from '../../assets/retrotech/podcast.png';
 
 /* ── Eagerly import all retrotech video files ──────────── */
 const retroVideos = import.meta.glob(

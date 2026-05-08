@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Layout from './components/Layout/Layout';
 import IntroScreen from './components/IntroScreen/IntroScreen';
 import './styles/global.css';
-import LOGO from './assets/LOGO.webp';
+import LOGO from './assets/LOGO.png';
 
 /* ─── Scroll To Top Utility ─────────────────────────── */
 function ScrollToTop() {

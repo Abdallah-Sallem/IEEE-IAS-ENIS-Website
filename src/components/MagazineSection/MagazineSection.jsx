@@ -30,10 +30,18 @@ export default function MagazineSection() {
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
           >
-            <div className={styles.iconBox}>
-              <FaBookOpen />
+            <div className={styles.coverWrap}>
+              <img
+                src="/assets/magazine.png"
+                alt="IEEE IAS ENIS SBC Magazine Cover"
+                className={styles.cover}
+                loading="lazy"
+              />
             </div>
             <div className={styles.content}>
+              <div className={styles.iconBox}>
+                <FaBookOpen />
+              </div>
               <p className={styles.desc}>
                 Explore our latest magazine featuring activities, achievements, technical
                 content, and highlights from IEEE IAS ENIS SBC.

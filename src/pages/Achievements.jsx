@@ -11,21 +11,21 @@ import enifStyles from '../styles/enif.module.css';
 import '../styles/awardsModal.css'; // New styles for the modal
 
 const AWARDS_GALLERY = [
-  '/assets/awards/anmeeting1.webp',
-  '/assets/awards/anmeeting2.webp',
-  '/assets/awards/Best Website.webp',
-  '/assets/awards/bestiast.webp',
-  '/assets/awards/Humanitarian Award.webp',
-  '/assets/awards/iastam.webp',
-  '/assets/awards/iastam2.webp',
-  '/assets/awards/iastam3.webp',
-  '/assets/awards/Outstanding Member.webp',
-  '/assets/awards/OutstandingChapter.webp',
-  '/assets/awards/tsyp1.webp',
-  '/assets/awards/tsyp2.webp',
-  '/assets/awards/tsyp3.webp',
-  '/assets/awards/tsyp4.webp',
-  '/assets/awards/tsyp5.webp',
+  '/assets/awards/anmeeting1.jpg',
+  '/assets/awards/anmeeting2.jpg',
+  '/assets/awards/Best Website.jpg',
+  '/assets/awards/bestiast.jpg',
+  '/assets/awards/Humanitarian Award.jpg',
+  '/assets/awards/iastam.jpg',
+  '/assets/awards/iastam2.jpg',
+  '/assets/awards/iastam3.jpg',
+  '/assets/awards/Outstanding Member.jpg',
+  '/assets/awards/OutstandingChapter.jpg',
+  '/assets/awards/tsyp1.jpg',
+  '/assets/awards/tsyp2.jpg',
+  '/assets/awards/tsyp3.jpg',
+  '/assets/awards/tsyp4.jpg',
+  '/assets/awards/tsyp5.jpg',
 ];
 
 function Lightbox({ images, currentIndex, onClose, onNext, onPrev }) {
@@ -213,7 +213,7 @@ export default function Achievements() {
               <div className="awards-modal-body">
                 <div className="awards-modal-image">
                   <img 
-                    src={selectedAward.photo || '/assets/LOGO.webp'} 
+                    src={selectedAward.photo || '/assets/LOGO.jpg'} 
                     alt={selectedAward.title} 
                     loading="lazy" 
                   />

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { FaAngleDoubleDown } from 'react-icons/fa';
 import styles from './Hero.module.css';
 import comboLogo from '../../../public/assets/img/combo-logo.png';
-import logoBackground from '../../../public/assets/img/logobackground.webp';
+import logoBackground from '../../../public/assets/img/logobackground.png';
 
 const containerVariants = {
   hidden: {},

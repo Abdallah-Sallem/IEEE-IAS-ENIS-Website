@@ -2,7 +2,7 @@ import { useInView } from '../../hooks/useInView';
 import { motion } from 'framer-motion';
 import styles from './QuoteSection.module.css';
 
-import authorImg from '../../assets/quotes/2.webp';
+import authorImg from '../../assets/quotes/2.png';
 
 export default function QuoteSection() {
   const [ref, inView] = useInView();

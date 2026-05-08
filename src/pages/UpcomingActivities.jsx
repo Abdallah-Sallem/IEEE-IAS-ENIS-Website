@@ -6,10 +6,10 @@ import Hero from '../components/Hero/Hero';
 import JoinCTA from '../components/JoinCTA/JoinCTA';
 import styles from './UpcomingActivities.module.css';
 
-import img7 from '../assets/UpcommingEvents/7.webp';
-import imgSortie from '../assets/UpcommingEvents/sortie industrielle.webp';
-import imgIas from '../assets/IAS presentation .webp';
-import imgIasLogoBg from '../assets/UpcommingEvents/iaslogobg.webp';
+import img7 from '../assets/UpcommingEvents/7.jpg';
+import imgSortie from '../assets/UpcommingEvents/sortie industrielle.jpg';
+import imgIas from '../assets/IAS presentation .png';
+import imgIasLogoBg from '../assets/UpcommingEvents/iaslogobg.jpg';
 
 const events = [
   {
