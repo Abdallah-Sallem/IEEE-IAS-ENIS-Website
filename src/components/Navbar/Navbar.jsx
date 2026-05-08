@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import navLinks from '../../data/navLinks.json';
 import styles from './Navbar.module.css';
-import navLogo from '../../../public/assets/img/nav-logo.png';
+const navLogo = '/assets/img/nav-logo.png';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

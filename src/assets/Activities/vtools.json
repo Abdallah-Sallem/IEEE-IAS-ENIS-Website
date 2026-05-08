@@ -100,28 +100,49 @@
       "name": "ENIF 5.0 Workshop - Introduction to Docker",
       "vtools_link": "https://events.vtools.ieee.org/m/449225",
       "category": "ENIF",
-      "photo": "assil bouaziz1.jpg"
+      "photo": "assil bouaziz1.png"
     },
     {
       "name": "ENIF 5.0 Workshop - Introduction to Blockchain",
       "vtools_link": "https://events.vtools.ieee.org/m/449219",
       "category": "ENIF",
 
-      "photo": "houcem dammak.jpg"
+      "photo": "houcem dammak.png"
     },
     {
       "name": "ENIF 5.0 Workshop -Demand Forecasting for a Smart Industry",
       "vtools_link": "https://events.vtools.ieee.org/m/449216",
       "category": "ENIF",
 
-      "photo": "imen masmoudi.jpg"
+      "photo": "imen masmoudi.png"
+    },
+    {
+      "name": "ENIF 6.0 Workshop -IoT",
+      "vtools_link": "https://events.vtools.ieee.org/m/553109",
+      "category": "ENIF",
+
+      "photo": "slim.jpg"
+    },
+    {
+      "name": "ENIF 6.0 Workshop -Smart Irrigation Powered by Intelligent Energy Management",
+      "vtools_link": "https://events.vtools.ieee.org/m/559042",
+      "category": "ENIF",
+
+      "photo": "souhir.jpg"
+    },
+    {
+      "name": "ENIF 6.0 Workshop -From Writing to publishing : A guide to IEEE Research",
+      "vtools_link": "https://events.vtools.ieee.org/m/553109",
+      "category": "ENIF",
+
+      "photo": "jalyn.jpg"
     },
     {
       "name": "ERP training session",
       "vtools_link": "https://events.vtools.ieee.org/m/310553",
       "category": "ERP  ",
       "photos": [
-        "1.jpg"
+        "1.png"
       ]
     },
     {
@@ -161,34 +182,46 @@
       "photo": "post4.jpg"
     },
     {
+      "name": "Explore the pitch deck",
+      "vtools_link": "https://events.vtools.ieee.org/m/557266",
+      "category": "Professional Development",
+      "photo": "fahmi.jpg"
+    },
+    {
+      "name": "Business Model Canvas",
+      "vtools_link": "https://events.vtools.ieee.org/m/557255",
+      "category": "Professional Development",
+      "photo": "ousletti.jpg"
+    },
+    {
       "name": "ENIF 3.0",
       "vtools_link": "https://events.vtools.ieee.org/m/325175",
       "category": "ENIF",
-      "photo": "enif 3.0.jpg"
+      "photo": "enif 3.0.png"
     },
     {
       "name": "ENIF 4.0",
       "vtools_link": "https://events.vtools.ieee.org/m/377196",
       "category": "ENIF",
-      "photo": "enif_4.0.jpg"
+      "photo": "enif_4.0.png"
     },
     {
       "name": "ENIF 5.0",
       "vtools_link": "https://events.vtools.ieee.org/m/449923",
       "category": "ENIF",
-      "photo": "enif_5.0.jpg"
+      "photo": "enif_5.0.png"
     },
     {
       "name": "ENIF 6.0",
       "vtools_link": "https://events.vtools.ieee.org/m/553109",
       "category": "ENIF",
-      "photo": "logo enif final-01.jpg"
+      "photo": "logo enif final-01.png"
     },
     {
       "name": "Power Africa Conference",
       "vtools_link": "https://events.vtools.ieee.org/m/438914",
       "category": "Power Africa Conference",
-      "photo": "logo PAC.jpg"
+      "photo": "logo PAC.png"
     },
     {
       "name": "IASTAM 3.0",
@@ -207,18 +240,18 @@
     {
       "name": "Walid Labidi",
       "vtools_link": "https://events.vtools.ieee.org/m/449923",
-      "photo": "walid labidi.jpg"
+      "photo": "walid labidi.png"
     },
     {
       "name": "Achraf Selmi",
       "vtools_link": "https://events.vtools.ieee.org/m/449923",
-      "photo": "achref selmi1.jpg"
+      "photo": "achref selmi1.png"
     },
     {
       "name": "Hela Aidi",
       "vtools_link": "https://events.vtools.ieee.org/m/449923",
       
-      "photo": "hela aidi.jpg"
+      "photo": "hela aidi.png"
     },
     {
       "name": "Hela Aidi",
@@ -229,6 +262,21 @@
       "name": "Taha Mtira ",
       "vtools_link": "https://events.vtools.ieee.org/m/377196",
       "photo": "taha.jpg"
+    },
+    {
+      "name": "Souad Rouis ",
+      "vtools_link": "https://events.vtools.ieee.org/m/553109",
+      "photo": "souad.jpg"
+    },
+    {
+      "name": "Ghassen Medhioub ",
+      "vtools_link": "https://events.vtools.ieee.org/m/553109",
+      "photo": "ghassen.jpg"
+    },
+    {
+      "name": "Abdelmoemen Hachicha ",
+      "vtools_link": "https://events.vtools.ieee.org/m/553109",
+      "photo": "hachicha.jpg"
     }
 
   ],

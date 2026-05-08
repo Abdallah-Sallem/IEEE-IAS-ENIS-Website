@@ -169,3 +169,17 @@
     padding-bottom: 6rem;
   }
 }
+
+@media (max-width: 480px) {
+  .controls {
+    gap: var(--spacing-sm);
+  }
+  .arrowBtn {
+    width: 36px;
+    height: 36px;
+  }
+  .dots {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

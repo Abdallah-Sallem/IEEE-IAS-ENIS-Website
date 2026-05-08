@@ -183,8 +183,6 @@
   .ps-btn {
     width: 36px;
     height: 36px;
-    top: auto;
-    bottom: 0.5rem;
   }
 
   .ps-btn svg {
@@ -192,18 +190,8 @@
     height: 18px;
   }
 
-  .ps-btn-prev {
-    left: calc(50% - 50px);
-    transform: none;
-  }
-
-  .ps-btn-next {
-    right: calc(50% - 50px);
-    transform: none;
-  }
-
   .ps-btn:hover {
-    transform: scale(1.05);
+    transform: translateY(-50%) scale(1.05);
   }
 
   .ps-swiper .swiper-pagination-bullet {

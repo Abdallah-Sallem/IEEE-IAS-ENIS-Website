@@ -79,7 +79,7 @@ const ACTIVITY_TYPES = [
     id: 6,
     icon: <FaMedal />,
     title: 'ENIF — Flagship Event',
-    desc: 'The Engineering and Industry Forum (ENIF) is our premier annual event, bringing together hundreds of students and professionals for a full day of talks, workshops, and an industrial careers fair. A highlight of the academic calendar.',
+    desc: 'The ENIS Industrial Forum (ENIF) is our premier annual event, bringing together hundreds of students and professionals for a full day of talks, workshops, and an industrial careers fair. A highlight of the academic calendar.',
     highlights: [
       'Annual flagship engineering forum',
       'Multiple simultaneous workshop tracks',
