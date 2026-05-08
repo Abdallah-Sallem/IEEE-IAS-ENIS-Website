@@ -48,7 +48,7 @@ for (const jf of jsonFiles) {
   const changes = [];
   for (const m of matches) {
     total++;
-    const optPath = m[1]; // e.g. /optimized_assets/filename.webp or /optimized_assets/gallery/gallery-1.webp
+    const optPath = m[1]; // e.g. /optimized_assets/filename.webp or /assets/gallery/gallery-1.webp
     const basename = path.basename(optPath);
     const original = findOriginalByBasename(basename);
     if (original) {
