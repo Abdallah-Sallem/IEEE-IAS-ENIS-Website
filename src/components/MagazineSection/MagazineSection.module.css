@@ -11,7 +11,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5); /* Overlay to ensure the white card pops */
+  background: rgba(0, 0, 0, 0.5);
 }
 
 /* Ensure the card sits above the overlay */
@@ -22,27 +22,13 @@
 
 .card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  text-align: left;
-  gap: var(--spacing-2xl);
+  justify-content: center;
+  text-align: center;
+  gap: var(--spacing-xl);
   padding: var(--spacing-2xl) 0;
   transition: all var(--transition-base);
-}
-
-.coverWrap {
-  flex-shrink: 0;
-  width: 220px;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-  border: 3px solid rgba(255, 255, 255, 0.2);
-}
-
-.cover {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 .iconBox {
@@ -108,18 +94,6 @@
 
 @media (max-width: 768px) {
   .card {
-    flex-direction: column;
-    text-align: center;
     padding: var(--spacing-xl) 0;
-  }
-
-  .coverWrap {
-    width: 180px;
-  }
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 }
