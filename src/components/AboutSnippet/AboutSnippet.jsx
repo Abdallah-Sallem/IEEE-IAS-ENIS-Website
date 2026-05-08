@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from '../../hooks/useInView';
 import styles from './AboutSnippet.module.css';
 
-const IAS_LOGO = '/assets/iaslogo.png';
+const IAS_LOGO = '/assets/iaslogo.jpg';
 
 const fadeLeft = {
   hidden: { opacity: 0, x: -50 },
