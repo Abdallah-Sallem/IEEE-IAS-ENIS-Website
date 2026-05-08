@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import path from 'path';
 
-const root = process.cwd();
+const root = globalThis.process.cwd();
 const sources = [path.join(root, 'src', 'assets'), path.join(root, 'public', 'assets')];
 const optimizedRoot = path.join(root, 'optimized_assets');
 

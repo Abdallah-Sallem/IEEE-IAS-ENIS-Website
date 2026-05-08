@@ -2,15 +2,13 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTrophy, FaStar, FaMedal, FaFileAlt, FaHeart, FaBolt, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, Navigation, EffectCoverflow } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import 'swiper/css/effect-coverflow';
 import JoinCTA from '../components/JoinCTA/JoinCTA';
 import Hero from '../components/Hero/Hero';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
-import { useInView } from '../hooks/useInView';
 import achievementsData from '../data/achievements.json';
 import styles from '../styles/pages.module.css';
 import enifStyles from '../styles/enif.module.css';
@@ -135,24 +133,23 @@ export default function Achievements() {
         </div>
         <div style={{ width: '100%', overflow: 'hidden' }}>
           <Swiper
-            modules={[Pagination, Autoplay, Navigation, EffectCoverflow]}
-            effect="coverflow"
-            coverflowEffect={{
-              rotate: 0,
-              stretch: 0,
-              depth: 100,
-              modifier: 2,
-              slideShadows: false,
-            }}
-            spaceBetween={0}
-            slidesPerView="auto"
-            centeredSlides={true}
+            modules={[Pagination, Autoplay, Navigation]}
             pagination={{ clickable: true }}
             navigation={true}
-            loop={true}
+            autoplay={{ delay: 3500, disableOnInteraction: false }}
+            spaceBetween={16}
+            slidesPerView={1.2}
+            centeredSlides={true}
+            loop={AWARDS_GALLERY.length > 3}
             watchOverflow={true}
             grabCursor={true}
-            autoplay={{ delay: 3500, disableOnInteraction: false }}
+            breakpoints={{
+              480: { slidesPerView: 1.4, spaceBetween: 18 },
+              640: { slidesPerView: 1.8, spaceBetween: 20 },
+              768: { slidesPerView: 2.2, spaceBetween: 22 },
+              1024: { slidesPerView: 2.8, spaceBetween: 24 },
+              1280: { slidesPerView: 3.2, spaceBetween: 28 },
+            }}
             className={`premium-swiper ${enifStyles.gallerySwiper}`}
           >
             {AWARDS_GALLERY.map((imgSrc, idx) => (

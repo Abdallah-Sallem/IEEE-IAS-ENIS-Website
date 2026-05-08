@@ -194,30 +194,34 @@ function EditionSection({ edition, index }) {
         <div style={{ width: '100%', overflow: 'hidden' }}>
           <Swiper
             modules={[Pagination, Autoplay, Navigation]}
-            spaceBetween={20}
-            slidesPerView="auto"
-            centeredSlides={true}
             pagination={{ clickable: true }}
             navigation={true}
-            loop={true}
-            loopAdditionalSlides={5}
-            watchSlidesProgress={true}
             autoplay={{ delay: 3500, disableOnInteraction: false }}
-            className={styles.gallerySwiper}
+            spaceBetween={16}
+            slidesPerView={1.2}
+            centeredSlides={true}
+            loop={edition.gallery.length > 3}
+            watchOverflow={true}
+            grabCursor={true}
+            breakpoints={{
+              480: { slidesPerView: 1.4, spaceBetween: 18 },
+              640: { slidesPerView: 1.8, spaceBetween: 20 },
+              768: { slidesPerView: 2.2, spaceBetween: 22 },
+              1024: { slidesPerView: 2.8, spaceBetween: 24 },
+              1280: { slidesPerView: 3.2, spaceBetween: 28 },
+            }}
+            className={`premium-swiper ${styles.gallerySwiper}`}
           >
-            {[...edition.gallery, ...edition.gallery, ...edition.gallery].map((imgSrc, idx) => {
-              const originalIdx = idx % edition.gallery.length;
-              return (
-                <SwiperSlide key={idx} className={styles.gallerySlide}>
-                  <img 
-                    src={imgSrc} 
-                    alt={`Gallery ${originalIdx}`} 
-                    loading="lazy" 
-                    onClick={() => openLightbox(originalIdx)} 
-                  />
-                </SwiperSlide>
-              );
-            })}
+            {edition.gallery.map((imgSrc, idx) => (
+              <SwiperSlide key={idx} className={styles.gallerySlide}>
+                <img 
+                  src={imgSrc} 
+                  alt={`Gallery ${idx}`} 
+                  loading="lazy" 
+                  onClick={() => openLightbox(idx)} 
+                />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </div>

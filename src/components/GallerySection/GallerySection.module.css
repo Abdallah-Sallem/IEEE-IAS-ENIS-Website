@@ -93,55 +93,33 @@
   }
 }
 
-.swiperContainer {
-  margin-top: var(--spacing-3xl);
-  padding-bottom: 60px; /* space for pagination */
-}
-
-/* Base slide is smaller and slightly faded */
-.swiperSlideCustom {
-  width: 400px;
-}
-
-/* Active slide becomes full size and gets green border */
-:global(.swiper-slide-active).swiperSlideCustom {
-  z-index: 2;
-}
-
-:global(.swiper-slide-active) .item {
-  border: 6px solid var(--color-primary);
-}
-
-/* Non-active slides shouldn't have border */
-.item {
-  border: 6px solid transparent; /* Keep box-sizing stable */
+/* ---- Swiper slide items (homepage carousel mode) ---- */
+.slideItem {
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius-md);
+  border-radius: 14px;
   aspect-ratio: 4/3;
   cursor: pointer;
   background: var(--color-bg-card);
-  transition: transform 0.4s ease, border 0.4s ease;
 }
 
-/* Pagination Dots */
-.swiperContainer :global(.swiper-pagination) {
-  bottom: 0 !important;
+.slideItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
-.swiperContainer :global(.swiper-pagination-bullet) {
-  background-color: #d1d1d1;
+.slideItem:hover img {
+  transform: scale(1.06);
+}
+
+.slideItem:hover .overlay {
   opacity: 1;
-  width: 14px;
-  height: 14px;
-  margin: 0 6px !important;
-  transition: background-color 0.3s;
 }
 
-.swiperContainer :global(.swiper-pagination-bullet-active) {
-  background-color: var(--color-primary);
-}
-
-@media (max-width: 768px) {
-  .swiperSlideCustom { width: 280px; }
+.slideItem:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }

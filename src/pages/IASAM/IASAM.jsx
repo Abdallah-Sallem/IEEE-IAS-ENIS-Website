@@ -2,11 +2,10 @@ import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGlobeAmericas, FaTrophy, FaUsers, FaLightbulb, FaTimes, FaChevronLeft, FaChevronRight, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, Navigation, EffectCoverflow } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import 'swiper/css/effect-coverflow';
 import Hero from '../../components/Hero/Hero';
 import JoinCTA from '../../components/JoinCTA/JoinCTA';
 import { useDocumentTitle } from '../../hooks/useDocumentTitle';
@@ -81,24 +80,23 @@ function EditionCard({ edition, index, onOpenLightbox }) {
         {edition.images && edition.images.length > 0 && (
           <div style={{ width: '100%', overflow: 'hidden' }}>
             <Swiper
-              modules={[Pagination, Autoplay, Navigation, EffectCoverflow]}
-              effect="coverflow"
-              coverflowEffect={{
-                rotate: 0,
-                stretch: 0,
-                depth: 100,
-                modifier: 2,
-                slideShadows: false,
-              }}
-              spaceBetween={0}
-              slidesPerView="auto"
-              centeredSlides={true}
+              modules={[Pagination, Autoplay, Navigation]}
               pagination={{ clickable: true }}
               navigation={true}
-              loop={edition.images.length > 1}
+              autoplay={{ delay: 3500, disableOnInteraction: false }}
+              spaceBetween={16}
+              slidesPerView={1.2}
+              centeredSlides={true}
+              loop={edition.images.length > 3}
               watchOverflow={true}
               grabCursor={true}
-              autoplay={{ delay: 3500, disableOnInteraction: false }}
+              breakpoints={{
+                480: { slidesPerView: 1.4, spaceBetween: 18 },
+                640: { slidesPerView: 1.8, spaceBetween: 20 },
+                768: { slidesPerView: 2.2, spaceBetween: 22 },
+                1024: { slidesPerView: 2.8, spaceBetween: 24 },
+                1280: { slidesPerView: 3.2, spaceBetween: 28 },
+              }}
               className={`premium-swiper ${enifStyles.gallerySwiper}`}
             >
               {edition.images.map((img, idx) => {

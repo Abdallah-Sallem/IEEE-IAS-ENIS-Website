@@ -4,11 +4,10 @@ import 'yet-another-react-lightbox/styles.css';
 import { motion } from 'framer-motion';
 import { FaExpand } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, Navigation, EffectCoverflow } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import 'swiper/css/effect-coverflow';
 import galleryData from '../../data/gallery.json';
 import { useInView } from '../../hooks/useInView';
 import styles from './GallerySection.module.css';
@@ -65,33 +64,31 @@ export default function GallerySection({ showAll = false }) {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6 }}
-            className={styles.swiperContainer}
           >
             <Swiper
-              modules={[Pagination, Autoplay, Navigation, EffectCoverflow]}
-              effect="coverflow"
-              coverflowEffect={{
-                rotate: 0,
-                stretch: 0,
-                depth: 100,
-                modifier: 2,
-                slideShadows: false,
-              }}
+              modules={[Pagination, Autoplay, Navigation]}
               pagination={{ clickable: true }}
               navigation={true}
               autoplay={{ delay: 3000, disableOnInteraction: false }}
-              spaceBetween={0}
-              slidesPerView="auto"
+              spaceBetween={16}
+              slidesPerView={1.2}
               centeredSlides={true}
-              loop={true}
+              loop={images.length > 3}
               watchOverflow={true}
               grabCursor={true}
-              className={`premium-swiper ${styles.swiperContainer}`}
+              breakpoints={{
+                480: { slidesPerView: 1.4, spaceBetween: 18 },
+                640: { slidesPerView: 1.8, spaceBetween: 20 },
+                768: { slidesPerView: 2.2, spaceBetween: 22 },
+                1024: { slidesPerView: 2.8, spaceBetween: 24 },
+                1280: { slidesPerView: 3.2, spaceBetween: 28 },
+              }}
+              className="premium-swiper"
             >
               {images.map((img, i) => (
-                <SwiperSlide key={img.id} className={styles.swiperSlideCustom}>
+                <SwiperSlide key={img.id}>
                   <div
-                    className={styles.item}
+                    className={styles.slideItem}
                     onClick={() => handleOpen(i)}
                     onKeyDown={(e) => e.key === 'Enter' && handleOpen(i)}
                     tabIndex={0}
@@ -106,8 +103,6 @@ export default function GallerySection({ showAll = false }) {
                 </SwiperSlide>
               ))}
             </Swiper>
-
-
           </motion.div>
         )}
       </div>
