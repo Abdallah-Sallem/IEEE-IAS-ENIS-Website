@@ -6,6 +6,8 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useInView } from '../hooks/useInView';
 import teamData from '../data/team.json';
 import styles from '../styles/pages.module.css';
+import iasLogo from '../assets/iaslogo.webp';
+import quoteImg from '../assets/quotes/1.webp';
 
 const GOALS = [
   {
@@ -81,7 +83,7 @@ export default function About() {
               marginTop: '50px',
             }}>
               <img
-                src="https://ias-enis.ieee.tn/assets/img/iaslogo.png"
+                src={iasLogo}
                 alt="IEEE ENIS IAS Chapter Logo"
                 style={{ width: '100%', maxWidth: '400px', height: 'auto', objectFit: 'contain' }}
               />
@@ -119,7 +121,7 @@ export default function About() {
         <div className="container">
           <div className={styles.quoteContent}>
             <img
-              src="/src/assets/quotes/1.png"
+              src={quoteImg}
               alt="Alexander De Croo"
 
               className={styles.quotePhoto}

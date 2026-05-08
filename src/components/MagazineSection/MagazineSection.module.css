@@ -1,6 +1,6 @@
 .section { 
   padding: var(--spacing-4xl) 0; 
-  background-image: url('../../assets/magazine.png');
+  background-image: url('../../assets/magazine.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

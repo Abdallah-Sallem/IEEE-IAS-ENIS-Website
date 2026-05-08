@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { FaAngleDoubleDown } from 'react-icons/fa';
 import styles from './Hero.module.css';
+import comboLogo from '../../../public/assets/img/combo-logo.png';
+import logoBackground from '../../../public/assets/img/logobackground.webp';
 
 const containerVariants = {
   hidden: {},
@@ -13,6 +15,18 @@ const itemVariants = {
 };
 
 export default function Hero({ title = "About us", isHome = true }) {
+  const handleScrollDown = (e) => {
+    e.preventDefault();
+    const heroSection = e.currentTarget.closest('section');
+    if (heroSection && heroSection.nextElementSibling) {
+      const yOffset = -80; // Account for fixed navbar
+      const element = heroSection.nextElementSibling;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: window.innerHeight - 80, behavior: 'smooth' });
+    }
+  };
   return (
     <section className={styles.hero} aria-label="Hero section">
       {/* Main Content */}
@@ -32,9 +46,9 @@ export default function Hero({ title = "About us", isHome = true }) {
               IAS IEEE ENIS SBC IS YOUR KEY
             </motion.h1>
             <motion.div variants={itemVariants} style={{ marginBottom: '3rem' }}>
-              <a href="#about" className={styles.scrollDownBtn}>
+              <button onClick={handleScrollDown} className={styles.scrollDownBtn} aria-label="Scroll down">
                 <FaAngleDoubleDown />
-              </a>
+              </button>
             </motion.div>
           </>
         ) : (
@@ -43,9 +57,9 @@ export default function Hero({ title = "About us", isHome = true }) {
               {title}
             </motion.h1>
             <motion.div variants={itemVariants} style={{ margin: '2rem 0' }}>
-              <a href="#content" className={styles.scrollDownBtn}>
+              <button onClick={handleScrollDown} className={styles.scrollDownBtn} aria-label="Scroll down">
                 <FaAngleDoubleDown />
-              </a>
+              </button>
             </motion.div>
           </>
         )}
@@ -53,7 +67,7 @@ export default function Hero({ title = "About us", isHome = true }) {
         <motion.div variants={itemVariants} style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'center' }}>
           {isHome ? (
             <img 
-              src="/assets/img/combo-logo.png" 
+              src={comboLogo} 
               alt="IEEE ENIS IAS Logos" 
               style={{ maxWidth: '80%', height: 'auto' }} 
               onError={(e) => {
@@ -64,7 +78,7 @@ export default function Hero({ title = "About us", isHome = true }) {
             />
           ) : (
             <img 
-              src="/assets/img/logobackground.png" 
+              src={logoBackground} 
               alt="IAS Logo Background" 
               style={{ maxWidth: '40%', height: 'auto' }} 
             />
@@ -75,7 +89,7 @@ export default function Hero({ title = "About us", isHome = true }) {
               <span>|</span>
               <span>ENIS</span>
               <span>|</span>
-              <img src="/assets/img/logobackground.png" alt="IAS" style={{ height: '40px' }} />
+              <img src={logoBackground} alt="IAS" style={{ height: '40px' }} />
             </div>
           )}
         </motion.div>

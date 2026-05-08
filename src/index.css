@@ -1,4 +1,5 @@
 /* src/index.css — minimal reset; all design tokens live in src/styles/global.css */
+@import './styles/premium-swiper.css';
 
 *,
 *::before,

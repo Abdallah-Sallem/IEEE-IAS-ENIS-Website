@@ -4,9 +4,11 @@ import 'yet-another-react-lightbox/styles.css';
 import { motion } from 'framer-motion';
 import { FaExpand } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation, EffectCoverflow } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-coverflow';
 import galleryData from '../../data/gallery.json';
 import { useInView } from '../../hooks/useInView';
 import styles from './GallerySection.module.css';
@@ -66,14 +68,25 @@ export default function GallerySection({ showAll = false }) {
             className={styles.swiperContainer}
           >
             <Swiper
-              modules={[Pagination, Autoplay]}
+              modules={[Pagination, Autoplay, Navigation, EffectCoverflow]}
+              effect="coverflow"
+              coverflowEffect={{
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 2,
+                slideShadows: false,
+              }}
               pagination={{ clickable: true }}
+              navigation={true}
               autoplay={{ delay: 3000, disableOnInteraction: false }}
-              spaceBetween={20}
+              spaceBetween={0}
               slidesPerView="auto"
               centeredSlides={true}
               loop={true}
-              className={styles.swiperContainer}
+              watchOverflow={true}
+              grabCursor={true}
+              className={`premium-swiper ${styles.swiperContainer}`}
             >
               {images.map((img, i) => (
                 <SwiperSlide key={img.id} className={styles.swiperSlideCustom}>

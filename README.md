@@ -4,7 +4,7 @@ A modern React 18 + Vite web application for the IEEE Industry Applications Soci
 
 > **"Open the gate to industry evolution"**
 
-![IEEE IAS ENIS SBC](https://ias-enis.ieee.tn/assets/img/LOGO.png)
+![IEEE IAS ENIS SBC](https://ias-enis.ieee.tn/assets/LOGO.png)
 
 ---
 

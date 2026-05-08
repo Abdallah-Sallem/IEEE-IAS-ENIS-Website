@@ -2,6 +2,8 @@ import { useInView } from '../../hooks/useInView';
 import { motion } from 'framer-motion';
 import styles from './QuoteSection.module.css';
 
+import authorImg from '../../assets/quotes/2.webp';
+
 export default function QuoteSection() {
   const [ref, inView] = useInView();
 
@@ -15,7 +17,7 @@ export default function QuoteSection() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           <img
-            src="/assets/img/quotes/2.png"
+            src={authorImg}
             alt="Stephen Gardiner"
             className={styles.authorImage}
             loading="lazy"

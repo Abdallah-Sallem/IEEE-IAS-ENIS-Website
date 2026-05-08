@@ -101,15 +101,10 @@
 /* Base slide is smaller and slightly faded */
 .swiperSlideCustom {
   width: 400px;
-  transition: all 0.4s ease-in-out;
-  transform: scale(0.85);
-  opacity: 0.6;
 }
 
 /* Active slide becomes full size and gets green border */
 :global(.swiper-slide-active).swiperSlideCustom {
-  transform: scale(1);
-  opacity: 1;
   z-index: 2;
 }
 

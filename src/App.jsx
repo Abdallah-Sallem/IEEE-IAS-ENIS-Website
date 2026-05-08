@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Layout from './components/Layout/Layout';
 import IntroScreen from './components/IntroScreen/IntroScreen';
 import './styles/global.css';
+import LOGO from './assets/LOGO.webp';
 
 /* ─── Scroll To Top Utility ─────────────────────────── */
 function ScrollToTop() {
@@ -50,7 +51,7 @@ function PageTransitionLoader() {
           }}
         >
           <motion.img
-            src="/src/assets/LOGO.png"
+            src={LOGO}
             alt="Loading..."
             animate={{ scale: [0.9, 1.1, 0.9], opacity: [0.7, 1, 0.7] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}

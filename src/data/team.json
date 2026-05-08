@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Mohamed Achraf Ben Saad",
     "role": "Chairman",
-    "photo": "/src/assets/team/acharf.png",
+    "photo": "/assets/team/acharf.webp",
     "social": {
       "facebook": "https://www.facebook.com/med.achraf.bensaad",
       "instagram": "https://www.instagram.com/medachraf_bensaad/",
@@ -14,7 +14,7 @@
     "id": 2,
     "name": "Mohamed Ketata",
     "role": "Vice-Chairman",
-    "photo": "/src/assets/team/ketata.png",
+    "photo": "/assets/team/ketata.webp",
     "social": {
       "facebook": "https://www.facebook.com/mohamed.ketata.14",
       "instagram": "https://www.instagram.com/mohamed_ketata1/",
@@ -25,7 +25,7 @@
     "id": 3,
     "name": "Oussema Ben Elhadj",
     "role": "Treasurer",
-    "photo": "/src/assets/team/oussema.png",
+    "photo": "/assets/team/oussema.webp",
     "social": {
       "facebook": "https://www.facebook.com/oussema.benelhadj",
       "instagram": "https://www.instagram.com/oussema.benelhadj/",
@@ -36,7 +36,7 @@
     "id": 4,
     "name": "Mariem Megdiche",
     "role": "Secretary",
-    "photo": "/src/assets/team/mariem.png",
+    "photo": "/assets/team/mariem.png",
     "social": {
       "facebook": "https://www.facebook.com/maryouma.megdiche",
       "instagram": "https://www.instagram.com/mariemmegdiche7/",
@@ -47,7 +47,7 @@
     "id": 5,
     "name": "Ahmed Makni",
     "role": "Web Master",
-    "photo": "/src/assets/team/makni.png",
+    "photo": "/assets/team/makni.webp",
     "social": {
       "facebook": "https://www.facebook.com/ahmed.makni.334",
       "instagram": "https://www.instagram.com/ahmad_maknii/",

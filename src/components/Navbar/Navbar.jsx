@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import navLinks from '../../data/navLinks.json';
 import styles from './Navbar.module.css';
+import navLogo from '../../../public/assets/img/nav-logo.png';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,7 +38,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className={styles.navbarLogo} aria-label="IEEE IAS ENIS SBC Home">
             <img
-              src="/assets/img/nav-logo.png"
+              src={navLogo}
               alt="IEEE ENIS IAS Chapter"
               style={{ height: '50px', width: 'auto' }}
             />

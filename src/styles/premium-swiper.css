@@ -1,0 +1,83 @@
+/* premium-swiper.css */
+.premium-swiper {
+  padding-bottom: 50px !important;
+  padding-top: 20px !important;
+}
+
+.premium-swiper .swiper-slide {
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* transition handled by swiper effect */
+}
+
+.premium-swiper .swiper-slide-active {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.premium-swiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Premium Navigation Buttons */
+.premium-swiper .swiper-button-next,
+.premium-swiper .swiper-button-prev {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #0c7443;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.premium-swiper .swiper-button-next::after,
+.premium-swiper .swiper-button-prev::after {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.premium-swiper .swiper-button-next:hover,
+.premium-swiper .swiper-button-prev:hover {
+  background-color: #0c7443;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Responsive Button Positioning */
+@media (max-width: 768px) {
+  .premium-swiper .swiper-button-next,
+  .premium-swiper .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    display: none; /* Hide on mobile if too intrusive, or keep them smaller */
+  }
+  .premium-swiper .swiper-button-next::after,
+  .premium-swiper .swiper-button-prev::after {
+    font-size: 1rem;
+  }
+}
+
+/* Premium Pagination */
+.premium-swiper .swiper-pagination-bullet {
+  background-color: #ccc;
+  width: 10px;
+  height: 10px;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.premium-swiper .swiper-pagination-bullet-active {
+  background-color: #0c7443;
+  opacity: 1;
+  width: 25px;
+  border-radius: 5px;
+}

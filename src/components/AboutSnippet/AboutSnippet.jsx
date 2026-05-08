@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from '../../hooks/useInView';
 import styles from './AboutSnippet.module.css';
 
-const IAS_LOGO = 'https://ias-enis.ieee.tn/assets/img/iaslogo.png';
+const IAS_LOGO = '/assets/iaslogo.webp';
 
 const fadeLeft = {
   hidden: { opacity: 0, x: -50 },
@@ -34,7 +34,7 @@ export default function AboutSnippet() {
               About Us
             </h2>
             <p className={styles.body}>
-              The IEEE industrial application society was founded in 2010,
+              The IEEE Industrial Application Society of The National Engineering School of Sfax (ENIS) was founded in 2010,
               it is interested in advancement of theory of Electronic and electrical
               engineering in development, manufacturing smart systems it builds linkage
               between students and industries from training sessions and events.
@@ -42,7 +42,7 @@ export default function AboutSnippet() {
 
             <div className={styles.stats}>
               <div className={styles.stat}>
-                <span className={styles.statNum}>15+</span>
+                <span className={styles.statNum}>16+</span>
                 <span className={styles.statLabel}>Years Active</span>
               </div>
               <div className={styles.stat}>

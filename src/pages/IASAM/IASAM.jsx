@@ -2,9 +2,11 @@ import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGlobeAmericas, FaTrophy, FaUsers, FaLightbulb, FaTimes, FaChevronLeft, FaChevronRight, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation, EffectCoverflow } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-coverflow';
 import Hero from '../../components/Hero/Hero';
 import JoinCTA from '../../components/JoinCTA/JoinCTA';
 import { useDocumentTitle } from '../../hooks/useDocumentTitle';
@@ -51,9 +53,9 @@ function PhotoLightbox({ images, currentIndex, onClose, onNext, onPrev }) {
   );
 }
 
-function EditionCard({ edition, index, inView, onOpenLightbox }) {
+function EditionCard({ edition, index, onOpenLightbox }) {
   return (
-    <motion.article className={styles.editionCard} custom={index} variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
+    <motion.article className={styles.editionCard} custom={index % 3} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
       <div className={styles.timelineDot} />
       
       {/* The Box */}
@@ -79,14 +81,25 @@ function EditionCard({ edition, index, inView, onOpenLightbox }) {
         {edition.images && edition.images.length > 0 && (
           <div style={{ width: '100%', overflow: 'hidden' }}>
             <Swiper
-              modules={[Pagination, Autoplay]}
-              spaceBetween={20}
+              modules={[Pagination, Autoplay, Navigation, EffectCoverflow]}
+              effect="coverflow"
+              coverflowEffect={{
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 2,
+                slideShadows: false,
+              }}
+              spaceBetween={0}
               slidesPerView="auto"
               centeredSlides={true}
               pagination={{ clickable: true }}
+              navigation={true}
               loop={edition.images.length > 1}
+              watchOverflow={true}
+              grabCursor={true}
               autoplay={{ delay: 3500, disableOnInteraction: false }}
-              className={enifStyles.gallerySwiper}
+              className={`premium-swiper ${enifStyles.gallerySwiper}`}
             >
               {edition.images.map((img, idx) => {
                 const src = resolveImage(img);
@@ -108,7 +121,6 @@ function EditionCard({ edition, index, inView, onOpenLightbox }) {
 export default function IASAM() {
   useDocumentTitle('IASAM', 'Discover IEEE IAS ENIS SBC participation in IAS Annual Meetings — awards, networking, and international representation.');
   const [refH, inViewH] = useInView();
-  const [refT, inViewT] = useInView();
   const [lbImages, setLbImages] = useState(null);
   const [lbIndex, setLbIndex] = useState(0);
   const openLb = useCallback((imgs, i = 0) => { setLbImages(imgs); setLbIndex(i); }, []);
@@ -136,7 +148,7 @@ export default function IASAM() {
           </div>
         </div>
       </section>
-      <section className={styles.sectionAlt} id="iasam-timeline" ref={refT}>
+      <section className={styles.sectionAlt} id="iasam-timeline">
         <div className="container">
           <div className="section-title">
             <h2>Our Journey Through the Years</h2>
@@ -144,7 +156,7 @@ export default function IASAM() {
           </div>
           <div className={styles.timeline}>
             {[...iasamData].reverse().map((ed, i) => (
-              <EditionCard key={ed.id} edition={ed} index={i} inView={inViewT} onOpenLightbox={openLb} />
+              <EditionCard key={ed.id} edition={ed} index={i} onOpenLightbox={openLb} />
             ))}
           </div>
         </div>
