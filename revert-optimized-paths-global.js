@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import path from 'path';
 
-const root = process.cwd();
+const root = globalThis.process.cwd();
 const searchRoots = [path.join(root, 'src', 'assets'), path.join(root, 'public', 'assets')];
 const exts = ['.json', '.js', '.jsx', '.ts', '.tsx', '.html', '.css', '.md'];
 
@@ -47,7 +47,7 @@ walk(root, (file) => {
   let changed = false;
 
   // Match /optimized_assets/...ext or optimized_assets/...ext (with or without leading slash)
-  const regex = /(\/?optimized_assets\/(?:[^"'\)\s]+?\.(?:jpg|jpeg|png|webp|gif)))/gi;
+  const regex = /(\/?optimized_assets\/(?:[^"'\s]+?\.(?:jpg|jpeg|png|webp|gif)))/gi;
   const matches = [...text.matchAll(regex)];
   for (const m of matches) {
     const matchPath = m[1];
@@ -67,7 +67,7 @@ walk(root, (file) => {
   }
 
   // Also handle optimized_videos replacements to /assets (video files)
-  const regexV = /(\/?optimized_videos\/(?:[^"'\)\s]+?\.(?:mp4|webm|mov|mkv|avi)))/gi;
+  const regexV = /(\/?optimized_videos\/(?:[^"'\s]+?\.(?:mp4|webm|mov|mkv|avi)))/gi;
   const matchesV = [...text.matchAll(regexV)];
   for (const m of matchesV) {
     const matchPath = m[1];

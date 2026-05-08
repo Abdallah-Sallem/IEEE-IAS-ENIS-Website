@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import PremiumSwiper from '../components/PremiumSwiper/PremiumSwiper';
 import Hero from '../components/Hero/Hero';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useInView } from '../hooks/useInView';
@@ -191,39 +187,10 @@ function EditionSection({ edition, index }) {
             <p>Highlights from {edition.title}</p>
           </div>
         </div>
-        <div style={{ width: '100%', overflow: 'hidden' }}>
-          <Swiper
-            modules={[Pagination, Autoplay, Navigation]}
-            pagination={{ clickable: true }}
-            navigation={true}
-            autoplay={{ delay: 3500, disableOnInteraction: false }}
-            spaceBetween={16}
-            slidesPerView={1.2}
-            centeredSlides={true}
-            loop={edition.gallery.length > 3}
-            watchOverflow={true}
-            grabCursor={true}
-            breakpoints={{
-              480: { slidesPerView: 1.4, spaceBetween: 18 },
-              640: { slidesPerView: 1.8, spaceBetween: 20 },
-              768: { slidesPerView: 2.2, spaceBetween: 22 },
-              1024: { slidesPerView: 2.8, spaceBetween: 24 },
-              1280: { slidesPerView: 3.2, spaceBetween: 28 },
-            }}
-            className={`premium-swiper ${styles.gallerySwiper}`}
-          >
-            {edition.gallery.map((imgSrc, idx) => (
-              <SwiperSlide key={idx} className={styles.gallerySlide}>
-                <img 
-                  src={imgSrc} 
-                  alt={`Gallery ${idx}`} 
-                  loading="lazy" 
-                  onClick={() => openLightbox(idx)} 
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        <PremiumSwiper
+          slides={edition.gallery.map((src, idx) => ({ id: idx, src, alt: `${edition.title} photo ${idx + 1}` }))}
+          onSlideClick={(_slide, idx) => openLightbox(idx)}
+        />
       </div>
 
       <AnimatePresence>

@@ -1,18 +1,13 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGlobeAmericas, FaTrophy, FaUsers, FaLightbulb, FaTimes, FaChevronLeft, FaChevronRight, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import PremiumSwiper from '../../components/PremiumSwiper/PremiumSwiper';
 import Hero from '../../components/Hero/Hero';
 import JoinCTA from '../../components/JoinCTA/JoinCTA';
 import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import { useInView } from '../../hooks/useInView';
 import iasamData from '../../data/iasamParticipation.json';
 import styles from './IASAM.module.css';
-import enifStyles from '../../styles/enif.module.css';
 
 const iasamImages = import.meta.glob('../../assets/iasam/**/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' });
 
@@ -52,6 +47,28 @@ function PhotoLightbox({ images, currentIndex, onClose, onNext, onPrev }) {
   );
 }
 
+/* Helper: resolves IASAM image paths and passes to PremiumSwiper */
+function IasamSwiper({ images, edition, onOpenLightbox }) {
+  const resolvedSlides = useMemo(() => {
+    return images
+      .map((img, idx) => {
+        const src = resolveImage(img);
+        if (!src) return null;
+        return { id: idx, src, alt: `${edition.edition} photo ${idx + 1}` };
+      })
+      .filter(Boolean);
+  }, [images, edition.edition]);
+
+  if (!resolvedSlides.length) return null;
+
+  return (
+    <PremiumSwiper
+      slides={resolvedSlides}
+      onSlideClick={(_slide, idx) => onOpenLightbox(images, idx)}
+    />
+  );
+}
+
 function EditionCard({ edition, index, onOpenLightbox }) {
   return (
     <motion.article className={styles.editionCard} custom={index % 3} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
@@ -78,38 +95,11 @@ function EditionCard({ edition, index, onOpenLightbox }) {
         <p className={styles.editionDesc} style={{ marginBottom: '1.5rem' }}>{edition.description}</p>
         
         {edition.images && edition.images.length > 0 && (
-          <div style={{ width: '100%', overflow: 'hidden' }}>
-            <Swiper
-              modules={[Pagination, Autoplay, Navigation]}
-              pagination={{ clickable: true }}
-              navigation={true}
-              autoplay={{ delay: 3500, disableOnInteraction: false }}
-              spaceBetween={16}
-              slidesPerView={1.2}
-              centeredSlides={true}
-              loop={edition.images.length > 3}
-              watchOverflow={true}
-              grabCursor={true}
-              breakpoints={{
-                480: { slidesPerView: 1.4, spaceBetween: 18 },
-                640: { slidesPerView: 1.8, spaceBetween: 20 },
-                768: { slidesPerView: 2.2, spaceBetween: 22 },
-                1024: { slidesPerView: 2.8, spaceBetween: 24 },
-                1280: { slidesPerView: 3.2, spaceBetween: 28 },
-              }}
-              className={`premium-swiper ${enifStyles.gallerySwiper}`}
-            >
-              {edition.images.map((img, idx) => {
-                const src = resolveImage(img);
-                if (!src) return null;
-                return (
-                  <SwiperSlide key={idx} className={enifStyles.gallerySlide}>
-                    <img src={src} alt={`${edition.edition} photo ${idx + 1}`} loading="lazy" onClick={() => onOpenLightbox(edition.images, idx)} />
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
-          </div>
+          <IasamSwiper
+            images={edition.images}
+            edition={edition}
+            onOpenLightbox={onOpenLightbox}
+          />
         )}
       </div>
     </motion.article>

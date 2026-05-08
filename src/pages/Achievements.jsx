@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTrophy, FaStar, FaMedal, FaFileAlt, FaHeart, FaBolt, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import PremiumSwiper from '../components/PremiumSwiper/PremiumSwiper';
 import JoinCTA from '../components/JoinCTA/JoinCTA';
 import Hero from '../components/Hero/Hero';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
@@ -131,34 +127,10 @@ export default function Achievements() {
             <p>Highlights from our recent awards and events</p>
           </div>
         </div>
-        <div style={{ width: '100%', overflow: 'hidden' }}>
-          <Swiper
-            modules={[Pagination, Autoplay, Navigation]}
-            pagination={{ clickable: true }}
-            navigation={true}
-            autoplay={{ delay: 3500, disableOnInteraction: false }}
-            spaceBetween={16}
-            slidesPerView={1.2}
-            centeredSlides={true}
-            loop={AWARDS_GALLERY.length > 3}
-            watchOverflow={true}
-            grabCursor={true}
-            breakpoints={{
-              480: { slidesPerView: 1.4, spaceBetween: 18 },
-              640: { slidesPerView: 1.8, spaceBetween: 20 },
-              768: { slidesPerView: 2.2, spaceBetween: 22 },
-              1024: { slidesPerView: 2.8, spaceBetween: 24 },
-              1280: { slidesPerView: 3.2, spaceBetween: 28 },
-            }}
-            className={`premium-swiper ${enifStyles.gallerySwiper}`}
-          >
-            {AWARDS_GALLERY.map((imgSrc, idx) => (
-              <SwiperSlide key={idx} className={enifStyles.gallerySlide}>
-                <img src={imgSrc} alt={`Award ${idx}`} loading="lazy" onClick={() => openLightbox(idx)} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        <PremiumSwiper
+          slides={AWARDS_GALLERY.map((src, idx) => ({ id: idx, src, alt: `Award ${idx + 1}` }))}
+          onSlideClick={(_slide, idx) => openLightbox(idx)}
+        />
       </section>
 
       <AnimatePresence>

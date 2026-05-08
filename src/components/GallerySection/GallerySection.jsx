@@ -3,11 +3,7 @@ import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import { motion } from 'framer-motion';
 import { FaExpand } from 'react-icons/fa';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import PremiumSwiper from '../PremiumSwiper/PremiumSwiper';
 import galleryData from '../../data/gallery.json';
 import { useInView } from '../../hooks/useInView';
 import styles from './GallerySection.module.css';
@@ -65,44 +61,10 @@ export default function GallerySection({ showAll = false }) {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6 }}
           >
-            <Swiper
-              modules={[Pagination, Autoplay, Navigation]}
-              pagination={{ clickable: true }}
-              navigation={true}
-              autoplay={{ delay: 3000, disableOnInteraction: false }}
-              spaceBetween={16}
-              slidesPerView={1.2}
-              centeredSlides={true}
-              loop={images.length > 3}
-              watchOverflow={true}
-              grabCursor={true}
-              breakpoints={{
-                480: { slidesPerView: 1.4, spaceBetween: 18 },
-                640: { slidesPerView: 1.8, spaceBetween: 20 },
-                768: { slidesPerView: 2.2, spaceBetween: 22 },
-                1024: { slidesPerView: 2.8, spaceBetween: 24 },
-                1280: { slidesPerView: 3.2, spaceBetween: 28 },
-              }}
-              className="premium-swiper"
-            >
-              {images.map((img, i) => (
-                <SwiperSlide key={img.id}>
-                  <div
-                    className={styles.slideItem}
-                    onClick={() => handleOpen(i)}
-                    onKeyDown={(e) => e.key === 'Enter' && handleOpen(i)}
-                    tabIndex={0}
-                    role="button"
-                    aria-label={`Open ${img.alt} in lightbox`}
-                  >
-                    <img src={img.src} alt={img.alt} loading="lazy" />
-                    <div className={styles.overlay} aria-hidden="true">
-                      <FaExpand />
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+            <PremiumSwiper
+              slides={images}
+              onSlideClick={(_slide, i) => handleOpen(i)}
+            />
           </motion.div>
         )}
       </div>
