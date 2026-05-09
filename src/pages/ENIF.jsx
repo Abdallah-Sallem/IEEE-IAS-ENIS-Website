@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaTimes, FaChevronLeft, FaChevronRight, FaExternalLinkAlt } from 'react-icons/fa';
 import PremiumSwiper from '../components/PremiumSwiper/PremiumSwiper';
 import Hero from '../components/Hero/Hero';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
@@ -43,6 +43,7 @@ const ENIF_EDITIONS = [
     title: 'ENIF 3.0',
     description: "Keeping the same energy and goals IEEE IAS ENIS organized the third edition of its forum with the same topic as the second one: divided into 2 days; the first was based on informative conferences about AI and IOT and the second day was the day of the competition with the same topic and sponsor Olivia but it was preceded by a soft skills workshop to help participants in their pitching skills.",
     thumbnail: '/assets/Thumbnail/enif 3.0.png',
+    facebook: 'https://events.vtools.ieee.org/m/325175',
     gallery: [
       '/assets/enif3/1.jpg',
       '/assets/enif3/2.jpg',
@@ -57,6 +58,7 @@ const ENIF_EDITIONS = [
     title: 'ENIF 4.0',
     description: "This year's focus on e-health, IoT, and AI addresses climate-related health issues. Workshops on personality development and public speaking precede a competition where teams pitch innovative solutions. The event culminates in an awards ceremony, fostering learning, collaboration, and innovation among students at the intersection of technology and healthcare.",
     thumbnail: '/assets/Thumbnail/enif_4.0.png',
+    facebook: 'https://events.vtools.ieee.org/m/377196',
     gallery: [
       '/assets/enif4/1.jpg',
       '/assets/enif4/2.jpg',
@@ -72,6 +74,7 @@ const ENIF_EDITIONS = [
     title: 'ENIF 5.0',
     description: "For this edition, with the theme 'Advanced Technologies for a Sustainable Future,' ENIF 5.0 will highlight the integration of Industry 5.0 principles into innovative solutions for a more sustainable future. The event will emphasize the collaboration between humans and advanced technologies to enhance sustainability across various fields. A hackathon will be organized, featuring a theme proposed by our industrial partners, directly linked to the overall topic.",
     thumbnail: '/assets/Thumbnail/enif_5.0.png',
+    facebook: 'https://events.vtools.ieee.org/m/449923',
     gallery: [
       '/assets/enif5/1.JPG',
       '/assets/enif5/2.JPG',
@@ -87,6 +90,7 @@ const ENIF_EDITIONS = [
     title: 'ENIF 6.0',
     description: "For this edition, with the theme 'Advanced Technologies for a Sustainable Future,' ENIF 5.0 will highlight the integration of Industry 5.0 principles into innovative solutions for a more sustainable future. The event will emphasize the collaboration between humans and advanced technologies to enhance sustainability across various fields. A hackathon will be organized, featuring a theme proposed by our industrial partners, directly linked to the overall topic.",
     thumbnail: '/assets/Thumbnail/logo enif final-01.png',
+    facebook: 'https://events.vtools.ieee.org/m/553109',
     gallery: [
       '/assets/enif6/1.png',
       '/assets/enif6/2.JPG',
@@ -158,7 +162,7 @@ function EditionSection({ edition, index }) {
           <div className={styles.editionTitleWrapper}>
             <h2 className={styles.editionTitle}>{edition.title}</h2>
           </div>
-          <motion.div 
+          <motion.div
             ref={ref}
             className={`${styles.editionContainer} ${isEven ? styles.rowReverse : ''}`}
             initial={{ opacity: 0, y: 40 }}
@@ -167,8 +171,13 @@ function EditionSection({ edition, index }) {
           >
             <div className={styles.editionText}>
               <p>{edition.description}</p>
+              {edition.facebook && (
+                <a href={edition.facebook} target="_blank" rel="noopener noreferrer" className={styles.enterBtn}>
+                  View on vTools <FaExternalLinkAlt style={{ marginLeft: '6px', fontSize: '0.8em' }} />
+                </a>
+              )}
               {edition.link && (
-                <a href={edition.link} target="_blank" rel="noreferrer" className={styles.enterBtn}>
+                <a href={edition.link} target="_blank" rel="noreferrer" className={styles.enterBtn} style={{ marginLeft: '10px' }}>
                   Enter {edition.title}
                 </a>
               )}
@@ -229,9 +238,9 @@ export default function ENIF() {
               workshops, conferences and competitions.
             </p>
             <div style={{ marginTop: '30px' }}>
-              <a 
-                href="https://ias-enis.ieee.tn/enif/" 
-                target="_blank" 
+              <a
+                href="https://ias-enis.ieee.tn/enif/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className={styles.btnVisit}
               >

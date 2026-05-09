@@ -90,16 +90,18 @@ function EditionCard({ edition, index, onOpenLightbox }) {
         </div>
       </div>
 
-      {/* Below the Box */}
+      {/* Description + Gallery below the box */}
       <div style={{ marginTop: '1.5rem' }}>
-        <p className={styles.editionDesc} style={{ marginBottom: '1.5rem' }}>{edition.description}</p>
+        <p className={styles.editionDesc}>{edition.description}</p>
         
         {edition.images && edition.images.length > 0 && (
-          <IasamSwiper
-            images={edition.images}
-            edition={edition}
-            onOpenLightbox={onOpenLightbox}
-          />
+          <div className={styles.galleryWrap}>
+            <IasamSwiper
+              images={edition.images}
+              edition={edition}
+              onOpenLightbox={onOpenLightbox}
+            />
+          </div>
         )}
       </div>
     </motion.article>

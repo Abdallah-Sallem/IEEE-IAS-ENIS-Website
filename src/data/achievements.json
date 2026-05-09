@@ -82,18 +82,43 @@
   {
     "id": 11,
     "title": "2nd Place in IAS CMD Web Contest",
-    "year": "2022",
+    "year": "2023",
     "name": "IEEE IAS ENIS SBC",
     "description": "Second place achieved in the IEEE IAS CMD Web Contest.",
     "photo": "/assets/awards/secondweb.jpg"
   },
-
   {
-    "id": 14,
+    "id": 12,
+    "title": "3rd place in IAS Technical Challenge",
+    "year": "2023",
+    "name": "IEEE IAS ENIS SBC",
+    "description": "Second place achieved in the IEEE IAS CMD Web Contest.",
+    "photo": "/assets/awards/secondweb.jpg"
+  },
+  {
+    "id": 13,
     "title": "1st Place in TSYP8 Non-Technical Challenge",
     "year": "2021",
     "name": "IEEE IAS ENIS SBC",
     "description": "Winner of the TSYP8 Non-Technical Challenge.",
     "photo": "/assets/awards/tsyp8.jpg"
+  },
+  {
+    "id": 14,
+    "title": "2nd place iastam 1.0 - GMP Winner",
+    "year": "2021",
+    "name": "IEEE IAS ENIS SBC"
+  },
+  {
+    "id": 15,
+    "title": "THIRD PRIZE on the chapter web contest ",
+    "year": "2019",
+    "name": "IEEE IAS ENIS SBC"
+  },
+  {
+    "id": 16,
+    "title": "1st prize web contest ",
+    "year": "2018",
+    "name": "IEEE IAS ENIS SBC"
   }
 ]

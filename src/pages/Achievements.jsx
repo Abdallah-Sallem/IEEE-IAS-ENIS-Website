@@ -8,7 +8,8 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import achievementsData from '../data/achievements.json';
 import styles from '../styles/pages.module.css';
 import enifStyles from '../styles/enif.module.css';
-import '../styles/awardsModal.css'; // New styles for the modal
+import '../styles/awardsModal.css';
+import buddyBotVideo from '../assets/awards/awards_section/Séquence 01_2.mp4';
 
 const AWARDS_GALLERY = [
   '/assets/awards/anmeeting1.jpg',
@@ -165,23 +166,30 @@ export default function Achievements() {
                 viewport={{ once: true, amount: 0.1 }}
               >
                 <div className={styles.timelineYear}>{item.year}</div>
-                <div 
-                  className={`${styles.timelineCard} awards-clickable-card`} 
-                  onClick={() => openModal(item)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyPress={(e) => { if (e.key === 'Enter') openModal(item); }}
-                >
-                  <div className={styles.timelineIcon} aria-hidden="true">
-                    {ICON_MAP[item.icon] || <FaTrophy />}
-                  </div>
-                  <h3 className={styles.timelineTitle}>{item.title}</h3>
-                  {item.name && <p className={styles.timelineOrg}>{item.name}</p>}
-                  <p className={styles.timelineDesc}>
-                    {item.description?.length > 150 ? `${item.description.substring(0, 150)}...` : item.description}
-                  </p>
-                  <span className="read-more-text">Read More</span>
-                </div>
+                {(() => {
+                  const hasDetails = !!item.description || !!item.photo;
+                  return (
+                    <div 
+                      className={`${styles.timelineCard} ${hasDetails ? 'awards-clickable-card' : ''}`} 
+                      onClick={hasDetails ? () => openModal(item) : undefined}
+                      role={hasDetails ? "button" : undefined}
+                      tabIndex={hasDetails ? 0 : undefined}
+                      onKeyPress={hasDetails ? (e) => { if (e.key === 'Enter') openModal(item); } : undefined}
+                    >
+                      <div className={styles.timelineIcon} aria-hidden="true">
+                        {ICON_MAP[item.icon] || <FaTrophy />}
+                      </div>
+                      <h3 className={styles.timelineTitle}>{item.title}</h3>
+                      {item.name && <p className={styles.timelineOrg}>{item.name}</p>}
+                      {item.description && (
+                        <p className={styles.timelineDesc}>
+                          {item.description.length > 150 ? `${item.description.substring(0, 150)}...` : item.description}
+                        </p>
+                      )}
+                      {hasDetails && <span className="read-more-text">Read More</span>}
+                    </div>
+                  );
+                })()}
               </motion.div>
             ))}
           </div>
@@ -235,6 +243,21 @@ export default function Achievements() {
                   </div>
                 </div>
               </div>
+
+              {selectedAward.id === 7 && (
+                <div className="buddybot-section">
+                  <h3 className="buddybot-title">Buddy Bot Video</h3>
+                  <p className="buddybot-desc">
+                    Discover BuddyBot, an eco-friendly, AI-powered robot by IEEE IAS ENIS SBC that supports autistic children in learning, communication, and social interaction. This video highlights BuddyBot's interactive interface and concludes with the full presentation of the robot.
+                  </p>
+                  <div className="buddybot-video-wrap">
+                    <video controls preload="metadata" className="buddybot-video">
+                      <source src={buddyBotVideo} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              )}
             </motion.div>
           </div>
         )}

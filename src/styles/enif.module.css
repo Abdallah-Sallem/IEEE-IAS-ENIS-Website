@@ -106,7 +106,7 @@
 .editionContainer {
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 80px;
 }
 .rowReverse {
   flex-direction: row-reverse;
@@ -138,7 +138,10 @@
 }
 .editionThumbnail {
   flex: 1;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 30px;
 }
 .editionThumbnail img {
   max-width: 100%;

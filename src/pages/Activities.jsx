@@ -4,8 +4,9 @@ import {
   FaBus, FaUsers, FaChalkboardTeacher,
   FaNetworkWired, FaProjectDiagram, FaMedal,
   FaExternalLinkAlt, FaTimes, FaChevronLeft, FaChevronRight,
-  FaMicrochip, FaHandshake, FaUserTie,
+  FaMicrochip, FaHandshake, FaCogs,
 } from 'react-icons/fa';
+import PremiumSwiper from '../components/PremiumSwiper/PremiumSwiper';
 import JoinCTA from '../components/JoinCTA/JoinCTA';
 import Hero from '../components/Hero/Hero';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
@@ -65,7 +66,7 @@ const ACTIVITY_TYPES = [
   },
   {
     id: 5,
-    icon: <FaProjectDiagram />,
+    icon: <FaCogs />,
     title: 'Project Competitions',
     desc: 'We organize and participate in engineering design competitions that challenge our members to apply their technical knowledge to solve real-world problems. These competitions develop critical thinking, teamwork, and presentation skills.',
     highlights: [
@@ -249,39 +250,7 @@ function VToolsActivityItem({ activity, onSelect, isSelected, onOpenLightbox }) 
   );
 }
 
-/* ─── Speaker Card ────────────────────────────────────── */
-function SpeakerCard({ speaker }) {
-  const photo = typeof speaker.photo === 'string' ? resolvePhoto(speaker.photo) : null;
 
-  return (
-    <motion.div
-      className={styles.speakerCard}
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4 }}
-    >
-      {photo ? (
-        <img src={photo} alt={speaker.name} className={styles.speakerPhoto} />
-      ) : (
-        <div className={styles.speakerPhotoPlaceholder}>
-          <FaUserTie />
-        </div>
-      )}
-      <div className={styles.speakerInfo}>
-        <h4 className={styles.speakerName}>{speaker.name}</h4>
-        <a
-          href={speaker.vtools_link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.vtoolsLinkSmall}
-        >
-          View on vTools <FaExternalLinkAlt size={10} />
-        </a>
-      </div>
-    </motion.div>
-  );
-}
 
 /* ═══════════════════════════════════════════════════════
    MAIN ACTIVITIES PAGE
@@ -488,12 +457,23 @@ export default function Activities() {
                 margin: '0 auto'
               }} />
             </div>
-            <div className={styles.speakersGrid}>
-              {speakersAndParticipants.map((speaker, i) => (
-                <SpeakerCard key={speaker.name + i} speaker={speaker} />
-              ))}
-            </div>
           </div>
+          <PremiumSwiper
+            slides={speakersAndParticipants
+              .filter(s => typeof s.photo === 'string' && s.photo.length > 0)
+              .map((s, idx) => {
+                const src = resolvePhoto(s.photo);
+                return src ? { id: idx, src, alt: s.name } : null;
+              })
+              .filter(Boolean)}
+            onSlideClick={(_slide, idx) => {
+              const photos = speakersAndParticipants
+                .filter(s => typeof s.photo === 'string' && s.photo.length > 0)
+                .map(s => s.photo)
+                .filter(p => resolvePhoto(p));
+              openLightbox(photos, idx);
+            }}
+          />
         </section>
       )}
 
