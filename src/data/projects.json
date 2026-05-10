@@ -24,6 +24,26 @@
   },
   {
     "id": 2,
+    "title": "SafeBehaviour",
+    "category": " Industrial Safety-AI-IoT-Cybersecurity-Energy Efficiency",
+    "year": "2025",
+    "icon": "leaf",
+    "description": "SafeBehaviour is an intelligent industrial safety platform designed to improve worker safety, cybersecurity awareness, and energy efficiency through smart behavioural monitoring. The system uses wearable smart badges, edge gateways, AI analytics, digital twin simulation, and an admin dashboard to detect risky behaviours and support real-time decision-making in industrial environments.",
+    "problem": "Industrial environments face several risks related to unsafe worker behaviour, equipment interaction, cybersecurity threats, and energy misuse. Traditional monitoring systems often lack real-time behavioural intelligence and do not provide a unified view of safety, cyber, and energy-related risks.",
+    "solution": "The project introduces a human-centered industrial intelligence system combining:",
+    "solutionPoints": [
+      "Smart Badge for motion, proximity, temperature, and identity sensing",
+      "Edge Gateway for secure telemetry collection and cloud transmission",
+      "Behavioural Risk Index for safety, cyber, and energy risk scoring",
+      "Machine learning models for alert prediction and anomaly detection",
+      "Dashboard for supervisors to monitor KPIs, alerts, and worker behaviour",
+      "Digital Twin and Agentic AI for simulation, reasoning, and decision support",
+      "Secure badge architecture with authentication, firmware protection, and tamper detection"
+    ],
+    "impact": "SafeBehaviour supports safer and smarter industrial operations by enabling real-time risk detection, faster supervisor intervention, behavioural history tracking, and improved compliance monitoring. The project reflects IEEE IAS ENIS SBC’s vision of using AI, IoT, and human-centered engineering to build safer, more secure, and more energy-efficient industrial environments."
+  },
+  {
+    "id": 3,
     "title": "AI-Optimized School-Clinic Microgrids",
     "category": "Renewable Energy - Artificial Intelligence - Smart Microgrids - Healthcare - Education",
     "year": "2025",
@@ -43,7 +63,7 @@
     "driveLink": "https://drive.google.com/file/d/1ZshZvdM86kxRM2SNLsQsOeTjO-yIjoXA/view?usp=sharing"
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "Zaytouna Sense",
     "category": "Smart Agriculture · IoT · AI · Mobile Application · Sustainable Farming",
     "year": "2025",
@@ -66,7 +86,7 @@
     "videoLink": "https://drive.google.com/file/d/1KAFY1GqVx0hWmdDfblgSxHBRmYpx1YZq/view?usp=drive_link"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Blockchain-Secured Industrial IoT Network",
     "category": "Industrial IoT · Blockchain · AI · Cybersecurity · Industry 4.0",
     "year": "2025",
@@ -87,7 +107,7 @@
     "driveLink": "https://drive.google.com/file/d/1na72D1mKp_7SBzjdmRyrVzZv__kOuuF9/view?usp=sharing"
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "Smart & Sustainable Olive-Centric Industrial Zones",
     "category": "Smart Agriculture · IoT · AI · Blockchain · Renewable Energy",
     "year": "2024",
