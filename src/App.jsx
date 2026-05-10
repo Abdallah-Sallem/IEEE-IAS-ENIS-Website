@@ -72,6 +72,7 @@ const IASAM             = lazy(() => import('./pages/IASAM/IASAM'));
 const ENIF               = lazy(() => import('./pages/ENIF'));
 const UpcomingActivities = lazy(() => import('./pages/UpcomingActivities'));
 const Achievements       = lazy(() => import('./pages/Achievements'));
+const Projects           = lazy(() => import('./pages/Projects'));
 const Contact            = lazy(() => import('./pages/Contact'));
 
 /* ─── Suspense fallback ─────────────────────────────── */
@@ -188,6 +189,14 @@ export default function App() {
             element={
               <Suspense fallback={<PageLoader />}>
                 <Achievements />
+              </Suspense>
+            }
+          />
+          <Route
+            path="projects"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <Projects />
               </Suspense>
             }
           />

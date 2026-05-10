@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "title": "BuddyBot",
+    "category": "Humanitarian",
+    "year": "2024",
+    "icon": "robot",
+    "description": "BuddyBot is an eco-friendly, AI-powered robot designed to support autistic children in learning, communication, and social interaction. By combining innovation with sustainability, BuddyBot creates an inclusive and engaging environment. This project won the IEEE IAS CMD Humanitarian Award, highlighting the chapter's commitment to using technology for humanitarian impact.",
+    "highlights": [
+      "AI-powered interactive learning companion",
+      "Eco-friendly and sustainable design",
+      "Supports communication and social skills",
+      "Winner of IEEE IAS CMD Humanitarian Award"
+    ],
+    "driveLink": "",
+    "photo": "/assets/awards/humanitarian_.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Zaytouna Sense",
+    "category": "Smart Agriculture",
+    "year": "2025",
+    "icon": "leaf",
+    "description": "Zaytouna Sense is a smart agriculture prototype using IoT and AI to support Tunisia's olive farmers through real-time monitoring, AI-driven irrigation recommendations, and early disease detection. This project won the IASTAM Tech Challenge, reflecting the chapter's technical expertise, creativity, teamwork, and commitment to sustainable engineering solutions.",
+    "highlights": [
+      "IoT-based real-time crop monitoring",
+      "AI-driven irrigation optimization",
+      "Early disease detection system",
+      "Winner of IASTAM Tech Challenge 2025"
+    ],
+    "driveLink": "",
+    "photo": "/assets/awards/iastam5.JPG"
+  },
+  {
+    "id": 3,
+    "title": "Smart & Sustainable Olive-Centric Industrial Zones",
+    "category": "Industrial Innovation",
+    "year": "2024",
+    "icon": "industry",
+    "description": "This project proposed an innovative model for transforming Tunisia's olive sector through the integration of IoT, AI, blockchain, and renewable energy to improve smart irrigation, crop monitoring, energy efficiency, supply chain traceability, and waste-to-product conversion. It won 1st Place in the IAS Technical Challenge at TSYP12.",
+    "highlights": [
+      "IoT, AI, and blockchain integration",
+      "Renewable energy optimization",
+      "Supply chain traceability via blockchain",
+      "1st Place — IAS Technical Challenge TSYP12"
+    ],
+    "driveLink": "",
+    "photo": "/assets/awards/techchallange.jpg"
+  },
+  {
+    "id": 4,
+    "title": "AI-Optimized School-Clinic Microgrids",
+    "category": "Energy & Health",
+    "year": "2025",
+    "icon": "bolt",
+    "description": "An innovative AI-driven microgrid system combining solar energy, IoT, edge computing, and LSTM-based forecasting to provide reliable electricity for rural schools and healthcare clinics across Africa. The solution focused on improving vaccine preservation, enhancing educational infrastructure, reducing energy costs, and increasing climate resilience through intelligent energy management and sustainable community-centered design. This project earned the Third Prize in the IEEE Smart Village Student Project Competition.",
+    "highlights": [
+      "Solar-powered AI microgrid system",
+      "LSTM-based energy forecasting",
+      "Vaccine preservation and education support",
+      "3rd Prize — IEEE Smart Village Competition"
+    ],
+    "driveLink": "",
+    "photo": "/assets/awards/isv.jpg"
+  }
+]

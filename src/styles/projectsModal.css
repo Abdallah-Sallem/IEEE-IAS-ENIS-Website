@@ -1,0 +1,255 @@
+/* ── Project Card Image ───────────────── */
+.project-card-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card-image:hover img {
+  transform: scale(1.05);
+}
+
+.project-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-card-year {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+}
+
+.project-card-category {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: rgba(12, 116, 68, 0.85);
+  border-radius: 20px;
+  padding: 0.2rem 0.7rem;
+}
+
+.project-read-more {
+  display: inline-block;
+  margin-top: 12px;
+  color: #0c7443;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+/* ── Projects Modal ──────────────────── */
+.projects-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.projects-modal-content {
+  background: #ffffff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 1100px;
+  max-height: 90vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #0c7443 transparent;
+  position: relative;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.projects-modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.projects-modal-content::-webkit-scrollbar-thumb {
+  background-color: #0c7443;
+  border-radius: 10px;
+}
+
+.projects-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: #0c7443;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+.projects-modal-close:hover {
+  transform: scale(1.1);
+}
+
+.projects-modal-header {
+  color: #0c7443;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-right: 40px;
+  line-height: 1.3;
+}
+
+.projects-modal-body {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.projects-modal-image {
+  flex: 1;
+  min-width: 300px;
+  max-width: 50%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.projects-modal-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.projects-modal-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.projects-info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.projects-info-label {
+  color: #0c7443;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.projects-info-value,
+.projects-info-text {
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.projects-highlights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.projects-highlights-list li {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.projects-highlights-list li::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0c7443;
+  flex-shrink: 0;
+}
+
+/* ── Google Drive Button ─────────────── */
+.projects-drive-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #0c7443 0%, #1a9b5c 100%);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(12, 116, 68, 0.25);
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+.projects-drive-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(12, 116, 68, 0.35);
+  background: linear-gradient(135deg, #0a6338 0%, #15854e 100%);
+}
+
+/* ── Responsive Modal ────────────────── */
+@media (max-width: 768px) {
+  .projects-modal-body {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .projects-modal-image {
+    max-width: 100%;
+    min-width: 100%;
+  }
+
+  .projects-modal-header {
+    font-size: 1.5rem;
+  }
+
+  .project-card-image {
+    height: 160px;
+  }
+}
