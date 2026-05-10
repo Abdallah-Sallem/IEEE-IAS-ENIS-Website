@@ -192,6 +192,7 @@ function VToolsActivityItem({ activity, onSelect, isSelected, onOpenLightbox }) 
     <motion.div
       className={`${styles.vtoolsItem} ${isSelected ? styles.vtoolsItemActive : ''}`}
       layout
+      layoutId={`activity-item-${activity.id || activity.name.replace(/\s+/g, '-')}`}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}

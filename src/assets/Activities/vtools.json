@@ -1,6 +1,14 @@
 {
   "technical_activities": [
     {
+      "name": "DL-Powered Intelligent Control for Electric Vehicle Drives",
+      "vtools_link": "https://events.vtools.ieee.org/m/518223",
+      "category": "DL Program",
+      "photos": [
+        "rajesh.jpg"
+      ]
+    },
+    {
       "name": "Kubernetes Fundamentals",
       "vtools_link": "https://events.vtools.ieee.org/m/420549",
       "category": "DevOps",

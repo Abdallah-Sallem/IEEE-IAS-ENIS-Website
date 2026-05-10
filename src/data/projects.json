@@ -1,66 +1,110 @@
 [
   {
     "id": 1,
-    "title": "BuddyBot",
-    "category": "Humanitarian",
-    "year": "2024",
-    "icon": "robot",
-    "description": "BuddyBot is an eco-friendly, AI-powered robot designed to support autistic children in learning, communication, and social interaction. By combining innovation with sustainability, BuddyBot creates an inclusive and engaging environment. This project won the IEEE IAS CMD Humanitarian Award, highlighting the chapter's commitment to using technology for humanitarian impact.",
-    "highlights": [
-      "AI-powered interactive learning companion",
-      "Eco-friendly and sustainable design",
-      "Supports communication and social skills",
-      "Winner of IEEE IAS CMD Humanitarian Award"
+    "title": "SALTEK",
+    "category": "Renewable Energy · IoT · Artificial Intelligence · Smart Agriculture · Sustainable Farming",
+    "year": "2026",
+    "icon": "leaf",
+    "description": "SALTEK is an intelligent solar-powered irrigation system designed to protect smallholder farm soil from salt damage across North Africa and Africa. The system autonomously blends water from two sources using real-time TDS salinity sensing and a weighted mixing algorithm to deliver every irrigation cycle at the precise EC level safe for the crop and soil. A built-in GSM module sends plain language SMS alerts directly to the farmer's basic mobile phone, while an LLM API translates all technical sensor data into simple human-readable messages — no smartphone, no app, and no technical knowledge required.",
+    "problem": "Across North Africa, 84% of groundwater exceeds safe salinity limits and 35% of agricultural soils are already salt-damaged. Farmers understand the risk but have no affordable tool to act on it. Existing industrial salinity management solutions cost thousands of dollars and require technical expertise completely out of reach for smallholder farmers — who represent the majority of Africa's agricultural workforce and have no choice but to keep irrigating with water that is slowly destroying their land.",
+    "solution": "SALTEK proposes an autonomous low-cost irrigation system that combines:",
+    "solutionPoints": [
+      "Real-time TDS salinity sensing across three water points",
+      "Weighted mixing algorithm to blend two water sources at the correct EC ratio",
+      "Four-pump autonomous control via ESP32 and relay modules",
+      "HC-SR04 ultrasonic tank level monitoring and water level detection",
+      "DS1302 real-time clock for daily irrigation scheduling",
+      "MQTT-based wireless communication between two ESP32 microcontrollers",
+      "Arduino Uno managing autonomous solar and battery power switching",
+      "GSM module sending real-time SMS alerts for tank status, irrigation events, and system warnings",
+      "LLM API integration translating sensor data into plain language farmer notifications"
     ],
-    "driveLink": "",
-    "photo": "/assets/awards/humanitarian_.jpg"
+    "impact": "IEEE IAS IPCSD Student Design Competition 2026 Submission. SALTEK directly addresses one of Africa's most urgent agricultural crises — soil salinization affecting over 200 million hectares across the continent. By intelligently blending saline and clean water sources, the system reduces salt accumulation in soil with every irrigation cycle, creating a compounding improvement in soil health over time. Farmers spend less on purchased clean water, preserve the long-term productivity of their land, and receive automated guidance through a basic mobile phone — no technical knowledge required. Built for under $100 and powered entirely by solar energy, SALTEK makes precision irrigation accessible to the smallholder farmers who need it most, protecting their livelihoods and the agricultural future of the African continent.",
+    "videoLink": "https://youtu.be/_WTbBnLMJjc?feature=shared"
   },
   {
     "id": 2,
-    "title": "Zaytouna Sense",
-    "category": "Smart Agriculture",
+    "title": "AI-Optimized School-Clinic Microgrids",
+    "category": "Renewable Energy - Artificial Intelligence - Smart Microgrids - Healthcare - Education",
     "year": "2025",
-    "icon": "leaf",
-    "description": "Zaytouna Sense is a smart agriculture prototype using IoT and AI to support Tunisia's olive farmers through real-time monitoring, AI-driven irrigation recommendations, and early disease detection. This project won the IASTAM Tech Challenge, reflecting the chapter's technical expertise, creativity, teamwork, and commitment to sustainable engineering solutions.",
-    "highlights": [
-      "IoT-based real-time crop monitoring",
-      "AI-driven irrigation optimization",
-      "Early disease detection system",
-      "Winner of IASTAM Tech Challenge 2025"
+    "icon": "bolt",
+    "description": "AI-Optimized School-Clinic Microgrids is a sustainable energy project designed to support rural African communities by connecting schools and nearby clinics through intelligent solar microgrids. The project uses LSTM neural networks to forecast energy demand, optimize power distribution, and prioritize critical healthcare loads such as vaccine refrigerators.",
+    "problem": "Many rural communities in Africa suffer from unreliable electricity, affecting both education and healthcare. Schools lack stable power for classrooms and computer labs, while clinics face vaccine storage failures due to refrigeration interruptions.",
+    "solution": "The project proposes an AI-enhanced microgrid system that combines:",
+    "solutionPoints": [
+      "Solar panels and LiFePO4 battery storage",
+      "Raspberry Pi-based edge computing",
+      "LSTM models for energy forecasting",
+      "IoT-enabled smart relays for priority load control",
+      "Automatic switching to protect vaccine refrigeration",
+      "Mobile payment integration to support maintenance and sustainability"
     ],
-    "driveLink": "",
-    "photo": "/assets/awards/iastam5.JPG"
+    "impact": "Third Place Student Award — IEEE Smart Village Student Paper Competition 2025. The system achieved strong results, including 100% vaccine viability, 98.2% system uptime, improved school operating hours, reduced clinic energy costs, and monthly revenue generation from energy sharing. This project demonstrates how smart energy systems can improve healthcare, education, and community resilience in underserved regions.",
+    "driveLink": "https://drive.google.com/file/d/1ZshZvdM86kxRM2SNLsQsOeTjO-yIjoXA/view?usp=sharing"
   },
   {
     "id": 3,
-    "title": "Smart & Sustainable Olive-Centric Industrial Zones",
-    "category": "Industrial Innovation",
-    "year": "2024",
-    "icon": "industry",
-    "description": "This project proposed an innovative model for transforming Tunisia's olive sector through the integration of IoT, AI, blockchain, and renewable energy to improve smart irrigation, crop monitoring, energy efficiency, supply chain traceability, and waste-to-product conversion. It won 1st Place in the IAS Technical Challenge at TSYP12.",
-    "highlights": [
-      "IoT, AI, and blockchain integration",
-      "Renewable energy optimization",
-      "Supply chain traceability via blockchain",
-      "1st Place — IAS Technical Challenge TSYP12"
+    "title": "Zaytouna Sense",
+    "category": "Smart Agriculture · IoT · AI · Mobile Application · Sustainable Farming",
+    "year": "2025",
+    "icon": "leaf",
+    "description": "Zaytouna Sense is an AI and IoT-based smart agriculture project designed to support Tunisian olive farmers. The system helps farmers monitor their farms in real time, optimize irrigation, detect olive tree diseases through image analysis, and receive alerts through a mobile application or WhatsApp.",
+    "problem": "Olive farmers in Tunisia face several challenges, including water scarcity, crop diseases, pest attacks, and limited access to real-time farm data. Traditional monitoring methods can delay intervention and lead to water waste or yield losses.",
+    "solution": "The project introduces a smart farming platform combining:",
+    "solutionPoints": [
+      "IoT sensors for soil moisture, humidity, and temperature monitoring",
+      "ESP32-based control of irrigation pumps and valves",
+      "AI models for irrigation recommendations",
+      "Disease detection using uploaded olive leaf images",
+      "Mobile application built with Flutter",
+      "Flask backend with MongoDB database",
+      "WhatsApp and in-app notifications",
+      "Community dashboard for farmers to share alerts and experiences"
     ],
-    "driveLink": "",
-    "photo": "/assets/awards/techchallange.jpg"
+    "impact": "Winner — IASTAM Tech Challenge. Zaytouna Sense promotes smarter and more sustainable olive farming by helping farmers make faster decisions, reduce water waste, prevent crop losses, and improve productivity. The project reflects IEEE IAS ENIS SBC’s commitment to using engineering and digital innovation to solve real agricultural challenges in Tunisia.",
+    "driveLink": "https://drive.google.com/file/d/1MHj7_klKmgGInGkWT7cTdEPyJRoZfeTZ/view?usp=drive_link",
+    "videoLink": "https://drive.google.com/file/d/1KAFY1GqVx0hWmdDfblgSxHBRmYpx1YZq/view?usp=drive_link"
   },
   {
     "id": 4,
-    "title": "AI-Optimized School-Clinic Microgrids",
-    "category": "Energy & Health",
+    "title": "Blockchain-Secured Industrial IoT Network",
+    "category": "Industrial IoT · Blockchain · AI · Cybersecurity · Industry 4.0",
     "year": "2025",
-    "icon": "bolt",
-    "description": "An innovative AI-driven microgrid system combining solar energy, IoT, edge computing, and LSTM-based forecasting to provide reliable electricity for rural schools and healthcare clinics across Africa. The solution focused on improving vaccine preservation, enhancing educational infrastructure, reducing energy costs, and increasing climate resilience through intelligent energy management and sustainable community-centered design. This project earned the Third Prize in the IEEE Smart Village Student Project Competition.",
-    "highlights": [
-      "Solar-powered AI microgrid system",
-      "LSTM-based energy forecasting",
-      "Vaccine preservation and education support",
-      "3rd Prize — IEEE Smart Village Competition"
+    "icon": "robot",
+    "description": "Blockchain-Secured Industrial IoT Network is a cybersecurity project designed to secure industrial IoT environments through decentralized device authentication, real-time anomaly detection, and equipment traceability. The system combines Blockchain, AI, IoT, and cloud technologies to protect smart factories and industrial automation systems from unauthorized access and cyber threats.",
+    "problem": "Industrial IoT networks are increasingly exposed to cybersecurity risks such as unauthorized device access, data breaches, equipment fraud, and abnormal network behavior. Traditional centralized security systems can create single points of failure and may not be sufficient for modern Industry 4.0 environments.",
+    "solution": "The project proposes a secure IIoT framework combining:",
+    "solutionPoints": [
+      "ESP32 and PLC devices communicating through MQTT",
+      "Blockchain-based authentication using Hyperledger Fabric or Ethereum",
+      "Smart contracts for device registration and ownership validation",
+      "RFID tracking for industrial equipment traceability",
+      "LSTM-based AI model for real-time anomaly detection",
+      "Flask and React.js web dashboard for monitoring alerts and device status",
+      "AWS Lambda and AWS S3 for cloud execution and secure data storage"
     ],
-    "driveLink": "",
-    "photo": "/assets/awards/isv.jpg"
+    "impact": "IEEE IAS CMD Myron Zucker Undergraduate Student Design Contest Submission. The system achieved strong performance results, including 95% anomaly detection accuracy, 80% reduction in unauthorized access, 1.5-second authentication latency, and 1.2-second device onboarding speed. This project demonstrates how blockchain and AI can strengthen industrial cybersecurity, improve traceability, and support safer, smarter industrial automation systems.",
+    "driveLink": "https://drive.google.com/file/d/1na72D1mKp_7SBzjdmRyrVzZv__kOuuF9/view?usp=sharing"
+  },
+  {
+    "id": 5,
+    "title": "Smart & Sustainable Olive-Centric Industrial Zones",
+    "category": "Smart Agriculture · IoT · AI · Blockchain · Renewable Energy",
+    "year": "2024",
+    "icon": "industry",
+    "description": "Smart and Sustainable Olive-Centric Industrial Zones is a project developed by IEEE IAS ENIS SBC to modernize Tunisia’s olive sector using IoT, Artificial Intelligence, Blockchain, and renewable energy. The project proposes smart industrial zones dedicated to olive agriculture, aiming to improve irrigation, energy efficiency, logistics, traceability, and waste management.",
+    "problem": "Tunisia’s olive sector faces major challenges such as water scarcity, energy inefficiency, poor waste management, outdated infrastructure, and lack of supply chain transparency.",
+    "solution": "The project introduces a smart ecosystem combining:",
+    "solutionPoints": [
+      "IoT sensors for real-time crop and soil monitoring",
+      "AI-based irrigation recommendations",
+      "Blockchain for olive oil traceability and certification",
+      "Solar-powered irrigation and battery storage",
+      "Smart logistics with cold storage and autonomous transport",
+      "Waste-to-product systems converting olive waste into biogas and biomass"
+    ],
+    "impact": "1st Place — IAS Technical Challenge, TSYP12. The project supports a more sustainable olive industry by reducing water and energy waste, improving production transparency, creating new value from agricultural waste, and promoting smart agriculture in Tunisia.",
+    "driveLink": "https://drive.google.com/file/d/1rInJwldZZJE7YuG8flIqr-rLmGeCrSS5/view?usp=drive_link",
+    "videoLink": "https://drive.google.com/file/d/1JABog6NHC-GyXF3OnHELI1dHuejyfWxA/view?usp=drive_link"
   }
 ]

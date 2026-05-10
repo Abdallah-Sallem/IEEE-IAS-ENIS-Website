@@ -64,16 +64,16 @@ function PageTransitionLoader() {
 }
 
 /* ─── Lazy-loaded pages ─────────────────────────────── */
-const Home               = lazy(() => import('./pages/Home'));
-const About              = lazy(() => import('./pages/About'));
-const Activities         = lazy(() => import('./pages/Activities'));
-const Media              = lazy(() => import('./pages/Media/Media'));
-const IASAM             = lazy(() => import('./pages/IASAM/IASAM'));
-const ENIF               = lazy(() => import('./pages/ENIF'));
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Activities = lazy(() => import('./pages/Activities'));
+const Media = lazy(() => import('./pages/Media/Media'));
+const IASAM = lazy(() => import('./pages/IASAM/IASAM'));
+const ENIF = lazy(() => import('./pages/ENIF'));
 const UpcomingActivities = lazy(() => import('./pages/UpcomingActivities'));
-const Achievements       = lazy(() => import('./pages/Achievements'));
-const Projects           = lazy(() => import('./pages/Projects'));
-const Contact            = lazy(() => import('./pages/Contact'));
+const Achievements = lazy(() => import('./pages/Achievements'));
+const Projects = lazy(() => import('./pages/Projects'));
+const Contact = lazy(() => import('./pages/Contact'));
 
 /* ─── Suspense fallback ─────────────────────────────── */
 function PageLoader() {
@@ -153,6 +153,14 @@ export default function App() {
             }
           />
           <Route
+            path="projects"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <Projects />
+              </Suspense>
+            }
+          />
+          <Route
             path="media"
             element={
               <Suspense fallback={<PageLoader />}>
@@ -189,14 +197,6 @@ export default function App() {
             element={
               <Suspense fallback={<PageLoader />}>
                 <Achievements />
-              </Suspense>
-            }
-          />
-          <Route
-            path="projects"
-            element={
-              <Suspense fallback={<PageLoader />}>
-                <Projects />
               </Suspense>
             }
           />
