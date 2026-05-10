@@ -4,16 +4,24 @@
     "title": "Best Large Student Branch Chapter in Region 8 for 2025",
     "year": "2025",
     "name": "IEEE IAS ENIS SBC",
-    "description": "Awarded for outstanding performance and impact as a large IEEE Student Branch Chapter in Region 8.",
-    "photo": "/assets/awards/awards_section/region8.jpg"
+    "description": "The IEEE IAS ENIS Student Branch Chapter was honored with the Best Large Student Branch Chapter Award in IEEE Region 8 in recognition of its outstanding achievements, impactful technical activities, strong member engagement, and continuous contribution to the advancement of the IEEE Industry Applications Society mission. This award highlights the chapter’s excellence in organizing innovative events, promoting industrial and technological awareness, supporting student development, and maintaining an active and influential presence within the IEEE community across Region 8.",
+    "photo": "/assets/awards/region8.jpg"
   },
   {
     "id": 2,
     "title": "Third prize for student work in the IEEE Smart Village (ISV) student project competition",
     "year": "2025",
     "name": "Ahmed Jallouli",
-    "description": "Third prize awarded in the IEEE Smart Village (ISV) student project competition.",
-    "photo": "/assets/awards/awards_section/isv.jpg"
+    "description": "Awarded the Third Prize for Student Work in the IEEE Smart Village Student Project Competition for the research paper “AI-Optimized School-Clinic Microgrids: A Sustainable Model for Energy-Health-Education Integration in Rural Africa.” The project proposed an innovative AI-driven microgrid system combining solar energy, IoT, edge computing, and LSTM-based forecasting to provide reliable electricity for rural schools and healthcare clinics across Africa. The solution focused on improving vaccine preservation, enhancing educational infrastructure, reducing energy costs, and increasing climate resilience through intelligent energy management and sustainable community-centered design.",
+    "photo": "/assets/awards/isv.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Winner – IEEE IAS Tunisia Annual Meeting Tech Challenge",
+    "year": "2025",
+    "name": "IEEE IAS ENIS SBC",
+    "description": " Winner of the IASTAM Tech Challenge for presenting Zaytouna Sense, a smart agriculture prototype using IoT and AI to support Tunisia’s olive farmers through real-time monitoring, AI-driven irrigation recommendations, and early disease detection. This achievement reflects the chapter’s technical expertise, creativity, teamwork, and commitment to sustainable engineering solutions.",
+    "photo": "/assets/awards/iastam5.JPG "
   },
   {
     "id": 3,
@@ -21,7 +29,7 @@
     "year": "2025",
     "name": "Hamza Gharsellaoui",
     "description": "This award honors Hamza Gharsellaoui for his exceptional leadership as coordinator of ENIF 5.0 and his significant technical achievements. He played a key role in developing the prototype that enabled IEEE IAS ENIS to secure First Place in the IEEE IAS CMD Humanitarian Award Contest 2024, while also contributing to the team’s success in winning First Place in the IAS Technical Challenge at TSYP 12. His dedication reflects both organizational excellence and innovative impact within the IEEE IAS community.",
-    "photo": "/assets/awards/awards_section/hamza_gharsellaoui.jpg"
+    "photo": "/assets/awards/hamza_gharsellaoui.jpg"
   },
   {
     "id": 4,
@@ -29,7 +37,7 @@
     "year": "2024",
     "name": "IEEE IAS ENIS SBC",
     "description": "The IEEE IAS ENIS Student Branch Chapter received the Outstanding Large IAS Chapter Award from IEEE IAS CMD, recognizing its impactful activities such as ENIF 4.0, Blockchain Bootcamp, Video Editing Workshop, and other technical and professional initiatives. This award reflects the chapter’s leadership, innovation, and strong commitment to member engagement.",
-    "photo": "/assets/awards/OutstandingChapter.jpg"
+    "photo": "/assets/awards/Large_chapter_award.jpg"
   },
   {
     "id": 5,
@@ -37,7 +45,7 @@
     "year": "2024",
     "name": "Amir Abid",
     "description": "Amir Abid has been honored with the IEEE IAS CMD Outstanding Member Award 2024 for his exceptional dedication and leadership. He played a pivotal role as coordinator in organizing ENIF 4.0, actively led the Blockchain Bootcamp and ENIF Bootcamp, and contributed to numerous other chapter activities. His commitment to professional growth and IEEE engagement was further demonstrated by his participation in the 59th IAS Annual Meeting, showcasing his initiative and impact within the IAS community.",
-    "photo": "/assets/awards/awards_section/amir_abid.jpg"
+    "photo": "/assets/awards/amir_abid.jpg"
   },
   {
     "id": 6,
@@ -45,7 +53,7 @@
     "year": "2024",
     "name": "IEEE IAS ENIS SBC",
     "description": "The IEEE IAS ENIS Student Branch Chapter has been honored with the CMD Chapter Best Website Award by the IEEE Industry Applications Society’s Chapter and Membership Development (CMD) department. This award recognizes the chapter’s excellence in creating a professional, engaging, and informative online presence, showcasing its activities, achievements, and commitment to member engagement. The award reflects IAS ENIS’s dedication to communication, innovation, and accessibility in connecting with the IEEE community.",
-    "photo": "/assets/awards/awards_section/best_website.jpg"
+    "photo": "/assets/awards/best_website.jpg"
   },
   {
     "id": 7,
@@ -53,14 +61,14 @@
     "year": "2024",
     "name": "IEEE IAS ENIS SBC",
     "description": "IEEE IAS ENIS SBC is proud to receive the CMD Humanitarian Award for BuddyBot, an eco-friendly, AI-powered robot. It supports autistic children in learning, communication, and social interaction. By combining innovation with sustainability, BuddyBot creates an inclusive and engaging environment. This award highlights our chapter’s commitment to using technology for humanitarian impact.",
-    "photo": "/assets/awards/awards_section/humanitarian_.jpg"
+    "photo": "/assets/awards/humanitarian_.jpg"
   },
   {
     "id": 8,
     "title": "1st Place in the Non-Technical Challenge at IEEE IAS Tunisia Annual Meeting",
     "year": "2024",
     "name": "IEEE IAS ENIS SBC",
-    "description": "Awarded 1st Place in the Non-Technical Challenge at the IEEE IAS Tunisia Annual Meeting, recognizing our team’s creativity, strategic thinking, and impactful contribution beyond the technical field.",
+    "description": " IEEE IAS ENIS SBC won 1st Place in the Non-Technical Challenge at the IEEE IAS Tunisia Annual Meeting 2024. This achievement recognized the chapter’s outstanding performance, including winning prestigious IAS CMD Awards, its strong organizational capabilities, and its success in delivering professional events such as ENIF 4.0 and high-quality workshops.",
     "photo": "/assets/awards/iastam.jpg"
   },
   {
@@ -68,7 +76,7 @@
     "title": "Best IAS Tunisia Student Branch Chapter",
     "year": "2024",
     "name": "IEEE IAS ENIS SBC",
-    "description": "We are thrilled to announce that IEEE IAS ENIS SBC has been awarded the title of Best IAS Tunisia! This milestone reflects our commitment, teamwork, and relentless pursuit of excellence in industrial applications.",
+    "description": " IEEE IAS ENIS SBC was recognized as the Best IAS Tunisia Student Branch Chapter after successfully organizing more than 20 activities throughout the year, including ENIF 5.0 with over 150 attendees, technical workshops such as the DevOps Bootcamp, and various non-technical workshops. This recognition also reflected the chapter’s excellence in international achievements, including winning 4 prestigious IAS CMD Awards as part of its outstanding annual performance.",
     "photo": "/assets/awards/bestiast.jpg"
   },
   {
@@ -76,7 +84,7 @@
     "title": "1st Place in IAS Technical Challenge TSYP12",
     "year": "2024",
     "name": "IEEE IAS ENIS SBC",
-    "description": "We are proud to announce that IEEE IAS ENIS SBC secured 1st place in the Technical Challenge at TSYP12.",
+    "description": " IEEE IAS ENIS SBC achieved 1st Place in the IAS Technical Challenge at TSYP12 with the project “Smart and Sustainable Olive-Centric Industrial Zones for Tunisia 2056.” The solution proposed an innovative model for transforming Tunisia’s olive sector through the integration of IoT, AI, blockchain, and renewable energy to improve smart irrigation, crop monitoring, energy efficiency, supply chain traceability, and waste-to-product conversion. This achievement highlighted the chapter’s ability to combine engineering, sustainability, and digital transformation into a practical solution addressing real challenges in Tunisia’s agricultural and industrial sectors.",
     "photo": "/assets/awards/techchallange.jpg"
   },
   {
@@ -89,14 +97,6 @@
   },
   {
     "id": 12,
-    "title": "3rd place in IAS Technical Challenge",
-    "year": "2023",
-    "name": "IEEE IAS ENIS SBC",
-    "description": "Second place achieved in the IEEE IAS CMD Web Contest.",
-    "photo": "/assets/awards/secondweb.jpg"
-  },
-  {
-    "id": 13,
     "title": "1st Place in TSYP8 Non-Technical Challenge",
     "year": "2021",
     "name": "IEEE IAS ENIS SBC",
@@ -104,19 +104,19 @@
     "photo": "/assets/awards/tsyp8.jpg"
   },
   {
-    "id": 14,
+    "id": 13,
     "title": "2nd place iastam 1.0 - GMP Winner",
     "year": "2021",
     "name": "IEEE IAS ENIS SBC"
   },
   {
-    "id": 15,
+    "id": 14,
     "title": "THIRD PRIZE on the chapter web contest ",
     "year": "2019",
     "name": "IEEE IAS ENIS SBC"
   },
   {
-    "id": 16,
+    "id": 15,
     "title": "1st prize web contest ",
     "year": "2018",
     "name": "IEEE IAS ENIS SBC"

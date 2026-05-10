@@ -9,7 +9,7 @@ import achievementsData from '../data/achievements.json';
 import styles from '../styles/pages.module.css';
 import enifStyles from '../styles/enif.module.css';
 import '../styles/awardsModal.css';
-import buddyBotVideo from '../assets/awards/awards_section/Séquence 01_2.mp4';
+import buddyBotVideo from '../assets/awards/Séquence 01_2.mp4';
 
 const AWARDS_GALLERY = [
   '/assets/awards/anmeeting1.jpg',
@@ -41,8 +41,8 @@ function Lightbox({ images, currentIndex, onClose, onNext, onPrev }) {
   }, [onClose, onNext, onPrev]);
 
   return (
-    <motion.div 
-      className={enifStyles.lightboxOverlay} 
+    <motion.div
+      className={enifStyles.lightboxOverlay}
       onClick={onClose}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -50,11 +50,11 @@ function Lightbox({ images, currentIndex, onClose, onNext, onPrev }) {
     >
       <button className={enifStyles.lightboxClose} onClick={onClose} aria-label="Close"><FaTimes /></button>
       <button className={enifStyles.lightboxPrev} onClick={(e) => { e.stopPropagation(); onPrev(); }} aria-label="Previous"><FaChevronLeft /></button>
-      <motion.img 
+      <motion.img
         key={currentIndex}
-        src={images[currentIndex]} 
-        alt={`Gallery ${currentIndex}`} 
-        className={enifStyles.lightboxImg} 
+        src={images[currentIndex]}
+        alt={`Gallery ${currentIndex}`}
+        className={enifStyles.lightboxImg}
         onClick={(e) => e.stopPropagation()}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -99,7 +99,7 @@ export default function Achievements() {
     setLightboxIndex(idx);
     setLightboxOpen(true);
   };
-  
+
   const nextLightbox = () => setLightboxIndex((prev) => (prev + 1) % AWARDS_GALLERY.length);
   const prevLightbox = () => setLightboxIndex((prev) => (prev === 0 ? AWARDS_GALLERY.length - 1 : prev - 1));
 
@@ -136,9 +136,9 @@ export default function Achievements() {
 
       <AnimatePresence>
         {lightboxOpen && (
-          <Lightbox 
-            images={AWARDS_GALLERY} 
-            currentIndex={lightboxIndex} 
+          <Lightbox
+            images={AWARDS_GALLERY}
+            currentIndex={lightboxIndex}
             onClose={() => setLightboxOpen(false)}
             onNext={nextLightbox}
             onPrev={prevLightbox}
@@ -169,8 +169,8 @@ export default function Achievements() {
                 {(() => {
                   const hasDetails = !!item.description || !!item.photo;
                   return (
-                    <div 
-                      className={`${styles.timelineCard} ${hasDetails ? 'awards-clickable-card' : ''}`} 
+                    <div
+                      className={`${styles.timelineCard} ${hasDetails ? 'awards-clickable-card' : ''}`}
                       onClick={hasDetails ? () => openModal(item) : undefined}
                       role={hasDetails ? "button" : undefined}
                       tabIndex={hasDetails ? 0 : undefined}
@@ -199,14 +199,14 @@ export default function Achievements() {
       {/* Awards Modal */}
       <AnimatePresence>
         {selectedAward && (
-          <div 
-            className="awards-modal-overlay" 
+          <div
+            className="awards-modal-overlay"
             onClick={closeModal}
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-title"
           >
-            <motion.div 
+            <motion.div
               className="awards-modal-content"
               onClick={(e) => e.stopPropagation()}
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
@@ -217,15 +217,15 @@ export default function Achievements() {
               <button className="awards-modal-close" onClick={closeModal} aria-label="Close Modal">
                 <FaTimes />
               </button>
-              
+
               <h2 id="modal-title" className="awards-modal-header">{selectedAward.title}</h2>
-              
+
               <div className="awards-modal-body">
                 <div className="awards-modal-image">
-                  <img 
-                    src={selectedAward.photo} 
-                    alt={selectedAward.title} 
-                    loading="lazy" 
+                  <img
+                    src={selectedAward.photo}
+                    alt={selectedAward.title}
+                    loading="lazy"
                   />
                 </div>
                 <div className="awards-modal-info">
