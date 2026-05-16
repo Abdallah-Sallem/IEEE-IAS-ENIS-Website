@@ -48,7 +48,7 @@ export default function GallerySection({ showAll = false }) {
                 role="button"
                 aria-label={`Open ${img.alt} in lightbox`}
               >
-                <img src={img.src} alt={img.alt} loading="lazy" />
+                <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
                 <div className={styles.overlay} aria-hidden="true">
                   <FaExpand />
                 </div>

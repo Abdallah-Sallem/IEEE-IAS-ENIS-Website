@@ -253,3 +253,19 @@
     height: 160px;
   }
 }
+
+@media (max-width: 480px) {
+  .projects-modal-content {
+    padding: 20px;
+    max-height: 85vh;
+  }
+  .projects-modal-header {
+    font-size: 1.3rem;
+    padding-right: 36px;
+  }
+  .projects-modal-close {
+    top: 12px;
+    right: 12px;
+    font-size: 1.2rem;
+  }
+}

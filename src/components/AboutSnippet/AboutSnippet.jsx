@@ -87,6 +87,7 @@ export default function AboutSnippet() {
                   src={IAS_LOGO}
                   alt="IEEE IAS Logo"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className={styles.cornerAccent} aria-hidden="true" />

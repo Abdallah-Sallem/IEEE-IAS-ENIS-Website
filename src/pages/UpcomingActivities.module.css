@@ -399,3 +399,15 @@
     padding: var(--spacing-xl);
   }
 }
+
+@media (max-width: 480px) {
+  .modalHeader {
+    height: 180px;
+  }
+  .modalTitle {
+    font-size: 1.4rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

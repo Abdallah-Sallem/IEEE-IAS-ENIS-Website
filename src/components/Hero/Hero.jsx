@@ -70,6 +70,7 @@ export default function Hero({ title = "About us", isHome = true }) {
               src={comboLogo} 
               alt="IEEE ENIS IAS Logos" 
               style={{ maxWidth: '80%', height: 'auto' }} 
+              decoding="async"
               onError={(e) => {
                 // Fallback to text if the combo logo image doesn't exist
                 e.target.style.display = 'none';
@@ -81,6 +82,7 @@ export default function Hero({ title = "About us", isHome = true }) {
               src={logoBackground} 
               alt="IAS Logo Background" 
               style={{ maxWidth: '40%', height: 'auto' }} 
+              decoding="async"
             />
           )}
           {isHome && (
@@ -89,7 +91,7 @@ export default function Hero({ title = "About us", isHome = true }) {
               <span>|</span>
               <span>ENIS</span>
               <span>|</span>
-              <img src={logoBackground} alt="IAS" style={{ height: '40px' }} />
+              <img src={logoBackground} alt="IAS" style={{ height: '40px' }} decoding="async" />
             </div>
           )}
         </motion.div>

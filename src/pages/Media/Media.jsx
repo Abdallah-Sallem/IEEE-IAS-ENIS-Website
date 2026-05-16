@@ -169,6 +169,7 @@ export default function Media() {
                 alt="Powering the Future with IEEE IAS Podcast"
                 className={styles.podcastImage}
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </motion.div>

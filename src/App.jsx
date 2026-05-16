@@ -102,25 +102,38 @@ function PageLoader() {
 
 /* ─── App ───────────────────────────────────────────── */
 export default function App() {
-  /* Show intro screen only on first visit per session */
+  return (
+    <BrowserRouter>
+      <AppShell />
+    </BrowserRouter>
+  );
+}
+
+function AppShell() {
+  const { pathname } = useLocation();
+
+  /* Show the intro screen only on the home page, and only once per session. */
   const [showIntro, setShowIntro] = useState(() => {
-    return !sessionStorage.getItem('ias-intro-shown');
+    return pathname === '/' && !sessionStorage.getItem('ias-intro-shown');
   });
+
+  useEffect(() => {
+    if (pathname !== '/' && showIntro) {
+      setShowIntro(false);
+    }
+  }, [pathname, showIntro]);
 
   const handleEnter = () => {
     sessionStorage.setItem('ias-intro-shown', '1');
     setShowIntro(false);
   };
 
-
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       {/* ── Intro / loading screen ────────────────────── */}
       <AnimatePresence>
-        {showIntro && (
-          <IntroScreen key="intro" onEnter={handleEnter} />
-        )}
+        {showIntro && pathname === '/' && <IntroScreen key="intro" onEnter={handleEnter} />}
       </AnimatePresence>
 
       <PageTransitionLoader />
@@ -208,31 +221,36 @@ export default function App() {
               </Suspense>
             }
           />
-          {/* 404 catch-all */}
           <Route
             path="*"
             element={
-              <div style={{
-                minHeight: '100vh',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '1rem',
-                paddingTop: '80px',
-                textAlign: 'center',
-              }}>
-                <h1 style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: 'clamp(4rem, 12vw, 8rem)',
-                  fontWeight: 700,
-                  background: 'var(--gradient-text)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  lineHeight: 1,
-                  margin: 0,
-                }}>404</h1>
+              <div
+                style={{
+                  minHeight: '100vh',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '1rem',
+                  paddingTop: '80px',
+                  textAlign: 'center',
+                }}
+              >
+                <h1
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: 'clamp(4rem, 12vw, 8rem)',
+                    fontWeight: 700,
+                    background: 'var(--gradient-text)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    lineHeight: 1,
+                    margin: 0,
+                  }}
+                >
+                  404
+                </h1>
                 <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem' }}>
                   Page not found.
                 </p>
@@ -244,6 +262,6 @@ export default function App() {
           />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }

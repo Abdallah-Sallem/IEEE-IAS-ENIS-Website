@@ -132,7 +132,7 @@ export default function UpcomingActivities() {
               >
                 <div className={styles.card}>
                   <div className={styles.cardImageWrapper}>
-                    <img src={item.image} alt={item.title} className={styles.cardImage} loading="lazy" />
+                    <img src={item.image} alt={item.title} className={styles.cardImage} loading="lazy" decoding="async" />
                     <div className={styles.cardImageOverlay}>
                       <span className={styles.cardDate}>{item.date}</span>
                     </div>
@@ -178,7 +178,7 @@ export default function UpcomingActivities() {
               >
                 <div className={styles.card}>
                   <div className={styles.cardImageWrapper}>
-                    <img src={item.image} alt={item.title} className={styles.cardImage} loading="lazy" />
+                    <img src={item.image} alt={item.title} className={styles.cardImage} loading="lazy" decoding="async" />
                     <div className={styles.cardImageOverlay}>
                       <span className={styles.cardDate}>{item.date}</span>
                     </div>
@@ -224,7 +224,7 @@ export default function UpcomingActivities() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className={styles.modalHeader}>
-                <img src={selectedItem.image} alt={selectedItem.title} />
+                <img src={selectedItem.image} alt={selectedItem.title} loading="lazy" decoding="async" />
                 <div className={styles.modalHeaderOverlay}></div>
                 <button
                   className={styles.modalClose}

@@ -39,7 +39,7 @@ function PhotoLightbox({ images, currentIndex, onClose, onNext, onPrev }) {
       <div className={styles.lightboxContent} onClick={e => e.stopPropagation()}>
         <button className={styles.lightboxClose} onClick={onClose} aria-label="Close"><FaTimes /></button>
         {images.length > 1 && <button className={styles.lightboxPrev} onClick={onPrev} aria-label="Previous"><FaChevronLeft /></button>}
-        <img src={src} alt={`IASAM photo ${currentIndex + 1}`} className={styles.lightboxImg} />
+        <img src={src} alt={`IASAM photo ${currentIndex + 1}`} className={styles.lightboxImg} loading="lazy" decoding="async" />
         {images.length > 1 && <button className={styles.lightboxNext} onClick={onNext} aria-label="Next"><FaChevronRight /></button>}
         {images.length > 1 && <div className={styles.lightboxCounter}>{currentIndex + 1} / {images.length}</div>}
       </div>

@@ -183,7 +183,7 @@ function EditionSection({ edition, index }) {
               )}
             </div>
             <div className={styles.editionThumbnail}>
-              <img src={edition.thumbnail} alt={edition.title} loading="lazy" />
+              <img src={edition.thumbnail} alt={edition.title} loading="lazy" decoding="async" />
             </div>
           </motion.div>
         </div>

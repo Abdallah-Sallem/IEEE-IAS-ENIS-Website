@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   FaBus, FaUsers, FaChalkboardTeacher,
-  FaNetworkWired, FaProjectDiagram, FaMedal,
+  FaNetworkWired, FaMedal,
   FaExternalLinkAlt, FaTimes, FaChevronLeft, FaChevronRight,
   FaMicrochip, FaHandshake, FaCogs,
 } from 'react-icons/fa';
@@ -167,7 +167,7 @@ function PhotoLightbox({ photos, currentIndex, onClose, onNext, onPrev }) {
             <FaChevronLeft />
           </button>
         )}
-        <img src={src} alt={`Photo ${currentIndex + 1}`} className={styles.lightboxImg} />
+        <img src={src} alt={`Photo ${currentIndex + 1}`} className={styles.lightboxImg} loading="lazy" decoding="async" />
         {photos.length > 1 && (
           <button className={styles.lightboxNext} onClick={onNext} aria-label="Next">
             <FaChevronRight />
@@ -241,6 +241,8 @@ function VToolsActivityItem({ activity, onSelect, isSelected, onOpenLightbox }) 
                   alt={`${activity.name} - ${i + 1}`}
                   className={styles.vtoolsThumb}
                   onClick={() => onOpenLightbox(photos, i)}
+                  loading="lazy"
+                  decoding="async"
                 />
               );
             })}

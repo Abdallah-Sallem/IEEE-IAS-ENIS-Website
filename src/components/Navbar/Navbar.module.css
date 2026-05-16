@@ -164,8 +164,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  justify-content: flex-start;
+  padding-top: 80px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobileMenu ul {
@@ -173,18 +176,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   width: 100%;
-  padding: 0 2rem;
+  padding: 1rem 2rem 0;
 }
 
 .mobileMenu ul li a {
   display: block;
   font-family: var(--font-heading);
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.85);
-  padding: 0.75rem 2rem;
+  padding: 0.6rem 2rem;
   text-align: center;
   width: 100%;
   border-radius: var(--radius-md);
@@ -202,9 +205,11 @@
 }
 
 .mobileMenuFooter {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+  padding-bottom: 2rem;
   display: flex;
   gap: 1rem;
+  flex-shrink: 0;
 }
 
 .mobileMenuFooter a {
@@ -230,4 +235,27 @@
 @media (max-width: 1200px) {
   .hamburger  { display: flex; }
   .navbarLinks { display: none; }
+}
+
+@media (max-width: 480px) {
+  .mobileMenu {
+    padding-top: 70px;
+  }
+  .mobileMenu ul {
+    gap: 0.2rem;
+    padding: 0.5rem 1.5rem 0;
+  }
+  .mobileMenu ul li a {
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+  }
+  .mobileMenuFooter {
+    margin-top: 1rem;
+    padding-bottom: 1.5rem;
+  }
+  .mobileMenuFooter a {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
 }

@@ -86,6 +86,8 @@ export default function About() {
                 src={iasLogo}
                 alt="IEEE ENIS IAS Chapter Logo"
                 style={{ width: '100%', maxWidth: '400px', height: 'auto', objectFit: 'contain' }}
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -126,6 +128,7 @@ export default function About() {
 
               className={styles.quotePhoto}
               loading="lazy"
+              decoding="async"
             />
             <blockquote className={styles.quoteText}>
               "Every industry revolution brings a long a learning revolution."
@@ -159,6 +162,7 @@ export default function About() {
                     alt={member.name}
                     className={styles.memberPhoto}
                     loading="lazy"
+                    decoding="async"
                     onError={(e) => { e.target.src = 'https://via.placeholder.com/300x300/12121f/1E9668?text=IAS'; }}
                   />
                   <div className={styles.memberInfo}>
@@ -204,6 +208,7 @@ export default function About() {
                     alt={member.name}
                     className={styles.memberPhoto}
                     loading="lazy"
+                    decoding="async"
                     onError={(e) => { e.target.src = 'https://via.placeholder.com/300x300/12121f/1E9668?text=IAS'; }}
                   />
                   <div className={styles.memberInfo}>

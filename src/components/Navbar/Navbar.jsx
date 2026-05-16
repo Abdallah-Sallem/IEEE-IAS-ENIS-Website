@@ -41,6 +41,7 @@ export default function Navbar() {
               src={navLogo}
               alt="IEEE ENIS IAS Chapter"
               style={{ height: '50px', width: 'auto' }}
+              decoding="async"
             />
           </Link>
 

@@ -20,15 +20,7 @@ const ICON_MAP = {
   default: <FaProjectDiagram />,
 };
 
-/* ─── Group projects by category ──────────────────────── */
-function groupByCategory(projects) {
-  return projects.reduce((acc, project) => {
-    const cat = project.category || 'Other';
-    if (!acc[cat]) acc[cat] = [];
-    acc[cat].push(project);
-    return acc;
-  }, {});
-}
+
 
 /* ─── Single Project Accordion Item ───────────────────── */
 function ProjectItem({ project, isExpanded, onToggle }) {
@@ -37,8 +29,6 @@ function ProjectItem({ project, isExpanded, onToggle }) {
   return (
     <motion.div
       className={`project-accordion-item ${isExpanded ? 'project-accordion-item--active' : ''}`}
-      layout
-      layoutId={`project-item-${project.id}`}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.25 }}
@@ -73,7 +63,7 @@ function ProjectItem({ project, isExpanded, onToggle }) {
               <div className="project-accordion-layout">
                 {project.photo && (
                   <div className="project-accordion-image">
-                    <img src={project.photo} alt={project.title} loading="lazy" />
+                    <img src={project.photo} alt={project.title} loading="lazy" decoding="async" />
                   </div>
                 )}
 
@@ -175,7 +165,7 @@ export default function Projects() {
     setExpandedId((prev) => (prev === id ? null : id));
   }, []);
 
-  const grouped = groupByCategory(projectsData);
+
 
   return (
     <div className={styles.page}>

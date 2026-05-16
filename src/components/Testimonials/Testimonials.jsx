@@ -71,6 +71,7 @@ export default function Testimonials() {
                     alt={`${testimonials[current].name} previous IAS ENIS experience`}
                     className={styles.authorPhoto}
                     loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       e.target.style.display = 'none';
                     }}

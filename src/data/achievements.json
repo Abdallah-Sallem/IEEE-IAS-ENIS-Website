@@ -16,12 +16,12 @@
     "photo": "/assets/awards/isv.jpg"
   },
   {
-    "id": 2,
+    "id": 16,
     "title": "Winner – IEEE IAS Tunisia Annual Meeting Tech Challenge",
     "year": "2025",
     "name": "IEEE IAS ENIS SBC",
     "description": " Winner of the IASTAM Tech Challenge for presenting Zaytouna Sense, a smart agriculture prototype using IoT and AI to support Tunisia’s olive farmers through real-time monitoring, AI-driven irrigation recommendations, and early disease detection. This achievement reflects the chapter’s technical expertise, creativity, teamwork, and commitment to sustainable engineering solutions.",
-    "photo": "/assets/awards/iastam5.JPG "
+    "photo": "/assets/awards/iastam5.JPG"
   },
   {
     "id": 3,

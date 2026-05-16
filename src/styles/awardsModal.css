@@ -162,6 +162,22 @@
   }
 }
 
+@media (max-width: 480px) {
+  .awards-modal-content {
+    padding: 20px;
+    max-height: 85vh;
+  }
+  .awards-modal-header {
+    font-size: 1.3rem;
+    padding-right: 36px;
+  }
+  .awards-modal-close {
+    top: 12px;
+    right: 12px;
+    font-size: 1.2rem;
+  }
+}
+
 /* ── BuddyBot Video Section ───────────── */
 .buddybot-section {
   margin-top: 30px;

@@ -226,6 +226,7 @@ export default function Achievements() {
                     src={selectedAward.photo}
                     alt={selectedAward.title}
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="awards-modal-info">
