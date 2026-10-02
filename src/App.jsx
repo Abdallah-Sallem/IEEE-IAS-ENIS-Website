@@ -1,10 +1,9 @@
 import { lazy, Suspense, useState, useEffect, useRef } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { AnimatePresence, MotionConfig, motion } from 'framer-motion';
 import Layout from './components/Layout/Layout';
 import IntroScreen from './components/IntroScreen/IntroScreen';
 import './styles/global.css';
-import LOGO from './assets/LOGO.png';
 
 /* ─── Scroll To Top Utility ─────────────────────────── */
 function ScrollToTop() {
@@ -17,7 +16,8 @@ function ScrollToTop() {
   return null;
 }
 
-/* ─── Global Page Transition Loader ─────────────────── */
+/* ─── Global Page Transition Indicator ──────────────── */
+/* A thin green progress line instead of a full-screen cover */
 function PageTransitionLoader() {
   const { pathname } = useLocation();
   const [loading, setLoading] = useState(false);
@@ -28,7 +28,7 @@ function PageTransitionLoader() {
       prevPathname.current = pathname;
       setLoading(true);
     }
-    const timer = setTimeout(() => setLoading(false), 800);
+    const timer = setTimeout(() => setLoading(false), 600);
     return () => clearTimeout(timer);
   }, [pathname]);
 
@@ -37,27 +37,23 @@ function PageTransitionLoader() {
       {loading && (
         <motion.div
           key="page-loader"
-          initial={{ opacity: 1 }}
+          role="progressbar"
+          aria-label="Loading page"
+          initial={{ scaleX: 0, opacity: 1 }}
+          animate={{ scaleX: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           style={{
             position: 'fixed',
-            inset: 0,
-            background: 'var(--color-bg)',
-            zIndex: 99999,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 2,
+            transformOrigin: '0 50%',
+            background: 'var(--color-green-bright)',
+            zIndex: 'var(--z-overlay)',
           }}
-        >
-          <motion.img
-            src={LOGO}
-            alt="Loading..."
-            animate={{ scale: [0.9, 1.1, 0.9], opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-            style={{ width: '120px', height: 'auto' }}
-          />
-        </motion.div>
+        />
       )}
     </AnimatePresence>
   );
@@ -87,14 +83,18 @@ function PageLoader() {
         background: 'var(--color-bg)',
       }}
     >
-      <div style={{
-        width: 44,
-        height: 44,
-        border: '3px solid rgba(30, 150, 104,0.15)',
-        borderTop: '3px solid var(--color-accent)',
-        borderRadius: '50%',
-        animation: 'spin 0.75s linear infinite',
-      }} />
+      <div
+        role="status"
+        aria-label="Loading"
+        style={{
+          width: 40,
+          height: 40,
+          border: '2px solid var(--color-white-10)',
+          borderTop: '2px solid var(--color-green-bright)',
+          borderRadius: '50%',
+          animation: 'spin 0.75s linear infinite',
+        }}
+      />
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
     </div>
   );
@@ -114,6 +114,7 @@ export default function App() {
 
 
   return (
+    <MotionConfig reducedMotion="user">
     <BrowserRouter>
       <ScrollToTop />
       {/* ── Intro / loading screen ────────────────────── */}
@@ -212,38 +213,37 @@ export default function App() {
           <Route
             path="*"
             element={
-              <div style={{
+              <div className="blueprint-bg" style={{
                 minHeight: '100vh',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '1rem',
-                paddingTop: '80px',
+                padding: 'calc(var(--nav-height) + 2rem) var(--container-padding) 4rem',
                 textAlign: 'center',
               }}>
+                <span className="eyebrow">Fault code · route not found</span>
                 <h1 style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: 'clamp(4rem, 12vw, 8rem)',
-                  fontWeight: 700,
-                  background: 'var(--gradient-text)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 'clamp(4rem, 14vw, 9rem)',
+                  fontWeight: 500,
+                  color: 'var(--color-white)',
                   lineHeight: 1,
                   margin: 0,
-                }}>404</h1>
+                }}>4<span style={{ color: 'var(--color-green-bright)' }}>0</span>4</h1>
                 <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem' }}>
                   Page not found.
                 </p>
-                <a href="/" className="btn btn-primary" style={{ marginTop: '1rem' }}>
+                <Link to="/" className="btn btn-primary" style={{ marginTop: '1rem' }}>
                   Go Home
-                </a>
+                </Link>
               </div>
             }
           />
         </Route>
       </Routes>
     </BrowserRouter>
+    </MotionConfig>
   );
 }

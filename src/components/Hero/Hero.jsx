@@ -1,17 +1,27 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaAngleDoubleDown } from 'react-icons/fa';
+import { FaAngleDoubleDown, FaArrowRight } from 'react-icons/fa';
+import HeaderSchematic from '../HeaderSchematic/HeaderSchematic';
+import statsData from '../../data/stats.json';
+import LOGO from '../../assets/LOGO.webp';
 import styles from './Hero.module.css';
-const comboLogo = '/assets/img/combo-logo.png';
-const logoBackground = '/assets/img/logobackground.png';
+const comboLogo = '/assets/img/combo-logo.webp';
+const logoBackground = '/assets/img/logobackground.webp';
+
+const IEEE_JOIN_URL =
+  'https://www.ieee.org/membership-catalog/productdetail/showProductDetailPage.html?product=MEMIA034';
+
+/* Readout under the CTAs — first three figures from stats.json */
+const READOUT = statsData.slice(0, 3);
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
+  visible: { transition: { staggerChildren: 0.09 } },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };
 
 export default function Hero({ title = "About us", isHome = true }) {
@@ -27,73 +37,117 @@ export default function Hero({ title = "About us", isHome = true }) {
       window.scrollTo({ top: window.innerHeight - 80, behavior: 'smooth' });
     }
   };
-  return (
-    <section className={styles.hero} aria-label="Hero section">
-      {/* Main Content */}
-      <motion.div
-        className={styles.heroContent}
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        style={{ textAlign: 'center', width: '100%', padding: '0 20px' }}
+
+  const scrollBtn = (
+    <button onClick={handleScrollDown} className={styles.scrollDownBtn} aria-label="Scroll down">
+      <FaAngleDoubleDown aria-hidden="true" />
+    </button>
+  );
+
+  if (!isHome) {
+    return (
+      <section
+        className={`${styles.hero} ${styles.heroCompact}`}
+        aria-label={`${title} header`}
       >
-        {isHome ? (
-          <>
-            <motion.h2 variants={itemVariants} style={{ fontSize: '1.2rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '1rem', color: '#fff', fontWeight: 'bold' }}>
-              OPEN THE GATE TO INDUSTRY EVOLUTION
-            </motion.h2>
-            <motion.h1 variants={itemVariants} style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', textTransform: 'uppercase', fontWeight: '800', marginBottom: '2.5rem', color: '#fff' }}>
-              IAS IEEE ENIS SBC IS YOUR KEY
-            </motion.h1>
-            <motion.div variants={itemVariants} style={{ marginBottom: '3rem' }}>
-              <button onClick={handleScrollDown} className={styles.scrollDownBtn} aria-label="Scroll down">
-                <FaAngleDoubleDown />
-              </button>
-            </motion.div>
-          </>
-        ) : (
-          <>
+        <HeaderSchematic variant="compact" />
+        <motion.div
+          className={`container ${styles.compactInner}`}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className={styles.compactText}>
+            <motion.nav variants={itemVariants} aria-label="Breadcrumb" className={styles.breadcrumb}>
+              <Link to="/">Home</Link>
+              <span aria-hidden="true">/</span>
+              <span aria-current="page">{title}</span>
+            </motion.nav>
             <motion.h1 className={styles.heroTagline} variants={itemVariants}>
               {title}
             </motion.h1>
-            <motion.div variants={itemVariants} style={{ margin: '2rem 0' }}>
-              <button onClick={handleScrollDown} className={styles.scrollDownBtn} aria-label="Scroll down">
-                <FaAngleDoubleDown />
-              </button>
-            </motion.div>
-          </>
-        )}
-
-        <motion.div variants={itemVariants} style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'center' }}>
-          {isHome ? (
-            <img 
-              src={comboLogo} 
-              alt="IEEE ENIS IAS Logos" 
-              style={{ maxWidth: '80%', height: 'auto' }} 
-              onError={(e) => {
-                // Fallback to text if the combo logo image doesn't exist
-                e.target.style.display = 'none';
-                e.target.nextSibling.style.display = 'flex';
-              }}
-            />
-          ) : (
-            <img 
-              src={logoBackground} 
-              alt="IAS Logo Background" 
-              style={{ maxWidth: '40%', height: 'auto' }} 
-            />
-          )}
-          {isHome && (
-            <div style={{ display: 'none', gap: '20px', alignItems: 'center', color: '#fff', fontSize: '1.5rem', fontWeight: 'bold' }}>
-              <span>IEEE</span>
-              <span>|</span>
-              <span>ENIS</span>
-              <span>|</span>
-              <img src={logoBackground} alt="IAS" style={{ height: '40px' }} />
-            </div>
-          )}
+            <motion.div variants={itemVariants}>{scrollBtn}</motion.div>
+          </div>
+          <motion.div variants={itemVariants} className={styles.compactLogo}>
+            <img src={logoBackground} alt="IAS Logo Background" />
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </section>
+    );
+  }
+
+  return (
+    <section
+      className={`${styles.hero}`}
+      aria-label="Hero section"
+    >
+      <HeaderSchematic variant="full" />
+
+      <div className={`container ${styles.heroGrid}`}>
+        <motion.div
+          className={styles.heroContent}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.p variants={itemVariants} className="eyebrow">
+            IEEE Industry Applications Society · ENIS Sfax
+          </motion.p>
+
+          <motion.h1 variants={itemVariants} className={styles.heroTitle}>
+            Open the gate to <span className={styles.accent}>industry evolution.</span>
+          </motion.h1>
+
+          <motion.p variants={itemVariants} className={styles.heroKey}>
+            IAS IEEE ENIS SBC is your key
+          </motion.p>
+
+          <motion.div variants={itemVariants} className={styles.heroCtas}>
+            <a
+              href={IEEE_JOIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-accent"
+              aria-label="Become an IEEE IAS Member (opens in new tab)"
+            >
+              Become a member <FaArrowRight aria-hidden="true" />
+            </a>
+            <Link to="/activities" className="btn btn-outline">
+              Explore activities
+            </Link>
+          </motion.div>
+
+          <motion.dl variants={itemVariants} className={styles.readout}>
+            {READOUT.map((s) => (
+              <div key={s.id}>
+                <dt>{s.label}</dt>
+                <dd>{s.end}{s.suffix}</dd>
+              </div>
+            ))}
+          </motion.dl>
+        </motion.div>
+
+        {/* Nameplate panel: chapter logo + partner combo logo */}
+        <motion.div
+          className={styles.plate}
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className={styles.plateHeader} aria-hidden="true">
+            <span>IAS-ENIS / SBC</span>
+            <span className={styles.status}>Online</span>
+          </div>
+          <div className={styles.plateBody}>
+            <img src={LOGO} alt="IEEE ENIS IAS Chapter logo" width="2687" height="1465" />
+          </div>
+          <div className={styles.plateFooter}>
+            <img src={comboLogo} alt="IEEE ENIS IAS Logos" width="1024" height="132" />
+          </div>
+        </motion.div>
+      </div>
+
+      <div className={styles.scrollWrap}>{scrollBtn}</div>
     </section>
   );
 }

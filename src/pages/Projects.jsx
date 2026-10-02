@@ -20,16 +20,6 @@ const ICON_MAP = {
   default: <FaProjectDiagram />,
 };
 
-/* ─── Group projects by category ──────────────────────── */
-function groupByCategory(projects) {
-  return projects.reduce((acc, project) => {
-    const cat = project.category || 'Other';
-    if (!acc[cat]) acc[cat] = [];
-    acc[cat].push(project);
-    return acc;
-  }, {});
-}
-
 /* ─── Single Project Accordion Item ───────────────────── */
 function ProjectItem({ project, isExpanded, onToggle }) {
   const icon = ICON_MAP[project.icon] || ICON_MAP.default;
@@ -133,8 +123,7 @@ function ProjectItem({ project, isExpanded, onToggle }) {
                         href={project.videoLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="project-accordion-btn"
-                        style={{ background: 'linear-gradient(135deg, #cc0000 0%, #ff0000 100%)', boxShadow: '0 4px 16px rgba(204, 0, 0, 0.22)' }}
+                        className="project-accordion-btn project-accordion-btn--video"
                       >
                         <FaPlay style={{ marginRight: '8px' }} />
                         Watch Video
@@ -175,8 +164,6 @@ export default function Projects() {
     setExpandedId((prev) => (prev === id ? null : id));
   }, []);
 
-  const grouped = groupByCategory(projectsData);
-
   return (
     <div className={styles.page}>
       <Hero title="Projects" isHome={false} />
@@ -185,28 +172,9 @@ export default function Projects() {
       <section className={styles.sectionAlt} id="projects-list" aria-labelledby="projects-heading">
         <div className="container">
           {/* Section header */}
-          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <h2
-              id="projects-heading"
-              style={{
-                fontWeight: 800,
-                textTransform: 'uppercase',
-                color: '#266d43ff',
-                letterSpacing: '2px',
-                marginBottom: '10px',
-              }}
-            >
-              Our Projects
-            </h2>
-            <div
-              style={{
-                width: '50px',
-                height: '4px',
-                backgroundColor: '#1a6b3c',
-                margin: '0 auto 16px',
-              }}
-            />
-            <p style={{ color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto' }}>
+          <div className="section-title">
+            <h2 id="projects-heading">Our Projects</h2>
+            <p>
               Discover the innovative projects developed by our chapter members. Click on any project to view full details.
             </p>
           </div>

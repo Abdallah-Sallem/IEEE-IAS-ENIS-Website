@@ -1,209 +1,230 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaCalendarAlt, FaMapMarkerAlt, FaInfoCircle, FaListUl, FaTimes, FaArrowRight } from 'react-icons/fa';
+import { 
+  FaCalendarAlt, 
+  FaMapMarkerAlt, 
+  FaInfoCircle, 
+  FaListUl, 
+  FaTimes, 
+  FaArrowRight, 
+  FaBolt, 
+  FaLaptopCode, 
+  FaIndustry,
+  FaCheckCircle
+} from 'react-icons/fa';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import Hero from '../components/Hero/Hero';
 import JoinCTA from '../components/JoinCTA/JoinCTA';
 import styles from './UpcomingActivities.module.css';
 
-import img7 from '../assets/UpcommingEvents/7.jpg';
+import img7 from '../assets/UpcommingEvents/7.webp';
 import imgSortie from '../assets/UpcommingEvents/sortie industrielle.jpg';
 import imgIas from '../assets/IAS presentation .png';
-import imgIasLogoBg from '../assets/UpcommingEvents/iaslogobg.jpg';
+import imgIasLogoBg from '../assets/UpcommingEvents/iaslogobg.webp';
 
-const events = [
+const ALL_ACTIVITIES = [
   {
-    id: 1,
+    id: 'act-1',
+    category: 'event',
+    categoryLabel: 'Annual Forum',
     title: "ENIF 7.0",
-    subtitle: "ENIS Industrial Forum.",
-    location: "National Engineering School of Sfax",
-    overview: "The ENIS Industrial Forum, now soaring into its sixth awe-inspiring edition. ENIF isn't just an event, it's a dynamic hub where ideas take flight, innovation knows no limits, and creativity reshapes industries. Get ready for a groundbreaking revelation that promises to revolutionize technology and inspire progress. Stay tuned because ENIF 6.0 is about to ignite your passion for innovation like never before.",
-    agenda: "Coming soon",
-    description: "ENIF is an event organized by the IEEE Industrial Applications Society (IAS) ENIS Student Branch Chapter. It focuses on the advancement of theory in electronic and electrical...",
+    subtitle: "ENIS Industrial Forum — Seventh Edition",
+    location: "National Engineering School of Sfax (ENIS)",
+    date: "Coming Soon",
+    status: "Flagship Event",
+    overview: "The ENIS Industrial Forum (ENIF), now soaring into its seventh awe-inspiring edition. ENIF is the premier hub where ideas take flight, innovation knows no limits, and creativity reshapes industries. Get ready for a groundbreaking revelation that promises to revolutionize technology and inspire progress. Stay tuned because ENIF 7.0 is about to ignite your passion for innovation like never before.",
+    agenda: "• Keynote opening conferences with renowned industrial leaders\n• Hands-on technical workshops\n• High-stakes industrial hackathon\n• Partner networking session & closing awards gala",
+    description: "ENIF is the flagship annual event organized by IEEE IAS ENIS SBC. Gathering students and engineers from across Tunisia, it focuses on modern industrial evolution, IoT, AI, and smart systems.",
     image: img7,
   },
   {
-    id: 2,
-    title: "Industrial Visit",
-    subtitle: "Discovering Industry Beyond the Classroom",
-    location: "comming soon",
-    overview: "Join us for an exclusive industrial visit to Tech Innovations Inc, a leading player in the realm of technology and innovation. This visit offers a unique opportunity for students and professionals alike to gain insights into the latest advancements in IT, witness cutting-edge technologies in action, and engage with industry experts.",
-    agenda: "Coming soon!\nDon't miss this incredible opportunity to immerse yourself in the dynamic world of IT and gain firsthand experience from industry leaders at Tech Innovations Inc. Reserve your spot today!",
-    description: "Join us for an exciting Industrial Visit organized by the IEEE ENIS IAS student chapter! This visit will provide a firsthand look at the inner workings of a leading industry player...",
+    id: 'act-2',
+    category: 'event',
+    categoryLabel: 'Industrial Visit',
+    title: "Industrial Site Visit",
+    subtitle: "Discovering Advanced Industry Beyond the Classroom",
+    location: "Leading Tech Partner Facilities (Tunisia)",
+    date: "Coming Soon",
+    status: "Registration Opening",
+    overview: "Join us for an exclusive industrial field visit to one of Tunisia's leading technology and manufacturing facilities. This visit offers a rare opportunity for students to witness industrial IoT and automated systems in live operation, observe real-world engineering workflows, and engage directly with senior plant managers.",
+    agenda: "• Departure from ENIS campus\n• Welcome briefing & site safety protocols\n• Comprehensive production line & engineering tour\n• Interactive Q&A discussion with plant engineers\n• Networking & return to ENIS",
+    description: "Experience engineering in action! This industrial visit bridges academic knowledge with live industrial environments and manufacturing excellence.",
     image: imgSortie,
   },
   {
-    id: 3,
+    id: 'act-3',
+    category: 'event',
+    categoryLabel: 'Hardware Prototype',
     title: "The Cardboard Twin",
-    subtitle: "Exploring Industry Through a cardboard twin",
-    location: "Coming soon",
-    overview: "The cardboard twin is a simplified physical replica of an industrial environment, created to help first-year students clearly visualize how industry works and how different components and systems interact in real-life settings, along with a demonstration of our TSYP smart badge prototype to showcase its practical applications within the model.",
-    agenda: "Coming soon!",
-    description: "The cardboard twin is a simplified physical replica of an industrial environment, created to help first-year students clearly visualize how industry works and how different components and systems interact in real-life settings, along with a demonstration of our TSYP smart badge prototype to showcase its practical applications within the model ",
+    subtitle: "Interactive Physical & Digital Model of Industry",
+    location: "ENIS Engineering Labs",
+    date: "Coming Soon",
+    status: "Hands-on Demo",
+    overview: "The Cardboard Twin is an innovative physical model replicating a miniature smart factory. Designed specifically to help students visualize complex industrial ecosystems, it integrates IoT sensors, our custom TSYP smart badge prototype, and cloud telemetry to illustrate automated material routing in real-time.",
+    agenda: "• Conceptual overview of industrial digital twins\n• Live demonstration of sensor integration & smart badge tracking\n• Hands-on interaction session for participating teams",
+    description: "A tangible physical-digital hybrid model helping young engineers understand factory automation, sensor meshes, and telemetry tracking.",
     image: imgIas,
   },
-];
-
-const workshops = [
   {
-    id: 4,
-    title: "Digital Twin",
-    subtitle: "Introduction to Digital Twin Technology",
-    location: "National Engineering School of Sfax",
-    overview: "An introductory session that explains the concept of creating a virtual model of a physical system. Participants learn how real-world objects or processes can be replicated digitally to simulate, analyze, and improve performance. The workshop focuses on basic principles and real-life applications of digital twin technology in industry.",
-    agenda: "Coming soon",
-    description: "An introductory session that explains the concept of creating a virtual model of a physical system. Participants learn how real-world objects or processes can be replicated digitally to simulate, analyze, and improve performance. The workshop focuses on basic principles and real-life applications of digital twin technology in industry.",
+    id: 'act-4',
+    category: 'workshop',
+    categoryLabel: 'Tech Workshop',
+    title: "Digital Twin Systems",
+    subtitle: "From Physical Assets to Cloud-Connected Simulations",
+    location: "ENIS Conference Hall",
+    date: "Coming Soon",
+    status: "Skill Building",
+    overview: "An intensive masterclass introducing the principles of creating virtual replicas of physical devices and systems. Participants learn how telemetry streams from IoT sensors power real-time digital simulations, enabling predictive maintenance and performance optimization.",
+    agenda: "• Fundamentals of Digital Twins in Industry 4.0\n• Data ingestion architectures & protocols (MQTT, WebSockets)\n• Case studies from aerospace and smart energy\n• Guided simulation exercise",
+    description: "Learn how digital twin models optimize equipment uptime, simulate stress factors, and redefine modern industrial operations.",
     image: imgIasLogoBg,
   },
   {
-    id: 5,
-    title: "Cybersecurity for Industries",
-    subtitle: "Protecting Industrial Systems in the Digital Age",
+    id: 'act-5',
+    category: 'workshop',
+    categoryLabel: 'Cybersecurity',
+    title: "Cybersecurity for Smart Industries",
+    subtitle: "Protecting SCADA & OT Infrastructure in the Connected Age",
     location: "National Engineering School of Sfax",
-    overview: "This workshop introduces the fundamentals of cybersecurity in industrial environments. It explores common threats facing modern industries and explains how critical systems, data, and infrastructure can be protected from cyberattacks. Participants will gain a basic understanding of security practices and the importance of safeguarding industrial operations in an increasingly connected world.",
-    agenda: "Coming soon",
-    description: "This workshop introduces the fundamentals of cybersecurity in industrial environments. It explores common threats facing modern industries and explains how critical systems, data, and infrastructure can be protected from cyberattacks. Participants will gain a basic understanding of security practices and the importance of safeguarding industrial operations in an increasingly connected world.",
-    image: imgIasLogoBg,
-  },
-
-
-  {
-    id: 5,
-    title: "Blockchain",
-    subtitle: "Decentralizing Trust in the Digital World",
-    location: "National Engineering School of Sfax",
-    overview: "This workshop introduces the fundamentals of blockchain technology, explaining how decentralized systems work to securely store and verify data. Participants will explore how blockchain ensures transparency, security, and trust without the need for intermediaries, along with its key applications in various industries.",
-    agenda: "Coming soon",
-    description: "This workshop introduces the fundamentals of blockchain technology, explaining how decentralized systems work to securely store and verify data. Participants will explore how blockchain ensures transparency, security, and trust without the need for intermediaries, along with its key applications in various industries.",
+    date: "Coming Soon",
+    status: "Security Focus",
+    overview: "This practical workshop delves into safeguarding modern operational technology (OT) and industrial control networks (SCADA) against sophisticated cyber threats. Students explore network segmentation, vulnerability assessments, and defensive zero-trust strategies.",
+    agenda: "• Threat landscape of Industry 4.0 and smart grids\n• SCADA / PLC vulnerabilities & vector analysis\n• Incident detection and hardening techniques\n• Hands-on defensive lab exercise",
+    description: "Essential training on protecting critical industrial infrastructure, connected machines, and sensitive telemetry data from malicious attacks.",
     image: imgIasLogoBg,
   },
   {
-    id: 6,
+    id: 'act-6',
+    category: 'workshop',
+    categoryLabel: 'Blockchain',
+    title: "Blockchain & Decentralized Trust",
+    subtitle: "Immutable Ledgers & Smart Contracts in Supply Chains",
+    location: "ENIS Computer Labs",
+    date: "Coming Soon",
+    status: "Emerging Tech",
+    overview: "Demystifying distributed ledger technology for industrial applications. Learn how cryptographic consensus, immutable record-keeping, and automated smart contracts are transforming logistics, component provenance, and transparent supply chain audits.",
+    agenda: "• Cryptographic foundations & consensus algorithms\n• Architecture of enterprise blockchains (Hyperledger / Ethereum)\n• Smart contract development basics\n• Industrial traceability demo",
+    description: "Discover how decentralized ledger technologies establish indisputable trust, prevent counterfeit components, and streamline automated settlements.",
+    image: imgIasLogoBg,
+  },
+  {
+    id: 'act-7',
+    category: 'workshop',
+    categoryLabel: 'Chapter Induction',
     title: "Exploring the IAS Chapter",
-    subtitle: "Discovering the Icons of the World of Industry application society",
+    subtitle: "Discovering Opportunities within IEEE Industry Applications Society",
     location: "National Engineering School of Sfax",
-    overview: "Collaboration with the Tunisia section, this session will delve into the history and significance of the IAS Chapter, highlighting the diverse opportunities it offers to members. We aim to provide a comprehensive overview that will inspire participation and involvement.",
-    agenda: "Coming soon",
-    description: "Collaboration with the Tunisia section, This session dives into the IAS Chapter's history and its importance for members. We'll explore the diverse opportunities it offers, inspiring you to get involved...",
+    date: "Coming Soon",
+    status: "Community & Networking",
+    overview: "Organized in close collaboration with the IEEE Tunisia Section, this orientation and community session introduces engineering students to the global IEEE IAS network, professional certifications, travel grants, student competitions, and executive leadership opportunities.",
+    agenda: "• Introduction to IEEE IAS global mission & initiatives\n• Overview of ENIS SBC achievements and upcoming calendar\n• Member benefits: conferences, journals, and mentoring\n• Open Q&A and networking with IAS alumni",
+    description: "A welcoming gateway to unlock international student opportunities, research networks, and professional development in engineering.",
     image: imgIasLogoBg,
   }
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: 'easeOut' },
-  }),
-};
-
 export default function UpcomingActivities() {
   useDocumentTitle('Upcoming Activities', 'See upcoming IEEE IAS ENIS SBC events, conferences, workshops, and industrial visits.');
   const [selectedItem, setSelectedItem] = useState(null);
+  const [filter, setFilter] = useState('all'); // 'all' | 'event' | 'workshop'
 
-  // Close modal on escape key
-  const handleKeyDown = (e) => {
-    if (e.key === 'Escape') setSelectedItem(null);
-  };
+  const filteredActivities = filter === 'all'
+    ? ALL_ACTIVITIES
+    : ALL_ACTIVITIES.filter(item => item.category === filter);
 
   return (
     <div className={styles.page}>
-      <Hero title="Upcoming Activities" isHome={false} />
+      <Hero 
+        title="Upcoming Activities" 
+        subtitle="Explore upcoming conferences, high-level workshops, industrial visits, and hands-on competitions."
+        isHome={false} 
+      />
 
-      {/* ══════ SECTION 1: Upcoming Events ══════ */}
-      <section className={styles.section}>
-        <div className="container">
-          <div className="section-title">
-            <h2>Upcoming Events</h2>
-            <p>Don't miss out on our upcoming major events and industrial visits</p>
-          </div>
-
-          <div className={styles.grid}>
-            {events.map((item, i) => (
-              <motion.div
-                key={item.id}
-                custom={i}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '-50px' }}
-                onClick={() => setSelectedItem(item)}
-              >
-                <div className={styles.card}>
-                  <div className={styles.cardImageWrapper}>
-                    <img src={item.image} alt={item.title} className={styles.cardImage} loading="lazy" />
-                    <div className={styles.cardImageOverlay}>
-                      <span className={styles.cardDate}>{item.date}</span>
-                    </div>
-                  </div>
-                  <div className={styles.cardContent}>
-                    <h3 className={styles.cardTitle}>{item.title}</h3>
-                    <p className={styles.cardDesc}>{item.description}</p>
-                    <div className={styles.cardFooter}>
-                      <div className={styles.cardLocation}>
-                        <FaMapMarkerAlt className={styles.cardLocationIcon} />
-                        <span>{item.location}</span>
-                      </div>
-                      <button className={styles.cardButton} aria-label="See Details">
-                        Details <FaArrowRight style={{ fontSize: '0.8rem' }} />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+      <div className="container">
+        {/* Interactive Filter Pills */}
+        <div className={styles.filterWrapper}>
+          <div className={styles.filterTabs}>
+            <button
+              type="button"
+              className={`${styles.filterTab} ${filter === 'all' ? styles.filterTabActive : ''}`}
+              onClick={() => setFilter('all')}
+            >
+              <FaBolt /> All Activities ({ALL_ACTIVITIES.length})
+            </button>
+            <button
+              type="button"
+              className={`${styles.filterTab} ${filter === 'event' ? styles.filterTabActive : ''}`}
+              onClick={() => setFilter('event')}
+            >
+              <FaIndustry /> Major Events & Visits (3)
+            </button>
+            <button
+              type="button"
+              className={`${styles.filterTab} ${filter === 'workshop' ? styles.filterTabActive : ''}`}
+              onClick={() => setFilter('workshop')}
+            >
+              <FaLaptopCode /> Workshops & Training (4)
+            </button>
           </div>
         </div>
-      </section>
 
-      {/* ══════ SECTION 2: Upcoming Workshops ══════ */}
-      <section className={`${styles.section} ${styles.sectionAlt}`} style={{ marginTop: 'var(--spacing-4xl)' }}>
-        <div className="container">
-          <div className="section-title">
-            <h2>Upcoming Workshops</h2>
-            <p>Enhance your skills with our upcoming technical and soft skills workshops</p>
-          </div>
-
-          <div className={styles.grid}>
-            {workshops.map((item, i) => (
-              <motion.div
-                key={item.id}
-                custom={i}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '-50px' }}
-                onClick={() => setSelectedItem(item)}
-              >
-                <div className={styles.card}>
-                  <div className={styles.cardImageWrapper}>
-                    <img src={item.image} alt={item.title} className={styles.cardImage} loading="lazy" />
-                    <div className={styles.cardImageOverlay}>
-                      <span className={styles.cardDate}>{item.date}</span>
-                    </div>
-                  </div>
-                  <div className={styles.cardContent}>
-                    <h3 className={styles.cardTitle}>{item.title}</h3>
-                    <p className={styles.cardDesc}>{item.description}</p>
-                    <div className={styles.cardFooter}>
-                      <div className={styles.cardLocation}>
-                        <FaMapMarkerAlt className={styles.cardLocationIcon} />
-                        <span>{item.location}</span>
+        {/* Activities Grid */}
+        <section className={styles.section}>
+          <motion.div 
+            className={styles.grid}
+            layout
+          >
+            <AnimatePresence>
+              {filteredActivities.map((item, i) => (
+                <motion.div
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0, y: 25 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  onClick={() => setSelectedItem(item)}
+                >
+                  <div className={styles.card}>
+                    <div className={styles.cardTopAccent} />
+                    
+                    <div className={styles.cardImageWrapper}>
+                      <img 
+                        src={item.image} 
+                        alt={item.title} 
+                        className={styles.cardImage} 
+                        loading="lazy" 
+                      />
+                      <div className={styles.cardImageOverlay}>
+                        <span className={styles.categoryTag}>{item.categoryLabel}</span>
+                        <span className={styles.cardStatus}>{item.status}</span>
                       </div>
-                      <button className={styles.cardButton} aria-label="See Details">
-                        Details <FaArrowRight style={{ fontSize: '0.8rem' }} />
-                      </button>
+                    </div>
+
+                    <div className={styles.cardContent}>
+                      <h3 className={styles.cardTitle}>{item.title}</h3>
+                      <div className={styles.cardSubtitle}>{item.subtitle}</div>
+                      <p className={styles.cardDesc}>{item.description}</p>
+                      
+                      <div className={styles.cardFooter}>
+                        <div className={styles.cardLocation} title={item.location}>
+                          <FaMapMarkerAlt className={styles.cardLocationIcon} />
+                          <span>{item.location}</span>
+                        </div>
+                        <button className={styles.cardButton} aria-label={`View details for ${item.title}`}>
+                          Details <FaArrowRight style={{ fontSize: '0.75rem' }} />
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        </section>
+      </div>
 
-      {/* ══════ MODAL ══════ */}
+      {/* High-Tech Detail Modal */}
       <AnimatePresence>
         {selectedItem && (
           <motion.div
@@ -212,28 +233,32 @@ export default function UpcomingActivities() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedItem(null)}
-            onKeyDown={handleKeyDown}
-            tabIndex={-1}
           >
             <motion.div
               className={styles.modalContent}
-              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              initial={{ scale: 0.94, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              exit={{ scale: 0.94, opacity: 0, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
             >
               <div className={styles.modalHeader}>
                 <img src={selectedItem.image} alt={selectedItem.title} />
-                <div className={styles.modalHeaderOverlay}></div>
+                <div className={styles.modalHeaderOverlay} />
+                
                 <button
                   className={styles.modalClose}
                   onClick={() => setSelectedItem(null)}
-                  aria-label="Close"
+                  aria-label="Close modal"
                 >
                   <FaTimes />
                 </button>
+                
                 <div className={styles.modalTitleWrapper}>
+                  <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '0.5rem' }}>
+                    <span className={styles.categoryTag}>{selectedItem.categoryLabel}</span>
+                    <span className={styles.cardStatus}>{selectedItem.status}</span>
+                  </div>
                   <h2 className={styles.modalTitle}>{selectedItem.title}</h2>
                   <p className={styles.modalSubtitle}>{selectedItem.subtitle}</p>
                 </div>
@@ -248,7 +273,7 @@ export default function UpcomingActivities() {
 
                   {selectedItem.agenda && (
                     <div className={styles.modalSection}>
-                      <h4><FaListUl /> Agenda</h4>
+                      <h4><FaListUl /> Highlights & Agenda</h4>
                       <p>{selectedItem.agenda}</p>
                     </div>
                   )}
@@ -256,22 +281,32 @@ export default function UpcomingActivities() {
 
                 <div className={styles.modalSidebar}>
                   <div className={styles.modalInfoItem}>
-                    <span className={styles.modalInfoLabel}>Date</span>
+                    <span className={styles.modalInfoLabel}>Estimated Date</span>
                     <span className={styles.modalInfoValue}>
                       <FaCalendarAlt className={styles.cardLocationIcon} /> {selectedItem.date}
                     </span>
                   </div>
                   <div className={styles.modalInfoItem}>
-                    <span className={styles.modalInfoLabel}>Location</span>
+                    <span className={styles.modalInfoLabel}>Venue / Location</span>
                     <span className={styles.modalInfoValue}>
                       <FaMapMarkerAlt className={styles.cardLocationIcon} /> {selectedItem.location}
+                    </span>
+                  </div>
+                  <div className={styles.modalInfoItem}>
+                    <span className={styles.modalInfoLabel}>Organization</span>
+                    <span className={styles.modalInfoValue}>
+                      <FaCheckCircle className={styles.cardLocationIcon} /> IEEE IAS ENIS SBC
                     </span>
                   </div>
                 </div>
               </div>
 
               <div className={styles.modalFooter}>
-                <button className={styles.btnOutline} onClick={() => setSelectedItem(null)}>
+                <button 
+                  type="button"
+                  className={styles.btnOutline} 
+                  onClick={() => setSelectedItem(null)}
+                >
                   Close
                 </button>
                 <a
@@ -280,7 +315,7 @@ export default function UpcomingActivities() {
                   rel="noopener noreferrer"
                   className={styles.btnPrimary}
                 >
-                  Contact Us
+                  Contact / Stay Notified <FaArrowRight />
                 </a>
               </div>
             </motion.div>

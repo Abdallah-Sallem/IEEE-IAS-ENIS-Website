@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   FaBus, FaUsers, FaChalkboardTeacher,
-  FaNetworkWired, FaProjectDiagram, FaMedal,
+  FaNetworkWired, FaMedal,
   FaExternalLinkAlt, FaTimes, FaChevronLeft, FaChevronRight,
   FaMicrochip, FaHandshake, FaCogs,
 } from 'react-icons/fa';
@@ -321,28 +321,12 @@ export default function Activities() {
     <div className={styles.page}>
       <Hero title="Activities" isHome={false} />
 
-      {/* ── "Why Us" section header ──────────────────── */}
-      <div style={{ textAlign: 'center', paddingTop: '60px' }}>
-        <h2 style={{
-          fontWeight: 800,
-          textTransform: 'uppercase',
-          color: '#266d43ff',
-          letterSpacing: '2px',
-          marginBottom: '10px'
-        }}>
-          Why Us
-        </h2>
-        <div style={{
-          width: '50px',
-          height: '4px',
-          backgroundColor: '#1a6b3c',
-          margin: '0 auto'
-        }} />
-      </div>
-
       {/* ── "Why Us" activity cards ──────────────────── */}
-      <section className={styles.section} id="content" aria-label="Activities list" ref={ref}>
+      <section className={styles.section} id="content" aria-labelledby="why-us-heading" ref={ref}>
         <div className="container">
+          <div className="section-title">
+            <h2 id="why-us-heading">Why Us</h2>
+          </div>
           <div className={styles.activitiesPageGrid}>
             {ACTIVITY_TYPES.map((activity, i) => (
               <ActivityCard key={activity.id} activity={activity} index={i} inView={inView} />
@@ -357,23 +341,9 @@ export default function Activities() {
       <section className={styles.sectionAlt} id="vtools-activities" aria-label="Past Activities">
         <div className="container">
           {/* Section header */}
-          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <h2 style={{
-              fontWeight: 800,
-              textTransform: 'uppercase',
-              color: '#266d43ff',
-              letterSpacing: '2px',
-              marginBottom: '10px'
-            }}>
-              Our Activities
-            </h2>
-            <div style={{
-              width: '50px',
-              height: '4px',
-              backgroundColor: '#1a6b3c',
-              margin: '0 auto 16px'
-            }} />
-            <p style={{ color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto' }}>
+          <div className="section-title">
+            <h2>Our Activities</h2>
+            <p>
               Browse our past events organized by category. Click on any activity to view associated photos.
             </p>
           </div>
@@ -384,16 +354,18 @@ export default function Activities() {
               id="tab-technical"
               className={`${styles.vtoolsTab} ${activeTab === 'technical' ? styles.vtoolsTabActive : ''}`}
               onClick={() => handleTabChange('technical')}
+              aria-pressed={activeTab === 'technical'}
             >
-              <FaMicrochip style={{ marginRight: '8px' }} />
+              <FaMicrochip aria-hidden="true" style={{ marginRight: '8px' }} />
               Technical Activities
             </button>
             <button
               id="tab-non-technical"
               className={`${styles.vtoolsTab} ${activeTab === 'non-technical' ? styles.vtoolsTabActive : ''}`}
               onClick={() => handleTabChange('non-technical')}
+              aria-pressed={activeTab === 'non-technical'}
             >
-              <FaHandshake style={{ marginRight: '8px' }} />
+              <FaHandshake aria-hidden="true" style={{ marginRight: '8px' }} />
               Non-Technical Activities
             </button>
           </div>
@@ -441,22 +413,8 @@ export default function Activities() {
       {speakersAndParticipants.length > 0 && (
         <section className={styles.section} id="speakers" aria-label="Speakers">
           <div className="container">
-            <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <h2 style={{
-                fontWeight: 800,
-                textTransform: 'uppercase',
-                color: '#266d43ff',
-                letterSpacing: '2px',
-                marginBottom: '10px'
-              }}>
-                Speakers
-              </h2>
-              <div style={{
-                width: '50px',
-                height: '4px',
-                backgroundColor: '#1a6b3c',
-                margin: '0 auto'
-              }} />
+            <div className="section-title">
+              <h2>Speakers</h2>
             </div>
           </div>
           <PremiumSwiper

@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { FaArrowRight } from 'react-icons/fa';
 import { useInView } from '../../hooks/useInView';
 import styles from './AboutSnippet.module.css';
 
-import IAS_LOGO from '../../assets/iaslogo.png';
+import IAS_LOGO from '../../assets/iaslogo.webp';
 
-const fadeLeft = {
-  hidden: { opacity: 0, x: -50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: 'easeOut' } },
-};
-
-const fadeRight = {
-  hidden: { opacity: 0, x: 50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: 'easeOut', delay: 0.15 } },
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.12 },
+  }),
 };
 
 export default function AboutSnippet() {
@@ -21,18 +21,18 @@ export default function AboutSnippet() {
   return (
     <section className={styles.aboutSnippet} aria-labelledby="about-snippet-heading" ref={ref}>
       <div className="container">
+        <div className={`section-title ${styles.title}`}>
+          <h2 id="about-snippet-heading">About Us</h2>
+        </div>
+
         <div className={styles.grid}>
           {/* Text Side */}
           <motion.div
             className={styles.textSide}
-            variants={fadeLeft}
+            variants={fadeUp}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
           >
-
-            <h2 id="about-snippet-heading" className={styles.heading}>
-              About Us
-            </h2>
             <p className={styles.body}>
               The IEEE Industrial Application Society of The National Engineering School of Sfax (ENIS) was founded in 2010,
               it is interested in advancement of theory of Electronic and electrical
@@ -40,48 +40,37 @@ export default function AboutSnippet() {
               between students and industries from training sessions and events.
             </p>
 
-            <div className={styles.stats}>
+            <dl className={styles.stats}>
               <div className={styles.stat}>
-                <span className={styles.statNum}>16+</span>
-                <span className={styles.statLabel}>Years Active</span>
+                <dt className={styles.statLabel}>Years Active</dt>
+                <dd className={styles.statNum}>16+</dd>
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNum}>180+</span>
-                <span className={styles.statLabel}>Members</span>
+                <dt className={styles.statLabel}>Members</dt>
+                <dd className={styles.statNum}>180+</dd>
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNum}>14</span>
-                <span className={styles.statLabel}>Awards</span>
+                <dt className={styles.statLabel}>Awards</dt>
+                <dd className={styles.statNum}>14</dd>
               </div>
-            </div>
+            </dl>
 
             <Link to="/about" className="btn btn-primary" style={{ alignSelf: 'flex-start' }}>
-              Read More
+              Read More <FaArrowRight aria-hidden="true" />
             </Link>
           </motion.div>
 
-          {/* Image Side */}
-          <motion.div
+          {/* Image Side — drawing view */}
+          <motion.figure
             className={styles.imageSide}
-            variants={fadeRight}
+            custom={1}
+            variants={fadeUp}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
           >
             <div className={styles.imageFrame}>
-              <div className={styles.ring} style={{
-                width: '340px', height: '340px',
-                border: '1px solid rgba(12, 116, 68, 0.2)',
-                position: 'absolute', top: '50%', left: '50%',
-                transform: 'translate(-50%,-50%)', borderRadius: '50%',
-                animation: 'ringPulse 4s ease-in-out infinite'
-              }} />
-              <div className={styles.ring} style={{
-                width: '420px', height: '420px',
-                border: '1px solid rgba(30, 150, 104,0.1)',
-                position: 'absolute', top: '50%', left: '50%',
-                transform: 'translate(-50%,-50%)', borderRadius: '50%',
-                animation: 'ringPulse 4s ease-in-out infinite 2s'
-              }} />
+              <span className={styles.dimTop} aria-hidden="true">EST. 2010</span>
+              <span className={styles.dimSide} aria-hidden="true">SFAX · TN</span>
               <div className={styles.imageBox}>
                 <img
                   src={IAS_LOGO}
@@ -89,9 +78,11 @@ export default function AboutSnippet() {
                   loading="lazy"
                 />
               </div>
-              <div className={styles.cornerAccent} aria-hidden="true" />
             </div>
-          </motion.div>
+            <figcaption className={styles.caption} aria-hidden="true">
+              FIG. 01 — IEEE Industry Applications Society
+            </figcaption>
+          </motion.figure>
         </div>
       </div>
     </section>

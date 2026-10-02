@@ -101,16 +101,8 @@ export default function Contact() {
 
                 {/* Social Links */}
                 <div style={{ marginTop: 'var(--spacing-xl)' }}>
-                  <h4 style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '0.9rem',
-                    fontWeight: 700,
-                    color: 'var(--color-text)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.06em',
-                    marginBottom: 'var(--spacing-md)',
-                  }}>Follow Us</h4>
-                  <div style={{ display: 'flex', gap: '0.75rem' }}>
+                  <h4 className={styles.followHeading}>Follow Us</h4>
+                  <div className={styles.socialRow}>
                     {[
                       { href: 'https://www.facebook.com/ieee.ias.enis', icon: <FaFacebookF />, label: 'Facebook' },
                       { href: 'https://www.instagram.com/ieee.ias.enis/', icon: <FaInstagram />, label: 'Instagram' },
@@ -122,23 +114,7 @@ export default function Contact() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={s.label}
-                        style={{
-                          width: 44, height: 44,
-                          borderRadius: 'var(--radius-md)',
-                          border: '1px solid var(--color-border)',
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          color: 'var(--color-text-muted)',
-                          fontSize: '1rem',
-                          transition: 'all var(--transition-base)',
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.borderColor = 'var(--color-accent)';
-                          e.currentTarget.style.color = 'var(--color-accent)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.borderColor = 'var(--color-border)';
-                          e.currentTarget.style.color = 'var(--color-text-muted)';
-                        }}
+                        className={styles.socialBtn}
                       >
                         {s.icon}
                       </a>
@@ -183,9 +159,9 @@ export default function Contact() {
                         aria-required="true"
                         aria-invalid={!!errors.firstName}
                         aria-describedby={errors.firstName ? 'err-firstName' : undefined}
-                        style={errors.firstName ? { borderColor: '#ef5350' } : {}}
+                        className={errors.firstName ? styles.inputError : undefined}
                       />
-                      {errors.firstName && <span id="err-firstName" style={{ fontSize: '0.78rem', color: '#ef5350' }}>{errors.firstName}</span>}
+                      {errors.firstName && <span id="err-firstName" className={styles.fieldError} role="alert">{errors.firstName}</span>}
                     </div>
 
                     <div className={styles.formGroup}>
@@ -199,9 +175,9 @@ export default function Contact() {
                         onChange={handleChange}
                         aria-required="true"
                         aria-invalid={!!errors.lastName}
-                        style={errors.lastName ? { borderColor: '#ef5350' } : {}}
+                        className={errors.lastName ? styles.inputError : undefined}
                       />
-                      {errors.lastName && <span style={{ fontSize: '0.78rem', color: '#ef5350' }}>{errors.lastName}</span>}
+                      {errors.lastName && <span className={styles.fieldError} role="alert">{errors.lastName}</span>}
                     </div>
                   </div>
 
@@ -216,9 +192,9 @@ export default function Contact() {
                       onChange={handleChange}
                       aria-required="true"
                       aria-invalid={!!errors.email}
-                      style={errors.email ? { borderColor: '#ef5350' } : {}}
+                      className={errors.email ? styles.inputError : undefined}
                     />
-                    {errors.email && <span style={{ fontSize: '0.78rem', color: '#ef5350' }}>{errors.email}</span>}
+                    {errors.email && <span className={styles.fieldError} role="alert">{errors.email}</span>}
                   </div>
 
                   <div className={styles.formGroup}>
@@ -232,9 +208,9 @@ export default function Contact() {
                       onChange={handleChange}
                       aria-required="true"
                       aria-invalid={!!errors.subject}
-                      style={errors.subject ? { borderColor: '#ef5350' } : {}}
+                      className={errors.subject ? styles.inputError : undefined}
                     />
-                    {errors.subject && <span style={{ fontSize: '0.78rem', color: '#ef5350' }}>{errors.subject}</span>}
+                    {errors.subject && <span className={styles.fieldError} role="alert">{errors.subject}</span>}
                   </div>
 
                   <div className={styles.formGroup}>
@@ -247,9 +223,9 @@ export default function Contact() {
                       onChange={handleChange}
                       aria-required="true"
                       aria-invalid={!!errors.message}
-                      style={errors.message ? { borderColor: '#ef5350' } : {}}
+                      className={errors.message ? styles.inputError : undefined}
                     />
-                    {errors.message && <span style={{ fontSize: '0.78rem', color: '#ef5350' }}>{errors.message}</span>}
+                    {errors.message && <span className={styles.fieldError} role="alert">{errors.message}</span>}
                   </div>
 
                   <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>

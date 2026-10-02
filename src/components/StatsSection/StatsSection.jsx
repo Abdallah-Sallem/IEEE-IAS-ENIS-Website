@@ -5,11 +5,11 @@ import statsData from '../../data/stats.json';
 import styles from './StatsSection.module.css';
 
 const cardVariants = {
-  hidden: { opacity: 0, scale: 0.85 },
+  hidden: { opacity: 0, y: 16 },
   visible: (i) => ({
     opacity: 1,
-    scale: 1,
-    transition: { delay: i * 0.08, duration: 0.5, ease: 'easeOut' },
+    y: 0,
+    transition: { delay: i * 0.07, duration: 0.5, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
@@ -113,11 +113,15 @@ export default function StatsSection() {
               initial="hidden"
               animate={inView ? 'visible' : 'hidden'}
             >
-              <div className={styles.statIcon}>
-                <StatIcon name={stat.icon} />
+              <div className={styles.statHead} aria-hidden="true">
+                <span className={styles.statIcon}>
+                  <StatIcon name={stat.icon} />
+                </span>
+                <span className={styles.channel}>CH-{String(i + 1).padStart(2, '0')}</span>
               </div>
               <div
                 className={styles.statNumber}
+                role="img"
                 aria-label={`${stat.end}${stat.suffix} ${stat.label}`}
               >
                 <AnimatedCounter
@@ -126,7 +130,12 @@ export default function StatsSection() {
                   active={inView}
                 />
               </div>
-              <p className={styles.statLabel}>{stat.label}</p>
+              <p className={styles.statLabel} aria-hidden="true">{stat.label}</p>
+              <span
+                className={`${styles.gauge} ${inView ? styles.gaugeOn : ''}`}
+                style={{ transitionDelay: `${0.2 + i * 0.08}s` }}
+                aria-hidden="true"
+              />
             </motion.div>
           ))}
         </div>

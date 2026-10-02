@@ -9,24 +9,24 @@ import achievementsData from '../data/achievements.json';
 import styles from '../styles/pages.module.css';
 import enifStyles from '../styles/enif.module.css';
 import '../styles/awardsModal.css';
-import buddyBotVideo from '../assets/awards/Séquence 01_2.mp4';
+const BUDDYBOT_VIDEO_URL = 'https://www.youtube-nocookie.com/embed/SpmPsucjJVE?rel=0';
 
 const AWARDS_GALLERY = [
-  '/assets/awards/anmeeting1.jpg',
-  '/assets/awards/anmeeting2.jpg',
+  '/assets/awards/anmeeting1.webp',
+  '/assets/awards/anmeeting2.webp',
   '/assets/awards/Best Website.jpg',
-  '/assets/awards/bestiast.jpg',
+  '/assets/awards/bestiast.webp',
   '/assets/awards/Humanitarian Award.jpg',
-  '/assets/awards/iastam.jpg',
-  '/assets/awards/iastam2.jpg',
-  '/assets/awards/iastam3.jpg',
+  '/assets/awards/iastam.webp',
+  '/assets/awards/iastam2.webp',
+  '/assets/awards/iastam3.webp',
   '/assets/awards/Outstanding Member.jpg',
-  '/assets/awards/OutstandingChapter.jpg',
-  '/assets/awards/tsyp1.jpg',
-  '/assets/awards/tsyp2.jpg',
-  '/assets/awards/tsyp3.jpg',
-  '/assets/awards/tsyp4.jpg',
-  '/assets/awards/tsyp5.jpg',
+  '/assets/awards/OutstandingChapter.webp',
+  '/assets/awards/tsyp1.webp',
+  '/assets/awards/tsyp2.webp',
+  '/assets/awards/tsyp3.webp',
+  '/assets/awards/tsyp4.webp',
+  '/assets/awards/tsyp5.webp',
 ];
 
 function Lightbox({ images, currentIndex, onClose, onNext, onPrev }) {
@@ -251,10 +251,14 @@ export default function Achievements() {
                     Discover BuddyBot, an eco-friendly, AI-powered robot by IEEE IAS ENIS SBC that supports autistic children in learning, communication, and social interaction. This video highlights BuddyBot's interactive interface and concludes with the full presentation of the robot.
                   </p>
                   <div className="buddybot-video-wrap">
-                    <video controls preload="metadata" className="buddybot-video">
-                      <source src={buddyBotVideo} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                    <iframe
+                      src={BUDDYBOT_VIDEO_URL}
+                      className="buddybot-video"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      title="BuddyBot Video"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
               )}

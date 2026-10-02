@@ -36,23 +36,21 @@ export default function GallerySection({ showAll = false }) {
         {showAll ? (
           <div className={styles.grid}>
             {images.map((img, i) => (
-              <motion.div
+              <motion.button
+                type="button"
                 key={img.id}
                 className={styles.item}
-                initial={{ opacity: 0, scale: 0.92 }}
-                animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.92 }}
-                transition={{ delay: Math.min(i * 0.06, 0.5), duration: 0.5, ease: 'easeOut' }}
+                initial={{ opacity: 0, y: 16 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+                transition={{ delay: Math.min(i * 0.05, 0.4), duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 onClick={() => handleOpen(i)}
-                onKeyDown={(e) => e.key === 'Enter' && handleOpen(i)}
-                tabIndex={0}
-                role="button"
                 aria-label={`Open ${img.alt} in lightbox`}
               >
-                <img src={img.src} alt={img.alt} loading="lazy" />
-                <div className={styles.overlay} aria-hidden="true">
+                <img src={img.src} alt="" loading="lazy" />
+                <span className={styles.overlay} aria-hidden="true">
                   <FaExpand />
-                </div>
-              </motion.div>
+                </span>
+              </motion.button>
             ))}
           </div>
         ) : (
@@ -75,7 +73,7 @@ export default function GallerySection({ showAll = false }) {
         index={index}
         slides={slides}
         styles={{
-          container: { backgroundColor: 'rgba(10,10,15,0.97)' },
+          container: { backgroundColor: 'rgba(3, 15, 10, 0.97)' },
         }}
       />
     </section>

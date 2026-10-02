@@ -1,20 +1,8 @@
 import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
-
-const pageVariants = {
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -8 },
-};
-
-const pageTransition = {
-  duration: 0.4,
-  ease: [0.25, 0.46, 0.45, 0.94],
-};
+import AnimatedBackground from '../AnimatedBackground/AnimatedBackground';
 
 function LoadingFallback() {
   return (
@@ -28,11 +16,13 @@ function LoadingFallback() {
       }}
     >
       <div
+        role="status"
+        aria-label="Loading"
         style={{
-          width: 48,
-          height: 48,
-          border: '3px solid rgba(30, 150, 104,0.2)',
-          borderTop: '3px solid var(--color-accent)',
+          width: 40,
+          height: 40,
+          border: '2px solid var(--color-white-10)',
+          borderTop: '2px solid var(--color-green-bright)',
           borderRadius: '50%',
           animation: 'spin 0.8s linear infinite',
         }}
@@ -47,22 +37,30 @@ export default function Layout() {
 
   return (
     <>
+      <a href="#main-content" className="skip-link">Skip to content</a>
+
+      {/* Static blueprint backdrop (grid + registration marks) */}
+      <AnimatedBackground />
+
       <Navbar />
-      <AnimatePresence mode="wait">
-        <motion.main
-          key={location.pathname}
-          variants={pageVariants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          transition={pageTransition}
-          style={{ minHeight: '100vh' }}
-        >
-          <Suspense fallback={<LoadingFallback />}>
-            <Outlet />
-          </Suspense>
-        </motion.main>
-      </AnimatePresence>
+      {/*
+        Page enter: a keyed CSS keyframe (see .page-transition in global.css).
+        Replaces the previous <AnimatePresence mode="wait"> + Framer exit/enter,
+        which could leave a lazily-loaded page stuck at opacity 0 when React
+        Router ran the navigation as a transition (empty page until refresh).
+        A CSS animation always finishes in its visible state on its own.
+      */}
+      <main
+        id="main-content"
+        tabIndex={-1}
+        key={location.pathname}
+        className="page-transition"
+        style={{ minHeight: '100vh', position: 'relative', zIndex: 1 }}
+      >
+        <Suspense fallback={<LoadingFallback />}>
+          <Outlet />
+        </Suspense>
+      </main>
       <Footer />
     </>
   );

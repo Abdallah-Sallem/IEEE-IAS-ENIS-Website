@@ -29,7 +29,7 @@
 .premium-swiper .swiper-slide-active {
   opacity: 1 !important;
   transform: scale(1) !important;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 16px 40px rgba(3, 15, 10, 0.18);
   z-index: 3;
 }
 

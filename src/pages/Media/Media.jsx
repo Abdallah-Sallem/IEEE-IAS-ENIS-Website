@@ -6,22 +6,12 @@ import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import { useInView } from '../../hooks/useInView';
 import mediaVideos from '../../data/mediaVideos.json';
 import styles from './Media.module.css';
-import tunisiaVideo from '../../assets/retrotech/tunisia.mp4';
-import podcastImg from '../../assets/retrotech/podcast.png';
+import podcastImg from '../../assets/retrotech/podcast.webp';
 
-/* ── Eagerly import all retrotech video files ──────────── */
-const retroVideos = import.meta.glob(
-  '../../assets/retrotech/*.mp4',
-  { eager: true, import: 'default' }
-);
-
-function resolveVideo(filename) {
-  if (!filename) return null;
-  const match = Object.entries(retroVideos).find(([path]) =>
-    path.endsWith('/' + filename)
-  );
-  return match ? match[1] : null;
-}
+/* Videos are hosted on YouTube (keeps the site bundle light) */
+const TUNISIA_VIDEO_URL = 'https://www.youtube-nocookie.com/embed/U3JAfomCpeo?rel=0';
+const YT_ALLOW =
+  'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -35,9 +25,7 @@ const fadeUp = {
 const INDUSTRY_ICONS = ['🔧', '⚡', '💻', '🤖'];
 
 function VideoCard({ video, index, inView }) {
-  const localVideoSrc = resolveVideo(video.videoFile);
   const hasVideo = video.videoUrl && video.status !== 'coming-soon';
-  const hasLocalVideo = localVideoSrc && video.status !== 'coming-soon';
 
   return (
     <motion.article
@@ -48,18 +36,12 @@ function VideoCard({ video, index, inView }) {
       animate={inView ? 'visible' : 'hidden'}
     >
       <div className={styles.videoThumbnail}>
-        {hasLocalVideo ? (
-          <video
-            src={localVideoSrc}
-            controls
-            className={styles.videoIframe}
-            preload="metadata"
-          />
-        ) : hasVideo ? (
+        {hasVideo ? (
           <iframe
             src={video.videoUrl}
-            title={video.title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            title={`Retro Tech — ${video.title}: ${video.subtitle}`}
+            allow={YT_ALLOW}
+            referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
             loading="lazy"
             className={styles.videoIframe}
@@ -116,7 +98,7 @@ export default function Media() {
       <section className={styles.section} id="tunisia-video">
         <div className="container">
           <div className="section-title">
-            <h2 style={{ color: 'var(--color-primary)' }}>Video highlighting the beauty of Tunisia</h2>
+            <h2>Video highlighting the beauty of Tunisia</h2>
             <p>Showcased at the prestigious Power Africa Congress</p>
           </div>
           
@@ -132,11 +114,14 @@ export default function Media() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <video 
-                src={tunisiaVideo} 
-                controls 
+              <iframe
+                src={TUNISIA_VIDEO_URL}
+                title="The beauty of Tunisia — IEEE IAS ENIS SBC at Power Africa Congress"
+                allow={YT_ALLOW}
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                loading="lazy"
                 className={styles.tunisiaVideo}
-                preload="metadata"
               />
             </motion.div>
           </div>

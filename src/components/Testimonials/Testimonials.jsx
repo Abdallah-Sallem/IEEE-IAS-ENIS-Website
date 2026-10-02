@@ -92,18 +92,20 @@ export default function Testimonials() {
               <FaChevronLeft aria-hidden="true" />
             </button>
 
-            <div className={styles.dots} role="tablist" aria-label="Testimonial slides">
+            <div className={styles.dots}>
               {testimonials.map((_, i) => (
                 <button
                   key={i}
                   className={`${styles.dot} ${i === current ? styles.active : ''}`}
                   onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
-                  role="tab"
-                  aria-selected={i === current}
+                  aria-current={i === current ? 'true' : undefined}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
               ))}
             </div>
+            <span className={styles.counter} aria-live="polite">
+              {String(current + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
+            </span>
 
             <button
               className={styles.arrowBtn}

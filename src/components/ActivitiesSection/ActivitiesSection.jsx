@@ -26,11 +26,11 @@ const ACTIVITIES = [
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 24 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.12, duration: 0.6, ease: 'easeOut' },
+    transition: { delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
@@ -49,14 +49,19 @@ export default function ActivitiesSection() {
           {ACTIVITIES.map((activity, i) => (
             <motion.article
               key={activity.id}
-              className={styles.card}
+              className={`spec-card ${styles.card}`}
               custom={i}
               variants={cardVariants}
               initial="hidden"
               animate={inView ? 'visible' : 'hidden'}
             >
-              <div className={styles.cardIcon} aria-hidden="true">
-                <activity.Icon />
+              <div className={styles.cardHead}>
+                <div className={styles.cardIcon} aria-hidden="true">
+                  <activity.Icon />
+                </div>
+                <span className={styles.cardRef} aria-hidden="true">
+                  ACT-{String(activity.id).padStart(2, '0')}
+                </span>
               </div>
               <h3 className={styles.cardTitle}>{activity.title}</h3>
               <p className={styles.cardDesc}>{activity.desc}</p>

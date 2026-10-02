@@ -1,55 +1,74 @@
+/* Quote — annotation band over a desaturated, green-tinted photo */
 .quoteSection {
-  background: linear-gradient(#0c744350, #1e96685d), url('/assets/img/quote-bg.jpg') top center;
-  background-size: cover;
-  background-attachment: fixed;
-  padding: 100px 0;
-  text-align: center;
-  color: #ffffff;
   position: relative;
+  z-index: 1;
   overflow: hidden;
+  padding: clamp(4.5rem, 3rem + 5vw, 7rem) 0;
+  background:
+    linear-gradient(90deg, rgba(3, 15, 10, 0.96) 0%, rgba(10, 35, 24, 0.82) 100%),
+    url('/assets/img/quote-bg.webp') center / cover;
+  border-block: 1px solid var(--border);
 }
 
-/* Optional subtle glow overlay pattern */
 .quoteSection::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at 50% 50%, rgba(12, 116, 68, 0.4) 0%, transparent 80%);
+  background-image: var(--blueprint-grid);
+  background-size: var(--grid-size) var(--grid-size);
   pointer-events: none;
 }
 
 .content {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
   align-items: center;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+@media (min-width: 769px) {
+  .content {
+    grid-template-columns: auto 1fr;
+    column-gap: 3rem;
+  }
+
+  .authorImage {
+    grid-row: 1 / span 2;
+  }
 }
 
 .authorImage {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
-  border: 4px solid rgba(255, 255, 255, 0.2);
-  margin-bottom: var(--spacing-xl);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-strong);
+  padding: 6px;
+  background: var(--surface-0);
+  filter: grayscale(1) contrast(1.05);
 }
 
 .quoteText {
-  font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  font-weight: 700;
-  max-width: 900px;
-  margin: 0 auto var(--spacing-md);
-  line-height: 1.5;
-  letter-spacing: 0.02em;
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--color-green-bright);
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 1rem + 1.8vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-white);
+  text-wrap: balance;
 }
 
 .authorName {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #ffffff;
-  letter-spacing: 0.05em;
-  opacity: 0.9;
+  padding-left: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-white-body);
 }

@@ -1,106 +1,112 @@
+/* Stats — instrument panel */
 .statsSection {
-  padding: var(--spacing-4xl) 0;
-  background: #ffffff;
   position: relative;
+  z-index: 1;
+  padding: var(--spacing-4xl) 0;
+}
+
+/* One console: cells share hairline borders */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 
-.statsSection :global(.section-title) h2 {
-  color: #111111;
-}
-
-.statsSection :global(.section-title) p {
-  color: #555555;
-}
-
-
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-md);
-  position: relative;
-  z-index: 1;
+@media (min-width: 769px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .statCard {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-2xl) var(--spacing-lg);
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: var(--radius-lg);
-  position: relative;
-  overflow: hidden;
-  transition: all var(--transition-base);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  gap: 0.35rem;
+  padding: clamp(1.1rem, 0.8rem + 1.2vw, 1.75rem);
+  background: var(--surface-1);
+  transition: background-color var(--transition-base);
 }
 
 .statCard:hover {
-  border-color: rgba(12, 116, 68, 0.4);
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(12, 116, 68, 0.08);
+  background: var(--surface-raised);
 }
 
-.statCard::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--color-primary);
-  transform: scaleX(0);
-  transition: transform var(--transition-base);
-}
-
-.statCard:hover::before {
-  transform: scaleX(1);
+.statHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
 }
 
 .statIcon {
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-md);
-  background: rgba(12, 116, 68, 0.1);
-  border: 1px solid rgba(12, 116, 68, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  color: var(--color-primary);
-  margin-bottom: 0.5rem;
+  display: inline-flex;
+  font-size: 1.1rem;
+  color: var(--color-green-bright);
+  transition: color var(--transition-base);
+}
+
+.statCard:hover .statIcon {
+  color: var(--color-green-bright);
+}
+
+.channel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--color-white-muted);
 }
 
 .statNumber {
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  font-weight: 500;
   line-height: 1;
-  color: var(--color-primary);
+  color: var(--color-white);
+  font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
 }
 
 .statLabel {
-  font-family: var(--font-heading);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #444444;
-  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: var(--color-white-dim);
 }
 
-@media (max-width: 1024px) {
-  .grid { grid-template-columns: repeat(3, 1fr); }
+/* Tick gauge: scale ticks with a green sweep */
+.gauge {
+  position: relative;
+  display: block;
+  height: 8px;
+  margin-top: 1rem;
+  background:
+    repeating-linear-gradient(90deg, var(--color-white-18) 0 1px, transparent 1px 8px) bottom / 100% 5px no-repeat;
 }
 
-@media (max-width: 768px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
+.gauge::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-green-bright);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.6s var(--ease-out);
+  transition-delay: inherit;
 }
 
-@media (max-width: 480px) {
-  .grid { grid-template-columns: 1fr 1fr; }
+.gaugeOn::after {
+  transform: scaleX(0.72);
+}
+
+.statCard:first-child .statNumber {
+  color: var(--color-green-bright);
 }

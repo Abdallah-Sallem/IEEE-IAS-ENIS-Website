@@ -1,55 +1,125 @@
 /* =============================================
-   CSS CUSTOM PROPERTIES — Design Tokens
-   Extracted from: https://ias-enis.ieee.tn/assets/css/style.css
-   Primary:  #0c7444  (IEEE IAS ENIS official green)
-   Hover:    #1e9668  (lighter green — hover/light states)
-   Accent:   #1e9668  (light green — kept for CTAs, roles, badges)
+   DESIGN TOKENS — dark / green / white only
+   Values extracted from the project's existing CSS:
+     dark  #030F0A #0A1F14 #0A2318 #0D2A1A  (dark theme)
+     green #0C7444 (official IAS green) #1E9668 (accent) #00E676 (bright)
+           #0A6338 (darker green, committed CSS) — button hover
+     white #FFFFFF  #E8F5E9 (soft white text)
+
+   Contrast (WCAG) on #030F0A:
+     white-soft 17.3:1 · white-muted 6.6:1 · green-bright 11.7:1
+     green-light 5.2:1 (page background only — not on cards)
+     white on green button 5.8:1 · dark on green-bright button 11.7:1
+   Never use --color-green (#0C7444) as text colour (3.3:1).
    ============================================= */
 :root {
-  /* ── Brand Colors ──────────────────────────── */
-  --color-primary: #0c7444;
-  /* official IAS green */
-  --color-primary-light: #1e9668;
-  /* green hover / lighter */
-  --color-primary-dark: #0c7444;
-  /* removed dark green as requested */
-  --color-accent: #1e9668;
-  /* light green — CTAs, roles, badges */
-  --color-accent-dark: #0c7444;
-  /* darker green — hover states */
+  /* ── Dark ──────────────────────────────────── */
+  --color-dark: #030F0A;
+  --color-dark-2: #0A1F14;
+  --color-dark-3: #0A2318;
+  --color-dark-card: #0D2A1A;
 
-  /* ── Backgrounds ───────────────────────────── */
-  --color-bg: #ffffff;
-  /* white page bg */
-  --color-bg-2: #f4f9fc;
-  /* light alt bg */
-  --color-bg-card: #ffffff;
-  /* white card surface */
-  --color-bg-card-hover: #f9f9f9;
-  /* card hover surface */
+  /* ── Green ─────────────────────────────────── */
+  --color-green: #0C7444;
+  --color-green-dark: #0A6338;
+  --color-green-light: #1E9668;
+  --color-green-bright: #00E676;
 
-  /* ── Text ──────────────────────────────────── */
-  --color-text: #444444;
-  /* primary dark gray text */
-  --color-text-muted: #777777;
-  /* muted text */
+  /* ── White ─────────────────────────────────── */
+  --color-white: #FFFFFF;
+  --color-white-soft: #E8F5E9;
+  --color-white-body: rgba(232, 245, 233, 0.82);
+  --color-white-dim: rgba(232, 245, 233, 0.7);
+  --color-white-muted: rgba(232, 245, 233, 0.6);
 
-  /* ── Borders ───────────────────────────────── */
-  --color-border: #e0e0e0;
-  /* light gray border */
-  --color-border-accent: rgba(30, 150, 104, 0.3);
-  /* light green accent border */
+  /* ── Opacity variants ──────────────────────── */
+  --color-green-05: rgba(0, 230, 118, 0.05);
+  --color-green-10: rgba(0, 230, 118, 0.1);
+  --color-green-20: rgba(0, 230, 118, 0.2);
+  --color-green-30: rgba(0, 230, 118, 0.3);
+  --color-iasgreen-15: rgba(12, 116, 68, 0.15);
+  --color-iasgreen-25: rgba(12, 116, 68, 0.25);
+  --color-white-05: rgba(232, 245, 233, 0.05);
+  --color-white-10: rgba(232, 245, 233, 0.1);
+  --color-white-18: rgba(232, 245, 233, 0.18);
 
-  /* ── Gradients ─────────────────────────────── */
-  --gradient-primary: #0c7444;
-  --gradient-accent: #1e9668;
-  --gradient-hero: linear-gradient(135deg, #ffffff 0%, #f4f9fc 100%);
-  --gradient-card: #ffffff;
-  --gradient-text: #0c7444;
+  /* ── Line work ─────────────────────────────── */
+  --line: rgba(30, 150, 104, 0.22);
+  --line-strong: rgba(30, 150, 104, 0.45);
+  --line-faint: var(--color-white-05);
+  --grid-size: 32px;
+  --blueprint-grid:
+    linear-gradient(var(--line-faint) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-faint) 1px, transparent 1px);
+
+  /* ── Semantic surfaces ─────────────────────── */
+  --surface-0: var(--color-dark);
+  --surface-1: var(--color-dark-2);
+  --surface-2: var(--color-dark-card);
+  --surface-raised: var(--color-dark-3);
+  --border: var(--color-white-10);
+  --border-strong: var(--color-white-18);
+
+  /* Status — no extra hues: success is green, errors use white + border */
+  --success: var(--color-green-bright);
+  --danger: var(--color-white);
 
   /* ── Typography ────────────────────────────── */
-  --font-heading: 'Rajdhani', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-display: 'Chakra Petch', 'Segoe UI', system-ui, sans-serif;
+  --font-sans: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-2xl: clamp(1.6rem, 1.3rem + 1.4vw, 2.25rem);
+  --text-3xl: clamp(2rem, 1.5rem + 2.4vw, 3.25rem);
+  --text-hero: clamp(2.5rem, 1.6rem + 4.6vw, 5.25rem);
+  --tracking-mono: 0.12em;
+
+  /* ── Motion ────────────────────────────────── */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 150ms;
+  --dur-base: 260ms;
+  --dur-slow: 600ms;
+
+  /* ═════════════════════════════════════════════
+     LEGACY ALIASES — generic names still used by
+     older components; they resolve to the palette.
+     ═════════════════════════════════════════════ */
+  --color-primary: var(--color-green);
+  --color-primary-light: var(--color-green-light);
+  --color-primary-dark: var(--color-green-dark);
+  --color-accent: var(--color-green-bright);
+  --color-accent-dark: var(--color-green-light);
+  --color-neon: var(--color-green-bright);
+
+  --color-bg: var(--color-dark);
+  --color-bg-2: var(--color-dark-2);
+  --color-bg-3: var(--color-dark-3);
+  --color-bg-card: var(--color-dark-2);
+  --color-bg-card-hover: var(--color-dark-3);
+  --color-bg-card-solid: var(--color-dark-card);
+
+  --color-text: var(--color-white-body);
+  --color-text-muted: var(--color-white-muted);
+  --color-text-heading: var(--color-white);
+
+  --color-border: var(--color-white-10);
+  --color-border-accent: var(--line-strong);
+  --color-border-hover: var(--color-green-30);
+
+  --gradient-primary: var(--color-green);
+  --gradient-accent: var(--color-green-bright);
+  --gradient-hero: var(--color-dark);
+  --gradient-card: var(--color-dark-2);
+  --gradient-text: linear-gradient(90deg, var(--color-white), var(--color-white));
+  --gradient-section: var(--color-dark-2);
+
+  --font-heading: var(--font-display);
+  --font-body: var(--font-sans);
 
   /* ── Spacing ───────────────────────────────── */
   --spacing-xs: 0.25rem;
@@ -59,37 +129,48 @@
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
-  --spacing-4xl: 6rem;
+  --spacing-4xl: clamp(4rem, 3rem + 4vw, 6.5rem);
 
-  /* ── Border Radius ─────────────────────────── */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  /* ── Radius ────────────────────────────────── */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-2xl: 10px;
   --radius-full: 9999px;
 
-  /* ── Shadows ───────────────────────────────── */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 48px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 24px rgba(12, 116, 68, 0.45);
-  /* green glow */
-  --shadow-glow-accent: 0 0 24px rgba(30, 150, 104, 0.3);
-  /* light green glow */
+  /* ── Shadows (dark only; glows are green tints) ── */
+  --shadow-sm: 0 1px 2px rgba(3, 15, 10, 0.6);
+  --shadow-md: 0 6px 20px rgba(3, 15, 10, 0.55);
+  --shadow-lg: 0 16px 48px rgba(3, 15, 10, 0.7);
+  --shadow-glow: 0 0 0 1px var(--line-strong);
+  --shadow-glow-accent: 0 0 0 1px var(--color-green-30);
+  --shadow-glow-strong: 0 8px 24px rgba(3, 15, 10, 0.6), 0 0 0 1px var(--color-green-30);
+  --shadow-card: 0 8px 24px rgba(3, 15, 10, 0.5);
+  --shadow-card-hover: 0 14px 32px rgba(3, 15, 10, 0.65);
+
+  --glass-bg: var(--color-dark-2);
+  --glass-bg-strong: var(--color-dark-3);
+  --glass-border: 1px solid var(--color-white-10);
+  --glass-blur: none;
+  --glass-blur-strong: none;
 
   /* ── Transitions ───────────────────────────── */
-  --transition-fast: 150ms ease;
-  --transition-base: 300ms ease;
-  --transition-slow: 500ms ease;
+  --transition-fast: var(--dur-fast) var(--ease-out);
+  --transition-base: var(--dur-base) var(--ease-out);
+  --transition-slow: var(--dur-slow) var(--ease-out);
+  --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* ── Z-Index ───────────────────────────────── */
+  --z-bg: -1;
   --z-base: 0;
   --z-above: 10;
   --z-nav: 100;
   --z-modal: 200;
   --z-overlay: 300;
 
-  /* ── Container ─────────────────────────────── */
-  --container-max: 1280px;
-  --container-padding: 1.5rem;
+  /* ── Layout ────────────────────────────────── */
+  --container-max: 1240px;
+  --container-padding: clamp(1rem, 0.6rem + 2vw, 2rem);
+  --nav-height: 72px;
 }

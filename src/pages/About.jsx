@@ -6,8 +6,8 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useInView } from '../hooks/useInView';
 import teamData from '../data/team.json';
 import styles from '../styles/pages.module.css';
-import iasLogo from '../assets/iaslogo.png';
-import quoteImg from '../assets/quotes/1.png';
+import iasLogo from '../assets/iaslogo.webp';
+import quoteImg from '../assets/quotes/1.webp';
 
 const GOALS = [
   {
@@ -73,19 +73,10 @@ export default function About() {
                 our members to evolve and improve. Join our family and make a change!
               </p>
             </div>
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '12px',
-              flex: 1,// ✅ centre ce bloc par rapport au texte gauche
-              marginTop: '50px',
-            }}>
+            <div className={styles.aboutLogo}>
               <img
                 src={iasLogo}
                 alt="IEEE ENIS IAS Chapter Logo"
-                style={{ width: '100%', maxWidth: '400px', height: 'auto', objectFit: 'contain' }}
               />
             </div>
           </div>
@@ -159,7 +150,7 @@ export default function About() {
                     alt={member.name}
                     className={styles.memberPhoto}
                     loading="lazy"
-                    onError={(e) => { e.target.src = 'https://via.placeholder.com/300x300/12121f/1E9668?text=IAS'; }}
+                    onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = '/assets/LOGO.webp'; }}
                   />
                   <div className={styles.memberInfo}>
                     <h3 className={styles.memberName}>{member.name}</h3>
@@ -204,7 +195,7 @@ export default function About() {
                     alt={member.name}
                     className={styles.memberPhoto}
                     loading="lazy"
-                    onError={(e) => { e.target.src = 'https://via.placeholder.com/300x300/12121f/1E9668?text=IAS'; }}
+                    onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = '/assets/LOGO.webp'; }}
                   />
                   <div className={styles.memberInfo}>
                     <h3 className={styles.memberName}>{member.name}</h3>
